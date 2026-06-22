@@ -26,7 +26,7 @@ jobs:
       - name: Prepara i file per le pagine
         run: |
           mkdir public
-          cp output.pdf public/index.pdf
+          cp output.pdf public/SuarAlberto.pdf
 
       - name: Pubblica su GitHub Pages
         uses: actions/upload-pages-artifact@v3
