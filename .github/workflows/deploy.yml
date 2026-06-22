@@ -1,0 +1,45 @@
+name: Compile and Publish
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repository
+        uses: actions/checkout@v4
+
+      - name: Installa Typst
+        uses: typst-community/setup-typst@v3
+
+      - name: Compila il PDF
+        run: typst compile main.typ output.pdf
+
+      - name: Prepara i file per le pagine
+        run: |
+          mkdir public
+          cp output.pdf public/index.pdf
+
+      - name: Pubblica su GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'public'
+
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
