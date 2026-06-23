@@ -68,16 +68,16 @@
 
 = L'Azienda Ospitante e il Contesto Organizzativo
 
-In questo capitolo viene analizzato l'ambiente industriale in cui si è svolta l'esperienza di stage. Vengono esplicitati i canali di raccolta delle informazioni operative, i flussi metodologici interni e il posizionamento dell'organizzazione rispetto all'innovazione tecnologica nel settore logistico.
+In questo capitolo viene presentata Ergon Informatica Srl, l'azienda in cui ho svolto l'esperienza di stage. Verranno descritti i modi in cui ho raccolto le informazioni sul campo, l'organizzazione dei team di lavoro e l'approccio della struttura verso le novità tecnologiche nel settore della logistica.
 
 == Profilo aziendale e acquisizione delle informazioni
-La sezione delinea la struttura dell'organizzazione ospitante, focalizzandosi sul core business legato ai sistemi informativi per la supply chain. Viene dettagliato il metodo di raccolta dei dati, basato sull'affiancamento continuo al team di sviluppo, interviste strutturate con il tutor aziendale e l'analisi della documentazione tecnica interna, mantenendo una rendicontazione oggettiva priva di toni promozionali.
+Questa sezione descrive la struttura dell'azienda e le sue attività principali, concentrate sullo sviluppo di soluzioni software per la gestione dei magazzini e dei flussi di merci. Viene spiegato come ho raccolto i dati necessari per la tesi, lavorando a stretto contatto con il team di sviluppo, confrontandomi con il tutor e studiando la documentazione interna, cercando di dare un quadro chiaro e reale dell'ambiente di lavoro.
 
 == Processi interni e tecnologie
-Viene descritto l'ecosistema tecnologico e metodologico dell'azienda, incentrato sull'adozione di metodologie agili (Scrum) per la gestione dei cicli di rilascio. Si esaminano le infrastrutture di continuous integration e continuous deployment (CI/CD), l'uso di Git per il controllo di versione e l'architettura software di riferimento basata su microservizi e applicazioni web moderne.
+Qui si analizza l'ambiente di lavoro quotidiano, guardando ai metodi utilizzati dall'azienda per organizzare i compiti e gestire i vari rilasci del software. Verranno descritti, in modo generale e concettuale, gli strumenti per il controllo del codice, l'integrazione delle modifiche e le scelte architetturali adottate per creare applicazioni web moderne e flessibili.
 
 == Clientela e propensione all'innovazione
-Questa parte mappa il target dell'azienda, composto principalmente da operatori della grande distribuzione organizzata (GDO) e hub logistici di terze parti (3PL). Viene analizzata la spinta dell'organizzazione verso la digitalizzazione dei processi fisici, evidenziando la transizione da sistemi legacy a piattaforme cloud-native per l'ottimizzazione dei tempi di sosta.
+Questa parte mappa i clienti tipo dell'azienda, che operano principalmente nell'ambito dei grandi centri di smistamento e della grande distribuzione. Si esamina l'impegno nel trasformare le operazioni di magazzino da manuali a digitali, con l'obiettivo di ridurre i tempi di attesa e aggiornare i vecchi sistemi di gestione.
 
 #pagebreak()
 
@@ -86,10 +86,10 @@ Questa parte mappa il target dell'azienda, composto principalmente da operatori 
 In questo capitolo vengono esaminati i requisiti di business e i problemi reali legati alla gestione dei flussi di merci in ingresso. Si definisce la collocazione del progetto Kargo all'interno della roadmap strategica aziendale e i vincoli ingegneristici da rispettare.
 
 == Il problema gestionale
-Viene approfondita l'inefficienza operativa derivante dalla pianificazione manuale degli slot di scarico merci nei magazzini. L'assenza di un sistema centralizzato in tempo reale causa asimmetrie informative tra trasportatori e operatori di banchina, determinando colli di bottiglia, ritardi sistematici e incremento dei costi di giacenza.
+In questa sezione viene approfondita l'inefficienza operativa che deriva dalla pianificazione manuale dei turni e degli spazi per lo scarico merci nei magazzini. L'assenza di un sistema centralizzato e aggiornato in tempo reale crea spesso problemi di comunicazione tra i trasportatori e gli operatori a terra, provocando code, ritardi e un aumento dei costi di gestione. Inoltre, viene raccontata la genesi del progetto di tirocinio, spiegando come sia nata l'idea di affrontare questa specifica problematica e come si siano mossi i primi passi per trasformare un'esigenza concreta dell'azienda nel nucleo di questa tesi.
 
 == La strategia aziendale
-Si illustra come il progetto Kargo non costituisca un elemento isolato, ma si inserisca in un piano industriale più ampio volto alla dematerializzazione dei processi logistici. Viene discusso l'approccio storico dell'azienda verso l'accoglienza di progetti di tirocinio come incubatori di moduli software innovativi destinati a essere integrati nella suite di prodotti principale.
+Si spiega come l'idea alla base di Kargo non sia un progetto isolato, ma faccia parte di un percorso più grande che l'azienda sta seguendo per semplificare e rendere più efficienti le attività logistiche. Verrà inoltre descritto come l'azienda utilizzi storicamente i tirocini universitari per esplorare nuove soluzioni e sviluppare prototipi che, in futuro, possano arricchire i servizi offerti ai clienti.
 
 == La scelta e i vincoli del progetto
 Vengono specificati gli obiettivi formali dello stage, quali la realizzazione di un'interfaccia web responsive, la gestione di chiamate asincrone concorrenti per la prenotazione delle baie e i vincoli di retrocompatibilità sui dati. Viene infine motivata la preferenza verso questo progetto per l'opportunità di affrontare problematiche di architettura web e programmazione tipata in contesti enterprise.
@@ -101,7 +101,7 @@ Vengono specificati gli obiettivi formali dello stage, quali la realizzazione di
 In questo capitolo si descrivono le fasi ingegneristiche necessarie alla costruzione dell'applicazione Kargo. Vengono presentati i criteri di tracciamento dei requisiti, le scelte architetturali mirate alla robustezza del codice e le metriche quantitative derivanti dalle attività di verifica.
 
 == Metodologia di lavoro
-La sezione illustra l'applicazione pratica dei principi di ingegneria del software: la scomposizione dei requisiti in casi d'uso, la pianificazione temporale e l'interazione formale con il tutor aziendale attraverso code review. Si documenta l'uso di diagrammi UML per la modellazione dei componenti e i sistemi di tracciamento dei bug.
+La sezione illustra l'applicazione pratica dei principi di ingegneria del software: la scomposizione dei requisiti in casi d'uso, la pianificazione temporale delle attività e l'interazione formale con il tutor aziendale attraverso code review. Si documenta l'uso di diagrammi UML per la modellazione dei componenti e i sistemi di tracciamento dei bug.
 
 == Sviluppo e sfide progettuali
 Viene analizzato lo sviluppo del software basato sull'uso di C\# per garantire la massima sicurezza dei tipi a tempo di compilazione ed evitare comportamenti imprevisti a runtime. Si discutono le sfide principali: la gestione dello stato dell'applicazione, la sincronizzazione delle prenotazioni in presenza di richieste simultanee e l'interfacciamento con API RESTful per la persistenza dei dati su database relazionali.
