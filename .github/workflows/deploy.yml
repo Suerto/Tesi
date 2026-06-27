@@ -17,18 +17,19 @@ jobs:
       - name: Checkout del repository
         uses: actions/checkout@v4
 
-      - name: Installa Typst
-        uses: typst-community/setup-typst@v3
+      - name: Compila il PDF (LaTeX)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: thesis.tex
+          args: -pdf -shell-escape -file-line-error -interaction=nonstopmode
+          extra_system_packages: "py3-pygments"
 
-      - name: Compila il PDF
-        run: typst compile main.typ output.pdf
-
-      - name: Prepara i file per le pagine
+      - name: Prepara i file per le GitHub Pages
         run: |
           mkdir public
-          cp output.pdf public/SuarAlberto.pdf
+          cp thesis.pdf public/SuarAlberto.pdf
 
-      - name: Pubblica su GitHub Pages
+      - name: Pubblica l'artefatto
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'public'
