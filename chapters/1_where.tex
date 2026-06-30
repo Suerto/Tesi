@@ -6,17 +6,17 @@
 \section{Profilo aziendale e dominio applicativo}
 \label{sec:profilo_aziendale}
 
-Ergon Informatica S.r.l. è una società di \gls{it} con sede a Castelfranco Veneto, in provincia di Treviso, fondata nel 1988 e attiva principalmente nello sviluppo di applicativi gestionali per il comparto alimentare. L'azienda è oggi affiancata da un secondo ramo societario, Ergon Servizi S.r.l., dedicato alla gestione dei processi amministrativi, logistici e commerciali. Questa focalizzazione di settore ha delineato, nel tempo, i requisiti di dominio dei sistemi sviluppati, imponendo l'adattamento a vincoli normativi e operativi propri della filiera --- quali la tracciabilità dei lotti --- che ho potuto osservare direttamente nel prodotto descritto a seguire. All'interno di questo dominio, la clientela di Ergon è distribuita su tutto il territorio nazionale, comprendendo sia piccole e medie imprese sia alcune grandi aziende di rilievo nel panorama commerciale del settore, operanti in ambito prettamente privato.
+Ergon Informatica S.r.l. è una società di \gls{it} con sede a Castelfranco Veneto, in provincia di Treviso, fondata nel 1988 e attiva principalmente nello sviluppo di applicativi gestionali per il comparto alimentare. L'azienda è oggi affiancata da un secondo ramo societario, Ergon Servizi S.r.l., dedicato alla gestione dei processi amministrativi, logistici e commerciali. Questa specializzazione di settore ha definito le funzionalità centrali dei sistemi sviluppati: il \textit{software} deve infatti garantire il rispetto di rigidi vincoli operativi e normativi propri della filiera agroalimentare, come la gestione completa della tracciabilità dei lotti di produzione e la supervisione della catena logistica, elementi che ho potuto osservare direttamente nell'applicativo descritto a seguire. All'interno di questo dominio, la clientela di Ergon è distribuita su tutto il territorio nazionale, comprendendo sia piccole e medie imprese sia alcune grandi aziende di rilievo nel panorama commerciale del settore, operanti in ambito prettamente privato.
 
 \subsection{Ecosistema applicativo e servizi IT}
 \label{subsec:ecosistema_applicativo}
 
-Il prodotto principale dell'azienda è l'applicativo \textbf{Ergdis}, un \gls{erp} che adotta un'architettura modulare distribuita basata sul modello \gls{client-server}, illustrata in Figura~\ref{fig:ergdis_arch}. L'integrazione logica tra i terminali periferici e il nodo centrale avviene tramite la \textit{suite} di protocolli \gls{tcp-ip}, avvalendosi del \textit{file system} di rete \gls{samba} per la condivisione di risorse in reti miste.
+Il prodotto principale dell'azienda è l'applicativo \textbf{Ergdis}, un \gls{erp} --- ovvero un sistema informativo per la gestione e la pianificazione delle risorse aziendali --- che adotta un'architettura modulare distribuita basata sul modello \gls{client-server}, illustrata in Figura~\ref{fig:ergdis_arch}. L'integrazione logica tra i terminali periferici e il nodo centrale avviene tramite la \textit{suite} di protocolli \gls{tcp-ip}, avvalendosi del \textit{file system} di rete \gls{samba} per la condivisione di risorse in reti miste.
 
 Ho potuto osservare come il sistema utilizzi un approccio ibrido per la ripartizione dei carichi di lavoro:
 \begin{itemize}
     \item \textbf{Livello client (Presentazione):} operante in ambiente MS Windows e sviluppato in Visual Basic 6, è dedicato alla gestione delle interfacce utente. Per far ciò, sono sfruttati i componenti \gls{ocx} di Microsoft e FarPoint e il generatore di stampe Crystal Reports 8.0.
-    \item \textbf{Livello server (Elaborazione e persistenza):} ospitato in ambiente Unix, gestisce le procedure \gls{batch} --- ovvero l'esecuzione sequenziale di elaborazioni massive prive di interazione utente --- implementate in \gls{esql-c}, un'estensione del linguaggio C per l'esecuzione di istruzioni SQL embedded. La persistenza del dato è affidata al \gls{rdbms} Informix Dynamic Server 7.3.
+    \item \textbf{Livello server (Elaborazione e persistenza):} ospitato in ambiente Unix, gestisce le procedure \gls{batch} --- ovvero l'esecuzione sequenziale di elaborazioni massive prive di interazione utente --- implementate in \gls{esql-c}, un'estensione del linguaggio C per l'esecuzione di istruzioni SQL \gls{embedded}. La persistenza del dato è affidata al \gls{rdbms} Informix Dynamic Server 7.3.
 \end{itemize}
 
 \begin{figure}[H]
@@ -26,7 +26,7 @@ Ho potuto osservare come il sistema utilizzi un approccio ibrido per la ripartiz
     \label{fig:ergdis_arch}
 \end{figure}
 
-Tale disaccoppiamento logico permette al sistema di operare come un ecosistema di programmi indipendenti, organizzati attorno a un nucleo di contabilità generale e fatturazione a cui si affiancano moduli dedicati alla gestione del magazzino, degli ordini verso clienti e fornitori, delle provvigioni e dei cespiti, come riportato in Figura~\ref{fig:ergdis_services}. Un vincolo tecnico rilevante, che ho potuto verificare a partire dalla documentazione disponibile, è l'interfacciamento a basso livello con l'infrastruttura \textit{hardware} industriale dei clienti, quali linee di confezionamento e bilance industriali.
+Tale disaccoppiamento logico permette al sistema di operare come un ecosistema di programmi indipendenti, organizzati attorno a un nucleo di contabilità generale e fatturazione a cui si affiancano moduli dedicati alla gestione del magazzino, degli ordini verso clienti e fornitori, delle provvigioni e dei cespiti, come riportato in Figura~\ref{fig:ergdis_services}. Un aspetto ingegneristico di rilievo, verificabile dalla documentazione di sistema, è l'interfacciamento a basso livello con l'infrastruttura \textit{hardware} industriale dei clienti. Il sistema deve infatti comunicare direttamente con dispositivi fisici quali linee di confezionamento, lettori ottici e bilance industriali, richiedendo l'implementazione di protocolli specifici per acquisire i dati di produzione in tempo reale e garantire il corretto avanzamento delle operazioni di fabbrica.
 
 \begin{figure}[H]
     \centering
@@ -35,7 +35,7 @@ Tale disaccoppiamento logico permette al sistema di operare come un ecosistema d
     \label{fig:ergdis_services}
 \end{figure}
 
-A questa base si affiancano, per quanto ho potuto constatare consultando il sistema e confrontandomi con i colleghi, moduli \textit{Web-based} per la gestione \gls{crm} --- la gestione dei rapporti e delle informazioni relative ai clienti --- e ulteriori applicativi verticali: \textit{Prodector}, uno strumento di predizione degli ordini basato su modelli di \gls{machine-learning} e sviluppato in collaborazione con l'Università degli Studi di Padova; un modulo di \gls{geomarketing}, dedicato all'analisi della distribuzione geografica della clientela a supporto delle decisioni commerciali; e \textit{Ergvis}, dedicato alla modellazione tridimensionale degli ambienti produttivi dei clienti. In ambito infrastrutturale, ho riscontrato l'uso di tecnologie di virtualizzazione \gls{vmware} e l'implementazione di \textit{policy} di sicurezza perimetrale mediante \gls{firewall}.
+A questa base si affiancano, per quanto ho potuto constatare consultando il sistema e confrontandomi con i colleghi, moduli \textit{Web-based} per la gestione \gls{crm} --- la gestione dei rapporti e delle informazioni relative ai clienti --- e ulteriori applicativi verticali: \textit{Prodector}, uno strumento di predizione degli ordini basato su modelli di \gls{machine-learning} e sviluppato in collaborazione con l'Università degli Studi di Padova; un modulo di \gls{geomarketing}, dedicato all'analisi della distribuzione geografica della clientela a supporto delle decisioni commerciali; e \textit{Ergvis}, dedicato alla modellazione tridimensionale degli ambienti produttivi dei clienti. In ambito infrastrutturale, ho riscontrato l'uso di tecnologie di virtualizzazione \gls{vmware} e l'implementazione di \textit{policy} di sicurezza perimetrale mediante \gls{firewall} --- sistemi di protezione deputati al monitoraggio e filtraggio del traffico di rete.
 
 \newpage
 \section{Metodologie di sviluppo e processi operativi}
@@ -47,9 +47,7 @@ Per ricostruire le metodologie operative adottate in azienda, è stata condotta 
 
 Il modello operativo di Ergon si discosta dalle metodologie agili formali, come \gls{scrum}, prediligendo un approccio incrementale e fortemente orientato al riuso del codice. Conseguentemente, si registra la totale assenza di cerimonie strutturate quali \textit{Sprint Review}, \textit{Sprint Planning} e \textit{Daily Stand-up}. L'introduzione di tali pratiche e di figure dedicate, come lo \textit{Scrum Master}, comporterebbe un costo organizzativo non giustificato per il numero limitato di risorse, considerata anche la semplicità e l'immediatezza della comunicazione aziendale, spesso risolvibile spostandosi fisicamente tra gli uffici.
 
-La ripartizione del carico di lavoro è affidata a un responsabile tecnico, il quale delinea i \textit{team} di sviluppo assegnando le mansioni in base alle specifiche competenze di dominio necessarie per il prodotto. Questa centralizzazione si rivela un supporto fondamentale, in quanto solleva gli sviluppatori dall'onere di organizzare autonomamente le attività, permettendo loro di concentrarsi esclusivamente sull'implementazione. Il \textit{team} di progetto è solitamente ristretto e composto da risorse del reparto di sviluppo affiancate dai sistemisti. 
-
-Il rapporto con il cliente è gestito senza l'intermediazione di una figura dedicata (come un \textit{Project Manager}). Il contatto avviene principalmente e in modo diretto con lo sviluppatore incaricato che, supportato dal reparto commerciale, è frequentemente responsabile anche della stesura e definizione del preventivo.
+La ripartizione del carico di lavoro è centralizzata nella figura di un responsabile tecnico, il quale delinea i \textit{team} di sviluppo --- solitamente ristretti e composti da risorse del reparto di sviluppo affiancate dai sistemisti --- assegnando le mansioni in base alle specifiche competenze di dominio necessarie per il prodotto. Questa organizzazione si rivela un supporto fondamentale, in quanto solleva gli sviluppatori dall'onere della pianificazione autonoma, permettendo loro di concentrarsi esclusivamente sull'implementazione. Inoltre, l'assenza di figure di intermediazione come il \textit{Project Manager} fa sì che il rapporto con il cliente sia gestito in modo diretto dallo sviluppatore incaricato, il quale, supportato dal reparto commerciale, è frequentemente responsabile anche della stesura e della definizione del preventivo.
 
 \subsection{Il ciclo di vita del software}
 
@@ -67,18 +65,18 @@ Il ciclo di vita del \textit{software} adotta un modello iterativo in cui la fas
         \node[box] (analisi) {Analisi dei Requisiti};
         \node[box, below left=1cm and -0.5cm of analisi] (progetto) {Progettazione Logica};
         \node[box, below right=1cm and -0.5cm of analisi] (codifica) {Codifica};
-        \node[box, below=3cm of analisi] (verifica) {Verifica e \\Validazione};
-        \node[box, below=1cm of verifica] (rilascio) {Rilascio};
-        \node[box, right=2.5cm of verifica] (manutenzione) {Manutenzione\\Correttiva/Evolutiva};
+        \node[box, below=3.5cm of analisi] (testing) {Testing di Integrazione};
+        \node[box, below=1cm of testing] (rilascio) {Rilascio};
+        \node[box, right=2.5cm of testing] (manutenzione) {Manutenzione\\Correttiva/Evolutiva};
         
         \draw[arrow] (analisi) -- (progetto);
         \draw[arrow] (analisi) -- (codifica);
         
         \draw[<->, thick, dashed] (progetto) -- (codifica) node[midway, above, font=\footnotesize] {In Parallelo};
         
-        \draw[arrow] (progetto) -- (verifica);
-        \draw[arrow] (codifica) -- (verifica);
-        \draw[arrow] (verifica) -- (rilascio);
+        \draw[arrow] (progetto) |- (testing);
+        \draw[arrow] (codifica) |- (testing);
+        \draw[arrow] (testing) -- (rilascio);
         
         % Loop di manutenzione
         \draw[arrow] (rilascio) -| (manutenzione);
@@ -142,7 +140,7 @@ L'analisi condotta nei paragrafi precedenti evidenzia un ecosistema \textit{soft
 \subsection{Transizione architetturale e nuovi standard}
 \label{subsec:transizione_architetturale}
 
-Un primo indicatore di questa transizione è il processo di modernizzazione degli strumenti di sviluppo. Fino a tempi recenti, la gestione del codice sorgente era priva di un \gls{vcs} formale. Negli ultimi sei mesi, l'azienda ha introdotto e standardizzato l'uso di \gls{git}. Questo passaggio rappresenta un'evoluzione cruciale nella cultura operativa, ponendo le basi per una collaborazione più strutturata e per la futura tracciabilità delle modifiche al codice.
+Un primo indicatore di questa transizione è il processo di modernizzazione degli strumenti di sviluppo. Fino a tempi recenti, la gestione del codice sorgente era priva di un \gls{vcs} formale. Il tracciamento delle modifiche avveniva in modo destrutturato, tramite la generazione manuale di archivi compressi: le cartelle di progetto venivano scaricate dal server centrale, modificate nell'ambiente locale del singolo sviluppatore e infine sovrascritte sul nodo condiviso a lavorazione conclusa. Negli ultimi sei mesi, l'azienda ha introdotto e standardizzato l'uso di \gls{git}. Questo passaggio rappresenta un'evoluzione cruciale nella cultura operativa, ponendo le basi per una collaborazione più strutturata e per la futura tracciabilità delle modifiche al codice.
 
 Parallelamente, Ergon ha avviato un piano di \textit{refactoring} architetturale con l'obiettivo a lungo termine di migrare progressivamente l'applicativo Ergdis da Visual Basic 6 al \textit{framework} .NET, adottando il linguaggio C\# e \gls{entity-framework}. Questa scelta è supportata da una crescente integrazione di architetture \textit{cloud} basate sull'ecosistema Microsoft Azure, impiegate sia per le procedure di \textit{deployment} sia per l'esplorazione di servizi di intelligenza artificiale, quali i \gls{llm}. Tali iniziative confermano la volontà di mitigare la dipendenza da tecnologie obsolete, allineando le infrastrutture agli standard di mercato.
 

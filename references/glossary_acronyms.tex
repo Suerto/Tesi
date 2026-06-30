@@ -1,15 +1,60 @@
-% --- Acronimi ---
-\newacronym{it}{IT}{Information Technology}
-\newacronym{erp}{ERP}{Enterprise Resource Planning}
+% ==========================================
+% 1. TERMINI DI GLOSSARIO (Le definizioni estese)
+% ==========================================
+
+\newglossaryentry{it_ext}{
+    name={Information Technology (IT)},
+    description={Insieme di tecnologie, strumenti e metodologie impiegati per la gestione, l'elaborazione e la trasmissione di informazioni digitali, comprendente hardware, software, reti di comunicazione e sistemi di archiviazione.}
+}
+
+\newglossaryentry{erp_ext}{
+    name={Enterprise Resource Planning (ERP)},
+    description={Software di gestione aziendale che integra e automatizza i principali processi operativi (vendite, acquisti, gestione magazzino, contabilità) in un unico sistema centralizzato, garantendo l'univocità del dato.}
+}
+
+\newglossaryentry{ocx_ext}{
+    name={OLE Control Extension (OCX)},
+    description={Moduli software riutilizzabili basati su tecnologia Microsoft, impiegati storicamente in ambienti come Visual Basic per implementare controlli utente e interfacce grafiche personalizzate.}
+}
+
+\newglossaryentry{poc_ext}{
+    name={Proof of Concept (PoC)},
+    description={Realizzazione di un prototipo incompleto o di un progetto pilota con lo scopo di dimostrare la fattibilità tecnica di un'idea, di un principio teorico o dell'integrazione di una nuova tecnologia.}
+}
+
+\newglossaryentry{vcs_ext}{
+    name={Version Control System (VCS)},
+    description={Categoria di strumenti software deputata alla tracciabilità e alla gestione delle modifiche apportate al codice sorgente o alla documentazione, archiviando l'intero storico delle revisioni in un database dedicato.}
+}
+
+\newglossaryentry{llm_ext}{
+    name={Large Language Model (LLM)},
+    description={Modello di intelligenza artificiale basato su reti neurali profonde, addestrato su vasti corpus di dati testuali per comprendere, tradurre e generare linguaggio naturale o codice informatico con elevata coerenza contestuale.}
+}
+
+% ==========================================
+% 2. ACRONIMI COLLEGATI (Popolano entrambe le liste)
+% ==========================================
+% Nota il \glsadd nascosto alla fine del nome per esteso
+
+\newacronym{it}{IT}{Information Technology\glsadd{it_ext}}
+\newacronym{erp}{ERP}{Enterprise Resource Planning\glsadd{erp_ext}}
+\newacronym{ocx}{OCX}{OLE Control Extension\glsadd{ocx_ext}}
+\newacronym{poc}{PoC}{Proof of Concept\glsadd{poc_ext}}
+\newacronym{vcs}{VCS}{Version Control System\glsadd{vcs_ext}}
+\newacronym{llm}{LLM}{Large Language Model\glsadd{llm_ext}}
+
+% ==========================================
+% 3. ACRONIMI SEMPLICI (Vanno solo nella lista acronimi)
+% ==========================================
+
 \newacronym{tcp-ip}{TCP/IP}{Transmission Control Protocol/Internet Protocol}
 \newacronym{rdbms}{RDBMS}{Relational Database Management System}
 \newacronym{crm}{CRM}{Customer Relationship Management}
-\newacronym{vcs}{VCS}{Version Control System}
-\newacronym{llm}{LLM}{Large Language Model}
-\newacronym{ocx}{OCX}{OLE Control Extension}
-\newacronym{poc}{PoC}{Proof of Concept}
 
-% --- Termini Glossario ---
+% ==========================================
+% 4. TERMINI DI GLOSSARIO STANDARD
+% ==========================================
 
 \newglossaryentry{client-server}{
     name={Client-server},
@@ -81,6 +126,11 @@
     description={Piattaforma pubblica di cloud computing offerta da Microsoft, che fornisce un'ampia gamma di servizi, tra cui elaborazione, archiviazione, analisi dei dati e infrastrutture per l'addestramento e il deployment di modelli di intelligenza artificiale.}
 }
 
+\newglossaryentry{cloud}{
+    name={Cloud Computing},
+    description={Modello di erogazione di servizi informatici (infrastruttura, piattaforme e software) tramite Internet, che consente l'accesso on-demand a risorse scalabili e condivise senza la necessità di gestione diretta da parte dell'utente finale.}
+}
+
 \newglossaryentry{dotnet}{
     name={.NET},
     description={Ecosistema e framework di sviluppo software creato da Microsoft, che fornisce un ambiente di esecuzione, librerie di classi e supporto per molteplici linguaggi di programmazione (come C\#) per la creazione di applicazioni web, desktop e cloud.}
@@ -91,22 +141,7 @@
     description={Framework open source di tipo Object-Relational Mapping (ORM) per applicazioni .NET. Consente agli sviluppatori di interfacciarsi con i database relazionali utilizzando oggetti di dominio specifici del linguaggio (es. C\#), astraendo la logica di accesso ai dati e l'esecuzione di query SQL dirette.}
 }
 
-\newglossaryentry{ocx_ext}{
-    name={OLE Control Extension},
-    description={Moduli software riutilizzabili basati su tecnologia Microsoft, impiegati storicamente in ambienti come Visual Basic per implementare controlli utente e interfacce grafiche personalizzate.}
-}
-
-\newglossaryentry{poc_ext}{
-    name={Proof of Concept},
-    description={Realizzazione di un prototipo incompleto o di un progetto pilota con lo scopo di dimostrare la fattibilità tecnica di un'idea, di un principio teorico o dell'integrazione di una nuova tecnologia.}
-}
-
-\newglossaryentry{vcs_ext}{
-    name={Version Control System},
-    description={Categoria di strumenti software deputata alla tracciabilità e alla gestione delle modifiche apportate al codice sorgente o alla documentazione, archiviando l'intero storico delle revisioni in un database dedicato.}
-}
-
-\newglossaryentry{llm_ext}{
-    name={Large Language Model},
-    description={Modello di intelligenza artificiale basato su reti neurali profonde, addestrato su vasti corpus di dati testuali per comprendere, tradurre e generare linguaggio naturale o codice informatico con elevata coerenza contestuale.}
+\newglossaryentry{embedded}{
+    name={Embedded},
+    description={In ambito software, indica porzioni di codice scritte in un determinato linguaggio (es. SQL) incapsulate direttamente all'interno del codice sorgente di un programma scritto in un linguaggio differente (es. C o C++).}
 }
