@@ -20,8 +20,6 @@
     %\input{preface/3_acknowledgements}
     \input{preface/4_abstract}
     \input{preface/5_table_of_contents}
-    \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
-    \printglossary[type=main, title=Glossario, toctitle=Glossario]
     \blankpage
 
     \mainmatter
@@ -32,6 +30,8 @@
 
     \pagenumbering{roman}
     \backmatter
+    \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
+    \printglossary[type=main, title=Glossario, toctitle=Glossario]
     %\input{references/bibliography}
     %\input{references/webliography}
 \end{document}

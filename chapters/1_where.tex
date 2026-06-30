@@ -1,17 +1,156 @@
-\chapter{Ergon Informatica S.r.l}
+\chapter{Dentro Ergon Informatica}
 \label{chap:introduzione}
 
+\textit{Il presente capitolo delinea il contesto operativo all'interno del quale si è svolta l'attività di tirocinio. Attraverso un'analisi della struttura aziendale e delle metodologie di sviluppo adottate, si intende definire il quadro di riferimento per comprendere le successive decisioni progettuali e la propensione aziendale al miglioramento continuo.}
 
-\textit{Il presente capitolo delinea il contesto operativo all'interno del quale si è svolta l'attività di tirocinio. Attraverso un'analisi della struttura aziendale e delle metodologie di sviluppo adottate, si intende definire il quadro di riferimento per comprendere le successive decisioni progettuali, il contesto in cui opera e l'importanza verso l'innovazione e il miglioramento continuo. Le informazioni qui riportate sono state raccolte mediante l'osservazione attiva dei flussi di lavoro, l'analisi della documentazione tecnica interna e il confronto con le figure di riferimento aziendale.}
+\section{Profilo aziendale e dominio applicativo}
+\label{sec:profilo_aziendale}
 
-\section{Profilo aziendale}
-In questa sezione viene descritta l'identità di Ergon Informatica S.r.l., ripercorrendone brevemente la storia e il posizionamento strategico nel panorama IT. Sono analizzati i principali domini applicativi di riferimento e la tipologia di clientela servita, fornendo una visione d'insieme atta a contestualizzare la rilevanza del tirocinio.
+Ergon Informatica S.r.l. è una società di \gls{it} con sede a Castelfranco Veneto, in provincia di Treviso, fondata nel 1988 e attiva principalmente nello sviluppo di applicativi gestionali per il comparto alimentare. L'azienda è oggi affiancata da un secondo ramo societario, Ergon Servizi S.r.l., dedicato alla gestione dei processi amministrativi, logistici e commerciali. Questa focalizzazione di settore ha delineato, nel tempo, i requisiti di dominio dei sistemi sviluppati, imponendo l'adattamento a vincoli normativi e operativi propri della filiera --- quali la tracciabilità dei lotti --- che ho potuto osservare direttamente nel prodotto descritto a seguire. All'interno di questo dominio, la clientela di Ergon è distribuita su tutto il territorio nazionale, comprendendo sia piccole e medie imprese sia alcune grandi aziende di rilievo nel panorama commerciale del settore, operanti in ambito prettamente privato.
 
+\subsection{Ecosistema applicativo e servizi IT}
+\label{subsec:ecosistema_applicativo}
 
-\section{Metodologie di sviluppo e processi operativi}
-Viene analizzato il ciclo di vita del \textit{software} adottato in azienda, mettendo in luce le pratiche metodologiche che guidano il team di sviluppo dal recepimento dei requisiti fino al rilascio. Particolare attenzione è rivolta agli strumenti tecnologici utilizzati e alle procedure di manutenzione, supportate da schemi e flussi che testimoniano l'approccio rigoroso dell'azienda.
+Il prodotto principale dell'azienda è l'applicativo \textbf{Ergdis}, un \gls{erp} che adotta un'architettura modulare distribuita basata sul modello \gls{client-server}, illustrata in Figura~\ref{fig:ergdis_arch}. L'integrazione logica tra i terminali periferici e il nodo centrale avviene tramite la \textit{suite} di protocolli \gls{tcp-ip}, avvalendosi del \textit{file system} di rete \gls{samba} per la condivisione di risorse in reti miste.
 
-\section{Innovazione tecnologica e cultura aziendale}
-La seguente sezione esplora la propensione di Ergon verso l'innovazione ed il miglioramento continuo. Attraverso l'analisi delle scelte tecnologiche e della cultura aziendale, si evidenzia come tali elementi abbiano influito direttamente sul progetto di tirocinio, ponendo le basi per l'analisi dei capitoli successivi.
+Ho potuto osservare come il sistema utilizzi un approccio ibrido per la ripartizione dei carichi di lavoro:
+\begin{itemize}
+    \item \textbf{Livello client (Presentazione):} operante in ambiente MS Windows e sviluppato in Visual Basic 6, è dedicato alla gestione delle interfacce utente. Per far ciò, sono sfruttati i componenti \gls{ocx} di Microsoft e FarPoint e il generatore di stampe Crystal Reports 8.0.
+    \item \textbf{Livello server (Elaborazione e persistenza):} ospitato in ambiente Unix, gestisce le procedure \gls{batch} --- ovvero l'esecuzione sequenziale di elaborazioni massive prive di interazione utente --- implementate in \gls{esql-c}, un'estensione del linguaggio C per l'esecuzione di istruzioni SQL embedded. La persistenza del dato è affidata al \gls{rdbms} Informix Dynamic Server 7.3.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/ergdis_architettura.png}
+    \caption{Architettura client-server dell'applicativo Ergdis.}
+    \label{fig:ergdis_arch}
+\end{figure}
+
+Tale disaccoppiamento logico permette al sistema di operare come un ecosistema di programmi indipendenti, organizzati attorno a un nucleo di contabilità generale e fatturazione a cui si affiancano moduli dedicati alla gestione del magazzino, degli ordini verso clienti e fornitori, delle provvigioni e dei cespiti, come riportato in Figura~\ref{fig:ergdis_services}. Un vincolo tecnico rilevante, che ho potuto verificare a partire dalla documentazione disponibile, è l'interfacciamento a basso livello con l'infrastruttura \textit{hardware} industriale dei clienti, quali linee di confezionamento e bilance industriali.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/ergdis_servizi.png}
+    \caption{Moduli funzionali del sistema informativo Ergdis.}
+    \label{fig:ergdis_services}
+\end{figure}
+
+A questa base si affiancano, per quanto ho potuto constatare consultando il sistema e confrontandomi con i colleghi, moduli \textit{Web-based} per la gestione \gls{crm} --- la gestione dei rapporti e delle informazioni relative ai clienti --- e ulteriori applicativi verticali: \textit{Prodector}, uno strumento di predizione degli ordini basato su modelli di \gls{machine-learning} e sviluppato in collaborazione con l'Università degli Studi di Padova; un modulo di \gls{geomarketing}, dedicato all'analisi della distribuzione geografica della clientela a supporto delle decisioni commerciali; e \textit{Ergvis}, dedicato alla modellazione tridimensionale degli ambienti produttivi dei clienti. In ambito infrastrutturale, ho riscontrato l'uso di tecnologie di virtualizzazione \gls{vmware} e l'implementazione di \textit{policy} di sicurezza perimetrale mediante \gls{firewall}.
 
 \newpage
+\section{Metodologie di sviluppo e processi operativi}
+\label{sec:metodologie_sviluppo}
+
+Per ricostruire le metodologie operative adottate in azienda, è stata condotta un'indagine preliminare basata su interviste con il tutor aziendale, analisi della documentazione interna e confronto con i colleghi del reparto di sviluppo.
+
+\subsection{Organizzazione del team e rapporto con il cliente}
+
+Il modello operativo di Ergon si discosta dalle metodologie agili formali, come \gls{scrum}, prediligendo un approccio incrementale e fortemente orientato al riuso del codice. Conseguentemente, si registra la totale assenza di cerimonie strutturate quali \textit{Sprint Review}, \textit{Sprint Planning} e \textit{Daily Stand-up}. L'introduzione di tali pratiche e di figure dedicate, come lo \textit{Scrum Master}, comporterebbe un costo organizzativo non giustificato per il numero limitato di risorse, considerata anche la semplicità e l'immediatezza della comunicazione aziendale, spesso risolvibile spostandosi fisicamente tra gli uffici.
+
+La ripartizione del carico di lavoro è affidata a un responsabile tecnico, il quale delinea i \textit{team} di sviluppo assegnando le mansioni in base alle specifiche competenze di dominio necessarie per il prodotto. Questa centralizzazione si rivela un supporto fondamentale, in quanto solleva gli sviluppatori dall'onere di organizzare autonomamente le attività, permettendo loro di concentrarsi esclusivamente sull'implementazione. Il \textit{team} di progetto è solitamente ristretto e composto da risorse del reparto di sviluppo affiancate dai sistemisti. 
+
+Il rapporto con il cliente è gestito senza l'intermediazione di una figura dedicata (come un \textit{Project Manager}). Il contatto avviene principalmente e in modo diretto con lo sviluppatore incaricato che, supportato dal reparto commerciale, è frequentemente responsabile anche della stesura e definizione del preventivo.
+
+\subsection{Il ciclo di vita del software}
+
+Il ciclo di vita del \textit{software} adotta un modello iterativo in cui la fase di analisi dei requisiti non viene mai dichiarata del tutto conclusa, al fine di assecondare le continue richieste di modifica o integrazione da parte del cliente sui prodotti già in uso. In questo contesto, l'attività di progettazione risulta strettamente accoppiata alla codifica, procedendo le due fasi in parallelo.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.5cm and 2cm,
+        box/.style={rectangle, draw=black, thick, fill=gray!10, text width=3.5cm, align=center, minimum height=1.2cm, font=\small},
+        arrow/.style={thick, ->, >=stealth}
+    ]
+        
+        % Nodi
+        \node[box] (analisi) {Analisi dei Requisiti};
+        \node[box, below left=1cm and -0.5cm of analisi] (progetto) {Progettazione Logica};
+        \node[box, below right=1cm and -0.5cm of analisi] (codifica) {Codifica};
+        \node[box, below=3cm of analisi] (verifica) {Verifica e \\Validazione};
+        \node[box, below=1cm of verifica] (rilascio) {Rilascio};
+        \node[box, right=2.5cm of verifica] (manutenzione) {Manutenzione\\Correttiva/Evolutiva};
+        
+        \draw[arrow] (analisi) -- (progetto);
+        \draw[arrow] (analisi) -- (codifica);
+        
+        \draw[<->, thick, dashed] (progetto) -- (codifica) node[midway, above, font=\footnotesize] {In Parallelo};
+        
+        \draw[arrow] (progetto) -- (verifica);
+        \draw[arrow] (codifica) -- (verifica);
+        \draw[arrow] (verifica) -- (rilascio);
+        
+        % Loop di manutenzione
+        \draw[arrow] (rilascio) -| (manutenzione);
+        \draw[arrow] (manutenzione) |- (analisi);
+        
+    \end{tikzpicture}
+    \caption{Rappresentazione schematica del ciclo di vita del \textit{software} in Ergon.}
+    \label{fig:ciclo_vita}
+\end{figure}
+
+L'adozione di uno \textit{stack} tecnologico profondamente consolidato rende superflua la stesura di documenti tecnici preliminari, quale lo studio di fattibilità. Analogamente, la specifica tecnica viene sostituita da una massiccia presenza di commenti descrittivi all'interno del codice sorgente (\textit{inline documentation}), i quali fungono sia da giustificazione per le scelte di \textit{design} sia da guida per gli interventi di manutenzione futuri.
+
+\subsection{Convenzioni di codifica e architettura logica}
+
+Coerentemente con l'approccio adottato in fase di analisi, in cui i problemi complessi vengono scomposti in sotto-problemi, anche la codifica segue una rigorosa logica procedurale \textit{top-down}. I programmi sono articolati in procedure principali che, al crescere della complessità, vengono ulteriormente suddivise in sotto-procedure. La comunicazione e il passaggio dei dati tra i blocchi avvengono in modo esplicito tramite il passaggio di parametri, limitando il più possibile il ricorso a variabili globali.
+
+L'attività di codifica non prevede l'adozione sistematica di \textit{design pattern} architetturali moderni o l'applicazione dei principi \gls{solid}. Tale scelta è dettata sia dai limiti del paradigma del linguaggio \textit{legacy} impiegato, sia da una forte dipendenza dal dominio applicativo, che rende più vantaggioso strutturare il codice caso per caso piuttosto che forzare l'uso di schemi predefiniti. 
+
+Sussistono tuttavia regole formali interne rigorose per la stesura del codice:
+\begin{itemize}
+    \item \textbf{Tipizzazione coerente:} Ogni variabile deve possedere un tipo di dato strettamente conforme all'informazione ospitata, limitando fortemente l'impiego del tipo generico \textit{Variant}.
+    \item \textbf{Dichiarazione esplicita:} È obbligatorio dichiarare ogni variabile prima del suo effettivo utilizzo.
+    \item \textbf{Gestione degli identificatori:} Vige il divieto assoluto di riutilizzare lo stesso nome per variabili locali appartenenti a procedure diverse, per scongiurare qualsiasi ambiguità durante la lettura e la rielaborazione del codice.
+\end{itemize}
+
+A livello lessicale, sono imposte le convenzioni di nomenclatura dettagliate in Tabella~\ref{tab:convenzioni_nomenclatura}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Elemento} & \textbf{Lingua} & \textbf{Convenzione} \\
+        \hline
+        Variabili e funzioni & Inglese & \textit{PascalCase} \\
+        Tabelle e \textit{stored procedure} & --- & \texttt{MACRO\_CASE} (\textit{snake\_case} maiuscolo) \\
+        \textit{Recordset} & --- & prefisso \texttt{ds} \\
+        \textit{Query} & --- & prefisso \texttt{qdf} \\
+        Stringhe per istruzioni SQL & --- & prefisso \texttt{sql} \\
+        Variabili legate a campi DB & --- & stesso nome del campo del database \\
+        \hline
+    \end{tabular}
+    \caption{Convenzioni di nomenclatura adottate nel codice e nel database.}
+    \label{tab:convenzioni_nomenclatura}
+\end{table}
+
+\subsection{Testing, rilascio e manutenzione}
+
+L'attività di collaudo non risulta formalizzata né supportata da strumenti dedicati di esecuzione automatizzata o di \gls{code-coverage}. La validazione si basa su test manuali, prevalentemente di integrazione, eseguiti in tempo reale dagli stessi sviluppatori durante l'esecuzione del \textit{software}, con l'obiettivo di individuare anomalie di comunicazione tra i componenti critici prima di passare all'implementazione di nuove logiche. A causa dell'organizzazione delle risorse --- che prevede generalmente una singola figura di riferimento per ciascun ambito applicativo --- non trovano spazio le pratiche di \textit{code review}.
+
+Il rilascio in produzione è incrementale. Privo di infrastrutture di \textit{Continuous Integration} o \textit{Continuous Deployment}, l'aggiornamento periodico è un'attività interamente manuale. Lo sviluppatore decreta la prontezza del progetto quando le funzionalità implementate soddisfano i requisiti tracciati; segue quindi la consegna al cliente, corredata da eventuali fasi di presentazione, installazione fisica o remota e formazione all'uso.
+
+La manutenzione, sia correttiva che evolutiva, rimane in carico al team di sviluppo originario. Le segnalazioni dei clienti pervengono attraverso il centralino aziendale o per contatto diretto con lo sviluppatore. Quest'ultimo provvede ad aggiornare il preventivo, rifinire l'analisi dei requisiti e identificare l'intervento tecnico necessario. La scala di priorità dei \textit{task} viene calcolata bilanciando tempistiche richieste, costi contrattuali, complessità del \textit{refactoring} e disponibilità della risorsa tecnica. 
+
+Dal momento che ogni sviluppatore segue contemporaneamente più clienti, l'approccio organizzativo di Ergon punta a massimizzare la produzione rapida di risultati tangibili. L'implementazione di modelli di ciclo di vita più rigidi o di fasi di \textit{testing} strutturate richiederebbe un investimento economico e di tempo che, nell'attuale operatività, andrebbe a incidere negativamente sul \textit{time-to-market} garantito dall'azienda.
+
+\section{Innovazione tecnologica e cultura aziendale}
+\label{sec:innovazione_tecnologica}
+
+L'analisi condotta nei paragrafi precedenti evidenzia un ecosistema \textit{software} fortemente ancorato a uno \textit{stack} tecnologico \textit{legacy} (Visual Basic 6, Informix, DevExpress). Tali tecnologie, pur garantendo la stabilità e l'affidabilità operativa richieste dal dominio alimentare, costituiscono un fisiologico debito tecnico che l'azienda sta attivamente affrontando. L'approccio di Ergon all'innovazione non si configura come una sostituzione radicale immediata, ma come un processo di transizione incrementale guidato da un'attenta analisi dei costi, dei rischi architetturali e della continuità del servizio per i clienti.
+
+\subsection{Transizione architetturale e nuovi standard}
+\label{subsec:transizione_architetturale}
+
+Un primo indicatore di questa transizione è il processo di modernizzazione degli strumenti di sviluppo. Fino a tempi recenti, la gestione del codice sorgente era priva di un \gls{vcs} formale. Negli ultimi sei mesi, l'azienda ha introdotto e standardizzato l'uso di \gls{git}. Questo passaggio rappresenta un'evoluzione cruciale nella cultura operativa, ponendo le basi per una collaborazione più strutturata e per la futura tracciabilità delle modifiche al codice.
+
+Parallelamente, Ergon ha avviato un piano di \textit{refactoring} architetturale con l'obiettivo a lungo termine di migrare progressivamente l'applicativo Ergdis da Visual Basic 6 al \textit{framework} .NET, adottando il linguaggio C\# e \gls{entity-framework}. Questa scelta è supportata da una crescente integrazione di architetture \textit{cloud} basate sull'ecosistema Microsoft Azure, impiegate sia per le procedure di \textit{deployment} sia per l'esplorazione di servizi di intelligenza artificiale, quali i \gls{llm}. Tali iniziative confermano la volontà di mitigare la dipendenza da tecnologie obsolete, allineando le infrastrutture agli standard di mercato.
+
+\subsection{Il ruolo strategico dei tirocini formativi}
+\label{subsec:ruolo_tirocini}
+
+In questo scenario di modernizzazione tecnologica, i progetti di tirocinio assumono per Ergon una valenza strategica. L'azienda utilizza le collaborazioni accademiche come veri e propri incubatori di Ricerca e Sviluppo (R\&D). Invece di testare paradigmi non consolidati o linguaggi moderni direttamente sul prodotto \textit{core} --- rischiando di compromettere la stabilità del sistema --- Ergon delega l'esplorazione di nuovi \textit{framework} a progetti affidati ai tirocinanti.
+
+Questa strategia consente all'azienda di valutare empiricamente l'efficacia, la curva di apprendimento e la fattibilità di integrazione delle nuove tecnologie all'interno del proprio ecosistema. I tirocini fungono, di fatto, da ponte tecnologico: la realizzazione di moduli indipendenti o \gls{poc} permette di validare l'adozione di paradigmi di sviluppo contemporanei --- come la creazione di moderne interfacce utente o l'integrazione di servizi \textit{cloud} --- mantenendo rigorosamente isolato e al sicuro il nucleo gestionale storico. 
+
+È esattamente in questa cornice, orientata all'innovazione controllata e al collaudo di nuove architetture, che si inserisce l'attività progettuale affrontata in questo documento. Le dinamiche organizzative che hanno portato alla definizione di questo incarico, unitamente all'analisi dei requisiti e alla progettazione formale del prototipo richiesto, saranno oggetto di trattazione approfondita nel capitolo successivo.

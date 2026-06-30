@@ -1,20 +1,112 @@
-% --- Acronimi (usali come \gls{api}) ---
-\newacronym{api}{API}{Application Program Interface}
-\newacronym{sdk}{SDK}{Software Development Kit}
-\newacronym{uml}{UML}{Unified Modeling Language}
+% --- Acronimi ---
+\newacronym{it}{IT}{Information Technology}
+\newacronym{erp}{ERP}{Enterprise Resource Planning}
+\newacronym{tcp-ip}{TCP/IP}{Transmission Control Protocol/Internet Protocol}
+\newacronym{rdbms}{RDBMS}{Relational Database Management System}
+\newacronym{crm}{CRM}{Customer Relationship Management}
+\newacronym{vcs}{VCS}{Version Control System}
+\newacronym{llm}{LLM}{Large Language Model}
+\newacronym{ocx}{OCX}{OLE Control Extension}
+\newacronym{poc}{PoC}{Proof of Concept}
 
-% --- Termini Glossario (usali con \termG{nome}) ---
-\newglossaryentry{api_ext}{
-    name={API},
-    description={In informatica, un'API è un insieme di procedure a disposizione del programmatore, raggruppate per svolgere compiti specifici. Ha lo scopo di fornire un'astrazione tra hardware e programmatore, semplificando il processo di sviluppo.}
+% --- Termini Glossario ---
+
+\newglossaryentry{client-server}{
+    name={Client-server},
+    description={Architettura di rete distribuita in cui l'elaborazione dei dati e la gestione delle risorse sono ripartite tra nodi fornitori di servizi (server) e nodi richiedenti (client), questi ultimi generalmente deputati alla presentazione dei dati all'utente finale.}
 }
 
-\newglossaryentry{sdk_ext}{
-    name={SDK},
-    description={Un Software Development Kit è una collezione di strumenti di sviluppo in un unico pacchetto installabile, che facilita la creazione di applicazioni fornendo compilatori, debugger e framework.}
+\newglossaryentry{firewall}{
+    name={Firewall},
+    description={Componente di sicurezza informatica, implementabile a livello hardware o software, progettato per monitorare e filtrare il traffico di rete in entrata e in uscita. Agisce come barriera di protezione tra una rete interna sicura e reti esterne, basandosi su regole di sicurezza predefinite.}
 }
 
-\newglossaryentry{termine_generico}{
-    name={Nome del termine},
-    description={Descrizione estesa del termine da inserire nel glossario.}
+\newglossaryentry{samba}{
+    name={Samba},
+    description={Implementazione open source del protocollo di rete SMB/CIFS (Server Message Block). Consente la condivisione di file, stampanti e risorse in reti locali, garantendo l'interoperabilità tra sistemi operativi basati su Unix/Linux e Microsoft Windows.}
+}
+
+\newglossaryentry{batch}{
+    name={Batch},
+    description={Modalità di elaborazione dati in cui una sequenza di programmi (job) viene eseguita dal sistema operativo in modo asincrono e senza l'interazione diretta dell'utente. È tipicamente impiegata per operazioni intensive o aggiornamenti massivi di basi di dati.}
+}
+
+\newglossaryentry{machine-learning}{
+    name={Machine Learning},
+    description={Sottocampo dell'intelligenza artificiale focalizzato sulla creazione di modelli e algoritmi in grado di apprendere pattern e migliorare le proprie prestazioni in modo adattivo analizzando dati storici, senza necessitare di una programmazione esplicita per ogni singola casistica.}
+}
+
+\newglossaryentry{vmware}{
+    name={VMware},
+    description={Azienda informatica specializzata in software di virtualizzazione. In ambito sistemistico, il termine indica comunemente la suite di prodotti utilizzata per astrarre le risorse fisiche di un server partizionandolo in macchine virtuali isolate.}
+}
+
+\newglossaryentry{geomarketing}{
+    name={Geomarketing},
+    description={Disciplina che integra l'analisi spaziale e cartografica con i dati economici e di mercato. È utilizzata per supportare decisioni commerciali e logistiche basate sulla distribuzione geografica della base di utenza.}
+}
+
+\newglossaryentry{esql-c}{
+    name={ESQL/C},
+    description={Embedded SQL for C: estensione del linguaggio C che consente di incorporare istruzioni SQL all'interno del codice sorgente. Un precompilatore converte tali istruzioni in chiamate a librerie specifiche per l'interazione con basi di dati relazionali.}
+}
+ 
+\newglossaryentry{scrum}{
+    name={Scrum},
+    description={Framework agile per lo sviluppo del software basato su iterazioni a tempo fisso (sprint). Prevede una struttura definita di ruoli e cerimonie per favorire l'adattabilità e il controllo empirico del processo.}
+}
+
+\newglossaryentry{code-coverage}{
+    name={Code coverage},
+    description={Metrica di qualità del software che indica la percentuale di codice sorgente effettivamente eseguita e validata durante l'esecuzione di una suite di test automatici.}
+}
+
+\newglossaryentry{solid}{
+    name={SOLID},
+    description={Acronimo indicante cinque principi fondamentali della progettazione orientata agli oggetti (Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion) finalizzati a produrre software manutenibile, scalabile e robusto.}
+}
+
+\newglossaryentry{git}{
+    name={Git},
+    description={Sistema di controllo di versione distribuito e open source, progettato per tracciare le modifiche al codice sorgente nel tempo, gestire le ramificazioni dello sviluppo (branching) e facilitare la collaborazione tra membri di un team.}
+}
+
+\newglossaryentry{refactoring}{
+    name={Refactoring},
+    description={Processo di ristrutturazione e pulizia del codice sorgente che ne migliora la leggibilità, la manutenibilità e l'architettura interna, senza alterarne il comportamento funzionale esterno o le interfacce esposte.}
+}
+
+\newglossaryentry{azure}{
+    name={Microsoft Azure},
+    description={Piattaforma pubblica di cloud computing offerta da Microsoft, che fornisce un'ampia gamma di servizi, tra cui elaborazione, archiviazione, analisi dei dati e infrastrutture per l'addestramento e il deployment di modelli di intelligenza artificiale.}
+}
+
+\newglossaryentry{dotnet}{
+    name={.NET},
+    description={Ecosistema e framework di sviluppo software creato da Microsoft, che fornisce un ambiente di esecuzione, librerie di classi e supporto per molteplici linguaggi di programmazione (come C\#) per la creazione di applicazioni web, desktop e cloud.}
+}
+
+\newglossaryentry{entity-framework}{
+    name={Entity Framework},
+    description={Framework open source di tipo Object-Relational Mapping (ORM) per applicazioni .NET. Consente agli sviluppatori di interfacciarsi con i database relazionali utilizzando oggetti di dominio specifici del linguaggio (es. C\#), astraendo la logica di accesso ai dati e l'esecuzione di query SQL dirette.}
+}
+
+\newglossaryentry{ocx_ext}{
+    name={OLE Control Extension},
+    description={Moduli software riutilizzabili basati su tecnologia Microsoft, impiegati storicamente in ambienti come Visual Basic per implementare controlli utente e interfacce grafiche personalizzate.}
+}
+
+\newglossaryentry{poc_ext}{
+    name={Proof of Concept},
+    description={Realizzazione di un prototipo incompleto o di un progetto pilota con lo scopo di dimostrare la fattibilità tecnica di un'idea, di un principio teorico o dell'integrazione di una nuova tecnologia.}
+}
+
+\newglossaryentry{vcs_ext}{
+    name={Version Control System},
+    description={Categoria di strumenti software deputata alla tracciabilità e alla gestione delle modifiche apportate al codice sorgente o alla documentazione, archiviando l'intero storico delle revisioni in un database dedicato.}
+}
+
+\newglossaryentry{llm_ext}{
+    name={Large Language Model},
+    description={Modello di intelligenza artificiale basato su reti neurali profonde, addestrato su vasti corpus di dati testuali per comprendere, tradurre e generare linguaggio naturale o codice informatico con elevata coerenza contestuale.}
 }
