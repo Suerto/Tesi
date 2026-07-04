@@ -1,64 +1,69 @@
 % ==========================================
 % 1. TERMINI DI GLOSSARIO (Le definizioni estese)
 % ==========================================
+\newglossaryentry{ci-cd_ext}{
+    name={Continuous Integration / Continuous Delivery (CI/CD)},
+    description={Pratica fondamentale dell'approccio DevOps. Oltre all'automazione del rilascio, garantisce la rilevazione precoce dei difetti tramite test continui e analisi statica del codice, riducendo drasticamente i cicli di feedback tra la fase di sviluppo e la messa in produzione.}
+}
+
 \newglossaryentry{mvp_ext}{
     name={Minimum Viable Product (MVP)},
-    description={Versione iniziale di un prodotto software che include solo le funzionalità essenziali per soddisfare i requisiti di base e consentire la raccolta di feedback dagli utenti.}
+    description={Concetto cardine della metodologia Lean Startup ideata da Eric Ries. Più che un prodotto incompleto, rappresenta un processo iterativo volto a massimizzare l'apprendimento validato sui bisogni reali degli utenti, minimizzando lo sforzo ingegneristico iniziale e il rischio di mercato.}
 }
 
 \newglossaryentry{restful_ext}{
     name={RESTful},
-    description={Architettura di interazione tra applicazioni web che utilizza il protocollo HTTP per la comunicazione e la gestione delle risorse.}
+    description={Modello architetturale teorizzato da Roy Fielding. Sfrutta appieno i metodi semantici del protocollo HTTP e si fonda su vincoli rigidi quali l'assenza di stato (statelessness), l'interfaccia uniforme e la separazione netta tra i domini di competenza di client e server.}
 }
 
 \newglossaryentry{api_ext}{
     name={API},
-    description={Interfaccia di programmazione delle applicazioni, che consente a diversi software di comunicare tra loro e scambiare dati in modo standardizzato.}
+    description={Oltre a fungere da ponte tra applicazioni, le API moderne rappresentano veri e propri contratti software. L'esposizione di interfacce ben progettate permette alle aziende di strutturare architetture a microservizi e di monetizzare i propri asset digitali offrendoli a sviluppatori terzi.}
 }
 
 \newglossaryentry{b2b_ext}{
     name={Business-to-Business (B2B)},
-    description={Modello di interazione commerciale tra due o più imprese, in cui le transazioni di beni, servizi o informazioni avvengono direttamente tra aziende, senza l'intermediazione del consumatore finale.}
+    description={Nell'ambito dello sviluppo software, le architetture progettate per scenari B2B differiscono profondamente dalle soluzioni orientate al consumatore (B2C). Richiedono generalmente protocolli di autenticazione più rigorosi, gestione di moli di dati transazionali elevate e integrazioni su misura con i sistemi ERP preesistenti dei partner commerciali.}
 }
 
 \newglossaryentry{it_ext}{
     name={Information Technology (IT)},
-    description={Insieme di tecnologie, strumenti e metodologie impiegati per la gestione, l'elaborazione e la trasmissione di informazioni digitali, comprendente hardware, software, reti di comunicazione e sistemi di archiviazione.}
+    description={Settore industriale in continua evoluzione che oggi non si limita al solo supporto operativo, ma rappresenta la leva strategica principale per la trasformazione digitale delle imprese, inglobando domini avanzati come la cybersecurity, l'analisi dei Big Data e il cloud computing.}
 }
 
 \newglossaryentry{erp_ext}{
     name={Enterprise Resource Planning (ERP)},
-    description={Software di gestione aziendale che integra e automatizza i principali processi operativi (vendite, acquisti, gestione magazzino, contabilità) in un unico sistema centralizzato, garantendo l'univocità del dato.}
+    description={L'evoluzione moderna dei sistemi di pianificazione dei fabbisogni materiali (MRP). I sistemi ERP contemporanei superano la semplice contabilità, integrando moduli di analisi predittiva e architetture cloud-native per garantire resilienza e scalabilità su scala globale.}
 }
 
 \newglossaryentry{ocx_ext}{
     name={OLE Control Extension (OCX)},
-    description={Moduli software riutilizzabili basati su tecnologia Microsoft, impiegati storicamente in ambienti come Visual Basic per implementare controlli utente e interfacce grafiche personalizzate.}
+    description={Tecnologia strettamente legata all'ecosistema COM (Component Object Model) di Microsoft, estremamente popolare negli anni Novanta. Sebbene ormai considerati legacy e superati dai moderni framework, questi controlli restano una presenza radicata in molti applicativi industriali storici ancora in produzione.}
 }
 
 \newglossaryentry{orm_ext}{
     name={Object-Relational Mapping (ORM)},
-    description={Tecnica di programmazione che consente di interagire con un database relazionale utilizzando linguaggi di programmazione orientati agli oggetti, nascondendo la complessità delle operazioni SQL.}
+    description={Strumento architetturale che risolve il cosiddetto "impedance mismatch" tra il paradigma di programmazione orientato agli oggetti e quello relazionale dei database. Tecniche avanzate di ORM includono il lazy loading, per posticipare il caricamento di dati pesanti, e la gestione della concorrenza ottimistica.}
 }
 
 \newglossaryentry{poc_ext}{
     name={Proof of Concept (PoC)},
-    description={Realizzazione di un prototipo incompleto o di un progetto pilota con lo scopo di dimostrare la fattibilità tecnica di un'idea, di un principio teorico o dell'integrazione di una nuova tecnologia.}
+    description={Si distingue nettamente da un prototipo o da un MVP poiché non è destinato a giungere sul mercato. Il suo ciclo di vita è effimero: una volta validata o invalidata l'ipotesi tecnica iniziale, il codice del PoC viene tipicamente scartato e l'applicativo viene riscritto applicando rigidi criteri di ingegneria del software.}
 }
 
 \newglossaryentry{vcs_ext}{
     name={Version Control System (VCS)},
-    description={Categoria di strumenti software deputata alla tracciabilità e alla gestione delle modifiche apportate al codice sorgente o alla documentazione, archiviando l'intero storico delle revisioni in un database dedicato.}
+    description={L'adozione di un sistema di tracciamento rappresenta il primo gradino di maturità metodologica per un team di sviluppo. Strumenti moderni come Git hanno rivoluzionato questo campo introducendo il concetto di controllo distribuito, permettendo ramificazioni rapide e flussi di lavoro asincroni altamente parallelizzati.}
 }
 
 \newglossaryentry{llm_ext}{
     name={Large Language Model (LLM)},
-    description={Modello di intelligenza artificiale basato su reti neurali profonde, addestrato su vasti corpus di dati testuali per comprendere, tradurre e generare linguaggio naturale o codice informatico con elevata coerenza contestuale.}
+    description={Modelli fondazionali addestrati su petabyte di dati sfruttando architetture a reti neurali di tipo Transformer. Oltre all'elaborazione del linguaggio naturale, stanno rivoluzionando l'ingegneria del software fornendo capacità avanzate di auto-completamento del codice, refactoring assistito e generazione automatica di test.}
 }
 
 \newglossaryentry{rnd_ext}{
     name={Research and Development (R\&D)},
-    description={Complesso di attività aziendali, o di un dipartimento specifico, dedicate allo studio, all'innovazione e allo sviluppo di nuovi prodotti, processi o servizi tecnologici, nonché al collaudo e al miglioramento di quelli preesistenti.}
+    description={Nelle aziende IT, la divisione R\&D non rappresenta un'attività teorica isolata, bensì un motore per la competitività. Include lo scouting di nuove tecnologie, l'analisi dei trend di mercato e la sperimentazione su architetture innovative al fine di prevenire l'obsolescenza dei prodotti software proprietari.}
 }
 
 % ==========================================
@@ -78,6 +83,7 @@
 \newacronym{restful}{RESTful}{Representational State Transfer\glsadd{restful_ext}}
 \newacronym{api}{API}{Application Programming Interface\glsadd{api_ext}}
 \newacronym{mvp}{MVP}{Minimum Viable Product\glsadd{mvp_ext}}
+\newacronym{ci-cd}{CI/CD}{Continuous Integration / Continuous Delivery\glsadd{ci-cd_ext}}
 
 % ==========================================
 % 3. ACRONIMI SEMPLICI (Vanno solo nella lista acronimi)
@@ -93,95 +99,85 @@
 
 \newglossaryentry{system_design}{
     name={System Design},
-    description={Disciplina ingegneristica che si occupa della progettazione e dell'architettura di sistemi complessi, con l'obiettivo di garantire che tutti i componenti interagiscano in modo coerente ed efficiente per soddisfare i requisiti funzionali e non funzionali.}
+    description={Processo olistico che richiede la continua valutazione di compromessi architetturali. I progettisti di sistemi complessi devono bilanciare parametri critici stabiliti dal teorema CAP (Coerenza, Disponibilità, Tolleranza alle partizioni), scegliere tra strategie di scalabilità orizzontale o verticale, e delineare i criteri di partizionamento dei dati.}
 }
 
 \newglossaryentry{client-server}{
     name={Client-server},
-    description={Architettura di rete distribuita in cui l'elaborazione dei dati e la gestione delle risorse sono ripartite tra nodi fornitori di servizi (server) e nodi richiedenti (client), questi ultimi generalmente deputati alla presentazione dei dati all'utente finale.}
+    description={Paradigma che ha storicamente soppiantato l'era dell'elaborazione centralizzata sui mainframe. Nelle applicazioni moderne si è evoluto in architetture multilivello ("n-tier"), all'interno delle quali le logiche di business, la presentazione delle interfacce e la persistenza dei dati vengono ulteriormente distribuite su cluster di macchine per garantire alta affidabilità.}
 }
 
 \newglossaryentry{firewall}{
     name={Firewall},
-    description={Componente di sicurezza informatica, implementabile a livello hardware o software, progettato per monitorare e filtrare il traffico di rete in entrata e in uscita. Agisce come barriera di protezione tra una rete interna sicura e reti esterne, basandosi su regole di sicurezza predefinite.}
-}
-
-\newglossaryentry{samba}{
-    name={Samba},
-    description={Implementazione open source del protocollo di rete SMB/CIFS (Server Message Block). Consente la condivisione di file, stampanti e risorse in reti locali, garantendo l'interoperabilità tra sistemi operativi basati su Unix/Linux e Microsoft Windows.}
+    description={Nel contesto contemporaneo della sicurezza informatica, l'isolamento perimetrale classico fornito storicamente dai firewall sta gradualmente cedendo il passo a modelli architetturali di tipo "Zero Trust", all'interno dei quali l'affidabilità di un dispositivo non viene mai assunta a priori, indipendentemente dalla sua posizione all'interno o all'esterno della rete aziendale.}
 }
 
 \newglossaryentry{batch}{
     name={Batch},
-    description={Modalità di elaborazione dati in cui una sequenza di programmi (job) viene eseguita dal sistema operativo in modo asincrono e senza l'interazione diretta dell'utente. È tipicamente impiegata per operazioni intensive o aggiornamenti massivi di basi di dati.}
+    description={Nonostante l'affermazione delle architetture di elaborazione streaming in tempo reale, i processi batch mantengono un ruolo cruciale nei sistemi bancari e gestionali industriali, rimanendo lo standard di fatto per operazioni quali la quadratura dei conti notturna, il calcolo delle buste paga e la generazione di reportistica consolidata ad altissima intensità di I/O.}
 }
 
 \newglossaryentry{machine-learning}{
     name={Machine Learning},
-    description={Sottocampo dell'intelligenza artificiale focalizzato sulla creazione di modelli e algoritmi in grado di apprendere pattern e migliorare le proprie prestazioni in modo adattivo analizzando dati storici, senza necessitare di una programmazione esplicita per ogni singola casistica.}
+    description={Disciplina che ribalta l'approccio alla programmazione algoritmica classica: invece di codificare regole logiche fisse per elaborare dati e ottenere risposte, il paradigma prevede di fornire al calcolatore grandi quantità di dati ed esempi pratici affinché sia il sistema stesso a dedurre matematicamente le regole e le correlazioni intrinseche.}
 }
 
 \newglossaryentry{vmware}{
     name={VMware},
-    description={Azienda informatica specializzata in software di virtualizzazione. In ambito sistemistico, il termine indica comunemente la suite di prodotti utilizzata per astrarre le risorse fisiche di un server partizionandolo in macchine virtuali isolate.}
+    description={Pioniere della virtualizzazione x86 commerciale, le cui tecnologie hanno permesso il consolidamento massivo dei datacenter fisici attraverso l'introduzione di hypervisor "bare-metal". Queste innovazioni architetturali hanno gettato le basi concettuali per l'avvento del cloud computing moderno e dei successivi sistemi di orchestrazione a container.}
 }
 
 \newglossaryentry{geomarketing}{
     name={Geomarketing},
-    description={Disciplina che integra l'analisi spaziale e cartografica con i dati economici e di mercato. È utilizzata per supportare decisioni commerciali e logistiche basate sulla distribuzione geografica della base di utenza.}
-}
-
-\newglossaryentry{esql-c}{
-    name={ESQL/C},
-    description={Embedded SQL for C: estensione del linguaggio C che consente di incorporare istruzioni SQL all'interno del codice sorgente. Un precompilatore converte tali istruzioni in chiamate a librerie specifiche per l'interazione con basi di dati relazionali.}
+    description={L'efficacia e la granularità di questa branca analitica sono state enormemente amplificate dall'adozione massiva dei sistemi informativi territoriali (GIS) e dall'analisi in tempo reale dei dati di geolocalizzazione provenienti dai dispositivi mobili degli utenti, consentendo strategie di micro-targeting spaziale estremamente precise.}
 }
  
 \newglossaryentry{scrum}{
     name={Scrum},
-    description={Framework agile per lo sviluppo del software basato su iterazioni a tempo fisso (sprint). Prevede una struttura definita di ruoli e cerimonie per favorire l'adattabilità e il controllo empirico del processo.}
+    description={Framework metodologico ideato da Ken Schwaber e Jeff Sutherland, fondato sull'ispezione continua dei processi e sul loro adattamento. Il pilastro portante è il concetto di "potere decisionale decentralizzato", che attribuisce elevata autonomia esecutiva al team di sviluppo e responsabilizza la figura del Product Owner nella massimizzazione del valore consegnato.}
 }
 
 \newglossaryentry{code-coverage}{
     name={Code coverage},
-    description={Metrica di qualità del software che indica la percentuale di codice sorgente effettivamente eseguita e validata durante l'esecuzione di una suite di test automatici.}
+    description={Sebbene venga considerata un indicatore fondamentale della salute di una codebase, un'elevata percentuale di copertura del codice non garantisce matematicamente l'assenza di falle o bug logici. Le best practice dell'ingegneria del software suggeriscono infatti di affiancare tale metrica a tecniche di test di mutazione e a un rigoroso collaudo di sistema di tipo end-to-end.}
 }
 
 \newglossaryentry{solid}{
     name={SOLID},
-    description={Acronimo indicante cinque principi fondamentali della progettazione orientata agli oggetti (Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion) finalizzati a produrre software manutenibile, scalabile e robusto.}
+    description={Insieme di cinque direttive di progettazione promosse da Robert C. Martin ("Uncle Bob") tese a guidare lo sviluppatore verso architetture ad alta coesione e basso accoppiamento. La mancata osservanza di questi principi si traduce tipicamente in codice rigido, fragile o difficile da isolare, generando i cosiddetti "code smells".}
 }
 
 \newglossaryentry{git}{
     name={Git},
-    description={Sistema di controllo di versione distribuito e open source, progettato per tracciare le modifiche al codice sorgente nel tempo, gestire le ramificazioni dello sviluppo (branching) e facilitare la collaborazione tra membri di un team.}
+    description={Ideato originariamente da Linus Torvalds per ottimizzare la gestione del kernel Linux. A differenza dei sistemi di versionamento centralizzati come SVN, Git memorizza le informazioni sotto forma di istantanee (snapshot) del filesystem locale, garantendo un'integrità crittografica assoluta del tracciamento tramite l'uso intensivo di algoritmi di hashing SHA-1.}
 }
 
 \newglossaryentry{refactoring}{
     name={Refactoring},
-    description={Processo di ristrutturazione e pulizia del codice sorgente che ne migliora la leggibilità, la manutenibilità e l'architettura interna, senza alterarne il comportamento funzionale esterno o le interfacce esposte.}
+    description={Pratica ingegneristica formalizzata da Martin Fowler, che prevede l'applicazione metodica di micro-trasformazioni strutturali al codice. L'obiettivo primario di tali interventi è contrastare il cosiddetto "decadimento del software", facilitando le implementazioni future e riducendo il debito tecnico accumulato nelle precedenti iterazioni di sviluppo.}
 }
 
 \newglossaryentry{azure}{
     name={Microsoft Azure},
-    description={Piattaforma pubblica di cloud computing offerta da Microsoft, che fornisce un'ampia gamma di servizi, tra cui elaborazione, archiviazione, analisi dei dati e infrastrutture per l'addestramento e il deployment di modelli di intelligenza artificiale.}
+    description={Ecosistema che offre l'accesso a oltre duecento servizi cloud diversificati. La sua profonda integrazione nativa con l'ambiente di sviluppo .NET e l'IDE Visual Studio la posiziona come la scelta architetturale di riferimento per molte realtà enterprise storiche impegnate in percorsi di modernizzazione della propria infrastruttura IT.}
 }
 
 \newglossaryentry{cloud}{
     name={Cloud Computing},
-    description={Modello di erogazione di servizi informatici (infrastruttura, piattaforme e software) tramite Internet, che consente l'accesso on-demand a risorse scalabili e condivise senza la necessità di gestione diretta da parte dell'utente finale.}
+    description={Modello operativo basato sul concetto di "utility computing", all'interno del quale le risorse informatiche vengono erogate e fatturate in base all'effettivo consumo. Le architetture cloud si ramificano tipicamente in tre paradigmi fondamentali di astrazione dei servizi: IaaS (Infrastructure as a Service), PaaS (Platform as a Service) e SaaS (Software as a Service).}
 }
 
 \newglossaryentry{dotnet}{
     name={.NET},
-    description={Ecosistema e framework di sviluppo software creato da Microsoft, che fornisce un ambiente di esecuzione, librerie di classi e supporto per molteplici linguaggi di programmazione (come C\#) per la creazione di applicazioni web, desktop e cloud.}
+    description={Nato originariamente come framework chiuso, vincolato esclusivamente all'ecosistema Windows, .NET ha subito nel corso degli anni una radicale metamorfosi open source e multipiattaforma. Questo percorso ha permesso di unificare lo sviluppo di interfacce utente, servizi di backend e applicazioni mobile sotto l'ombrello di un singolo ambiente di esecuzione condiviso.}
 }
 
 \newglossaryentry{entity-framework}{
     name={Entity Framework},
-    description={Framework open source di tipo Object-Relational Mapping (ORM) per applicazioni .NET. Consente agli sviluppatori di interfacciarsi con i database relazionali utilizzando oggetti di dominio specifici del linguaggio (es. C\#), astraendo la logica di accesso ai dati e l'esecuzione di query SQL dirette.}
+    description={Nello sviluppo di applicativi .NET, questo ORM supporta operativamente due paradigmi principali di progettazione: l'approccio "Code First", in cui il database viene auto-generato direttamente a partire dalla stesura delle classi C\#, e l'approccio "Database First", all'interno del quale il codice sorgente viene ingegnerizzato inversamente a partire da uno schema relazionale preesistente.}
 }
 
 \newglossaryentry{embedded}{
     name={Embedded},
-    description={In ambito software, indica porzioni di codice scritte in un determinato linguaggio (es. SQL) incapsulate direttamente all'interno del codice sorgente di un programma scritto in un linguaggio differente (es. C o C++).}
+    description={L'iniezione di codice SQL a basso livello direttamente all'interno di linguaggi host procedurali (come il C o il C++) garantiva prestazioni di esecuzione critiche negli anni Ottanta e Novanta. Tuttavia, tale pratica oggi viene frequentemente scartata in favore degli ORM o delle stored procedure per motivazioni legate alla sicurezza, alla manutenibilità e alla testabilità del sistema.}
 }
