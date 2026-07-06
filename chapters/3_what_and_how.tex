@@ -125,14 +125,16 @@ Per proteggere questa logica di \textit{business}, ho adottato l'architettura es
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/design.jpeg}
-    \caption{Modellazione delle classi di dominio e del livello applicativo.}
+    \includegraphics[width=0.8\textwidth]{img/design1.jpeg}
+    \vspace{0.3cm}
+    \includegraphics[width=1.0\textwidth]{img/design2.jpeg}
+    \caption{Modellazione delle classi di dominio e del livello applicativo per la creazione prenotazioni.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
     \label{fig:diagramma_classi}
 \end{figure}
 
-Nella stesura del codice, ho applicato i principi \gls{solid} per la creazione di \textit{software} manutenibile e disaccoppiato:
+Nella stesura del codice, ho applicato i principi SOLID per la creazione di \textit{software} manutenibile e disaccoppiato:
 \begin{itemize}
     \item \textbf{Inversione del controllo e iniezione delle dipendenze:} ho svincolato le classi dalla loro implementazione concreta mediante interfacce astratte, garantendo modularità e intercambiabilità.
     \item \textbf{Responsabilità singola:} ogni entità assolve esclusivamente a un singolo compito logico.
