@@ -27,11 +27,11 @@ package "Application Layer" {
 
 package "Domain Layer (Ports)" {
     interface ICreateBookingUserRepository {
-        + GetByIdAsync(id: UserId, token: CancellationToken) : Task<User>
+        + GetByIdAsync(id: UserId) : Task<User>
     }
     
     interface ICreateBookingSlotRepository {
-        + GetSlotByIdAsync(id: SlotId, token: CancellationToken) : Task<Tuple<Slot, IEnumerable<Booking>>>
+        + GetSlotByIdAsync(id: SlotId) : Task<Tuple<Slot, List<Booking>>>
         + Update(slot: Slot) : void
     }
     
