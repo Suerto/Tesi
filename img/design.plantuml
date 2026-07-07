@@ -1,0 +1,66 @@
+@startuml design2
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+package "Application Layer" {
+    class CreateBookingCommand <<DTO>> {
+        + UserId : int
+        + SlotId : int
+        + Quantity : int
+        + Carrier : string
+        + OnBehalfOf : string
+        + IsBilico : bool
+        + HasEmptyPallets : bool
+    }
+
+    class CreateBookingUseCase {
+        - GetUserRepository : ICreateBookingUserRepository
+        - SlotRepository : ICreateBookingSlotRepository
+        - CreateBookingRepository : ICreateBookingRepository
+        - UnitOfWork : IUnitOfWork
+        + CreateBookingUseCase(...)
+        + ExecuteAsync(command: CreateBookingCommand, cancellationToken: CancellationToken) : Task
+    }
+}
+
+package "Domain Layer (Ports)" {
+    interface ICreateBookingUserRepository {
+        + GetByIdAsync(id: UserId, token: CancellationToken) : Task<User>
+    }
+    
+    interface ICreateBookingSlotRepository {
+        + GetSlotByIdAsync(id: SlotId, token: CancellationToken) : Task<Tuple<Slot, IEnumerable<Booking>>>
+        + Update(slot: Slot) : void
+    }
+    
+    interface ICreateBookingRepository {
+        + IsInTimeToBookAsync() : Task<TimeSpan?>
+        + HasAverageUnloadingTimeAsync() : Task<int?>
+        + Add(booking: Booking) : void
+    }
+}
+
+package "Infrastructure Layer (Adapters)" {
+    class UserRepository <<Adapter>> {
+    }
+    class SlotRepository <<Adapter>> {
+    }
+    class BookingRepository <<Adapter>> {
+    }
+}
+
+' Flusso Applicativo
+CreateBookingUseCase ..left-> CreateBookingCommand : "executes"
+
+' Dipendenze dalle Porte (Interfacce)
+CreateBookingUseCase -down-> ICreateBookingUserRepository : "uses"
+CreateBookingUseCase -down-> ICreateBookingSlotRepository : "uses"
+CreateBookingUseCase -down-> ICreateBookingRepository : "uses"
+
+' Implementazione degli Adapter
+ICreateBookingUserRepository <|-down.. UserRepository
+ICreateBookingSlotRepository <|-down.. SlotRepository
+ICreateBookingRepository <|-left.. BookingRepository
+@enduml
