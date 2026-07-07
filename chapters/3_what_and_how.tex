@@ -1,7 +1,7 @@
 \chapter{Sviluppare Kargo}
 \label{chap:progettazione-codifica}
 
-\textit{Il presente capitolo documenta le fasi operative del progetto Kargo, illustrando il metodo di lavoro adottato e il percorso di sviluppo che ha condotto alla realizzazione dell'applicativo. Attraverso l'analisi del ciclo di vita del software e delle principali sfide progettuali, descrivo il percorso che ha condotto dalla definizione dei requisiti iniziali alla realizzazione e validazione dell'applicativo.}
+\textit{Il presente capitolo documenta le attività operative del progetto Kargo, illustrando il metodo di lavoro adottato e il percorso di sviluppo che ha condotto alla realizzazione dell'applicativo. Attraverso l'analisi del ciclo di vita del software e delle principali sfide progettuali, descrivo il percorso che ha condotto dalla definizione dei requisiti iniziali alla realizzazione e validazione dell'applicativo.}
 
 \section{Metodologia di lavoro e interazione}
 \label{sec:metodologia_lavoro}
@@ -13,7 +13,7 @@ Per garantire il corretto avanzamento del progetto all'interno del limitato oriz
 
 Operando come unica risorsa di sviluppo dedicata al progetto Kargo, ho instaurato con il tutor --- che ricopriva il ruolo di \textit{stakeholder} di riferimento --- una comunicazione fluida e continua, agevolata dalla vicinanza fisica dei nostri uffici. Abbiamo optato per un approccio interattivo privo di scadenze formali rigide, prediligendo allineamenti mirati al bisogno.
 
-Di fronte a ostacoli tecnici o dubbi implementativi, evitavo di presentare semplicemente l'anomalia, ma sottoponevo al tutor una procedura strutturata in tre fasi:
+Di fronte a ostacoli tecnici o dubbi implementativi, evitavo di presentare semplicemente l'anomalia, ma sottoponevo al tutor una procedura strutturata in tre passaggi:
 \begin{enumerate}
     \item Dimostrazione della comprensione della problematica.
     \item Formulazione di una o più ipotesi di risoluzione, giustificate dallo studio teorico delle tecnologie coinvolte.
@@ -38,12 +38,12 @@ Per compensare la mancanza di scadenze aziendali formali e soddisfare i requisit
     \item \textbf{Approvazione tecnica:} il componente doveva superare la sessione di \textit{review} visiva con il responsabile aziendale, garantendo la conformità agli standard aziendali.
 \end{itemize}
 
-Come illustrato nella Figura~\ref{fig:appunti_analisi}, il supporto cartaceo ha permesso di tracciare rapidamente le logiche di dominio durante la fase di analisi, catturando le relazioni tra entità e i flussi operativi prima di formalizzarli in diagrammi digitali. La Figura~\ref{fig:todo_list} mostra invece il formato adottato per il tracciamento giornaliero delle attività, con la distinzione visiva tra mansioni obbligatorie e opzionali e l'indicazione del loro stato di completamento attraverso la notazione \textit{C-V-R} (Completato, Verificato, Revisionato), che mi ha permesso di monitorare sistematicamente lo stato di avanzamento e la qualità di ciascun incremento.
+Come illustrato nella Figura~\ref{fig:appunti_analisi}, il supporto cartaceo ha permesso di tracciare rapidamente le logiche di dominio durante l'attività di analisi, catturando le relazioni tra entità e i flussi operativi prima di formalizzarli in diagrammi digitali. La Figura~\ref{fig:todo_list} mostra invece il formato adottato per il tracciamento giornaliero delle attività, con la distinzione visiva tra mansioni obbligatorie e opzionali e l'indicazione del loro stato di completamento attraverso la notazione \textit{C-V-R} (Completato, Verificato, Revisionato), che mi ha permesso di monitorare sistematicamente lo stato di avanzamento e la qualità di ciascun incremento.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{img/notes.jpg}
-    \caption{Appunti cartacei relativi alla fase di analisi del dominio applicativo e modellazione preliminare.}
+    \includegraphics[width=0.8\textwidth]{img/notes.jpg}
+    \caption{Appunti cartacei relativi all'attività di analisi del dominio applicativo e modellazione preliminare.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
     \label{fig:appunti_analisi}
@@ -51,32 +51,27 @@ Come illustrato nella Figura~\ref{fig:appunti_analisi}, il supporto cartaceo ha 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{img/analysis.png}
+    \makebox[\textwidth][c]{\includegraphics[width=1.05\textwidth]{img/analysis.png}}
     \caption{Sistema di tracciamento giornaliero basato su criteri di completamento, verifica e revisione.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
     \label{fig:todo_list}
 \end{figure}
 
-La natura esplorativa del progetto ha richiesto inoltre una costante attività di auto-formazione. Ho supportato ogni fase di implementazione mediante la consultazione sistematica delle documentazioni ufficiali delle tecnologie adottate: la guida di riferimento di React, il portale di Microsoft Learn per l'ecosistema .NET e la documentazione tecnica di Informix. Tale pratica non ha rappresentato un mero supporto all'implementazione, ma un'attività di analisi tecnica strutturata per comprendere le \textit{best practice} di ogni \textit{framework} e applicarle correttamente nel contesto aziendale.
+La natura esplorativa del progetto ha richiesto inoltre una costante attività di auto-formazione. Ho supportato ogni attività di implementazione mediante la consultazione sistematica delle documentazioni ufficiali delle tecnologie adottate: la guida di riferimento di React e il portale di Microsoft Learn per l'ecosistema .NET. Questa consultazione mi ha permesso di comprendere le \textit{best practice} di ogni \textit{framework} e applicarle correttamente nel contesto aziendale.
 
-\section{Il ciclo di vita e le sfide progettuali}
-\label{sec:ciclo_vita_kargo}
-
-Di seguito dettaglio come ho trasformato le specifiche iniziali in un applicativo funzionante, seguendo la sequenza analisi, progettazione, programmazione e verifica, e motivando le principali decisioni tecniche adottate.
-
-\subsection{Analisi dei requisiti e validazione del prototipo}
-\label{subsec:analisi_validazione}
+\section{Analisi dei requisiti e validazione del prototipo}
+\label{sec:analisi_validazione}
 
 Prima di avviare lo sviluppo vero e proprio, il tutor mi ha formalizzato i vincoli architetturali discussi nel capitolo precedente, introducendomi al progetto con il suo nome provvisorio: "\textit{Web Service} Prenotazione Scarichi". L'obiettivo primario consisteva nel fornire ai corrieri una piattaforma per registrarsi e prenotare le baie dei depositi, centralizzando il controllo delle richieste.
 
-Sfruttando l'assenza di linee guida aziendali rigide per la stesura della documentazione preliminare, ho applicato i principi appresi nel corso di Ingegneria del \textit{Software} per condurre un'analisi dei requisiti strutturata. Ho adottato un approccio gerarchico: sono partito dalla definizione degli attori di sistema, per poi isolare le macro-operazioni e descrivere infine il flusso operativo sequenziale necessario all'utente per completare ogni azione. Questo metodo ha consentito di granulare i requisiti in maniera precisa, rendendoli direttamente implementabili e verificabili attraverso le \textit{checklist} giornaliere descritte nella Sezione~\ref{subsec:sviluppo_personale}.
+Sfruttando l'assenza di linee guida aziendali rigide per la stesura della documentazione preliminare, ho applicato i principi appresi nel corso di Ingegneria del \textit{Software} per condurre un'attività di analisi dei requisiti strutturata. Ho adottato un approccio gerarchico: sono partito dalla definizione dei 4 attori principali di sistema (Utente non registrato, Utente non autenticato, Utente autenticato e Amministratore), per poi isolare 23 casi d'uso principali. Per ognuno di essi ho redatto un livello di dettaglio che prevede la descrizione dei singoli passaggi, comprese le relazioni di inclusione ed estensione e le relative catene operative scaturite. Questo metodo ha consentito di granulare i requisiti in maniera precisa, rendendoli direttamente implementabili e verificabili attraverso le \textit{checklist} giornaliere descritte nella Sezione~\ref{subsec:sviluppo_personale}.
 
 Ho redatto un documento contenente questa descrizione del dominio, formulando i diagrammi dei casi d'uso tramite PlantUML --- uno strumento che genera diagrammi UML a partire da una sintassi testuale --- per tracciare visivamente ogni scenario di interazione. Successivamente, ho mappato i requisiti, consolidandoli all'interno di apposite tabelle di classificazione. La Figura~\ref{fig:diagramma_casi_uso} e la Figura~\ref{fig:requirements_table} mostrano un estratto del lavoro di analisi.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{img/uc.png}
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/uc.png}}
     \caption{Estratto del diagramma dei casi d'uso generato tramite PlantUML.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
@@ -85,7 +80,7 @@ Ho redatto un documento contenente questa descrizione del dominio, formulando i 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/requirements.png}
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/requirements.png}}
     \caption{Estratto della tabella di tracciamento dei requisiti funzionali.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
@@ -94,7 +89,7 @@ Ho redatto un documento contenente questa descrizione del dominio, formulando i 
 
 Inizialmente, la mia propensione per la documentazione formale e la totale assenza di conoscenze pregresse sui linguaggi C\# e React hanno suscitato alcune perplessità nel tutor aziendale. Tuttavia, esaminando la precisione dei documenti prodotti, egli ha compreso il valore del rigore analitico e mi ha incitato a proseguire con questa metodologia.
 
-Forte dei requisiti validati, ho sviluppato in circa tre settimane un primo prototipo funzionante, con lo scopo di acquisire dimestichezza con lo \textit{stack} tecnologico. Durante la stesura di questo eseguibile preliminare, ho ideato il nome definitivo dell'applicativo --- Kargo --- e ne ho disegnato il logo ufficiale, richiamando la veste cromatica dell'azienda committente, come illustrato in Figura~\ref{fig:logo_kargo}.
+Forte dei requisiti validati, in circa due settimane ho completato lo sviluppo di un primo prototipo funzionante esponendo i 5 \textit{endpoint} fondamentali, con lo scopo di acquisire dimestichezza con lo \textit{stack} tecnologico. A seguito di questa validazione iniziale, ho avviato la strutturazione ingegneristica dell'applicativo: la progettazione di dettaglio e la relativa codifica definitiva hanno richiesto approssimativamente un mese di lavoro aggiuntivo. Durante la stesura dell'eseguibile preliminare, ho ideato il nome definitivo dell'applicativo --- Kargo --- e ne ho disegnato il logo ufficiale, richiamando la veste cromatica dell'azienda committente, come illustrato in Figura~\ref{fig:logo_kargo}.
 
 \begin{figure}[H]
     \centering
@@ -105,29 +100,29 @@ Forte dei requisiti validati, ho sviluppato in circa tre settimane un primo prot
     \label{fig:logo_kargo}
 \end{figure}
 
-\subsection{Evoluzione del dominio applicativo e sicurezza}
-\label{subsec:evoluzione_dominio}
+\section{Evoluzione del dominio applicativo e sicurezza}
+\label{sec:evoluzione_dominio}
 
 La rapidità con cui ho consegnato il prototipo ha fornito alla dirigenza tecnica l'opportunità di espandere il raggio d'azione di Kargo. Il tutor ha spostato l'attenzione dal semplice utilizzatore finale alla figura dell'amministratore, con l'intento di rendere il sistema autosufficiente e capace di autogestirsi integralmente.
 
-Ho implementato funzionalità che garantiscono agli amministratori il controllo completo sulle prenotazioni e sugli intervalli temporali, operando sia su singole istanze sia tramite elaborazioni massive (\textit{batch}). Per potenziare il supporto decisionale, ho integrato procedure di esportazione dei dati in formato PDF e CSV, consentendo agli amministratori di estrarre \textit{report} dettagliati delle prenotazioni associate a ogni specifico \textit{slot}. Inoltre, per agevolare l'auto-formazione degli utenti, ho introdotto un modulo di consultazione documentale che espone dinamicamente il manuale utente o il manuale amministratore in base al profilo di autorizzazione del soggetto autenticato.
+Ho implementato funzionalità che garantiscono agli amministratori il controllo completo sulle prenotazioni e sugli intervalli temporali, operando sia su singole istanze sia tramite elaborazioni massive (\textit{batch}). Nello specifico, ho sviluppato un algoritmo in grado di generare e istanziare in tempi rapidissimi almeno 500 \textit{slot} temporali differenti per un singolo luogo di scarico, le cui prestazioni rimangono a discrezione del calcolo parametrico in funzione della mole dei dati richiesti. Per potenziare il supporto decisionale, ho integrato procedure di esportazione dei dati in formato PDF e CSV, consentendo agli amministratori di estrarre \textit{report} dettagliati delle prenotazioni associate a ogni specifico \textit{slot}. Inoltre, per agevolare l'auto-formazione degli utenti, ho introdotto un modulo di consultazione documentale che espone dinamicamente il manuale utente o il manuale amministratore in base al profilo di autorizzazione del soggetto autenticato.
 
-Parallelamente, ho rilevato la necessità di innalzare gli standard di sicurezza. Ho integrato un sistema di validazione visiva (\textit{captcha}) per scongiurare registrazioni automatizzate da parte di \textit{bot}. Inoltre, il tutor ha imposto un meccanismo di attivazione degli account tramite \gls{otp} --- ovvero un codice numerico monouso --- per prevenire furti d'identità aziendale. 
+Parallelamente, ho rilevato la necessità di innalzare gli standard di sicurezza. Ho integrato un sistema di validazione visiva (\textit{captcha}) per scongiurare registrazioni automatizzate da parte di \textit{bot}. Inoltre, il tutor ha imposto un meccanismo di attivazione degli account tramite \gls{otp} per prevenire furti d'identità aziendale. Invece di adottare un approccio di codifica standard, ho implementato l'algorithm BCrypt configurando un \textit{Work Factor} asimmetrico, esito di un preciso compromesso progettuale: ho applicato un costo pari a 13 per l'hashing pesante delle password, massimizzando la sicurezza a riposo, e un costo ridotto a 11 per i codici OTP, ottimizzando la velocità di validazione per una finestra temporale ristretta a 15 minuti.
 
-Per la gestione delle sessioni, ho contestato l'approccio iniziale che prevedeva il passaggio di dati sensibili in chiaro tramite richieste HTTP GET, proponendo e implementando in sua sostituzione l'adozione di \gls{jwt} --- token crittografici compatti impiegati per il trasferimento sicuro di asserzioni tra le parti --- strutturati in \textit{Access} e \textit{Refresh Token} e archiviati in \textit{cookie} \textit{HttpOnly}, inaccessibili agli \textit{script} lato \textit{client}.
+Per la gestione delle sessioni, ho contestato l'approccio iniziale che prevedeva il passaggio di dati sensibili in chiaro tramite richieste HTTP GET, proponendo e implementando in sua sostituzione l'adozione di \gls{jwt} --- token crittografici compatti impiegati per il trasferimento sicuro di asserzioni tra le parti. La struttura adottata prevede un \textit{Access Token} a vita breve (impostato a 15 minuti) e un \textit{Refresh Token} a lunga durata (impostato a 7 giorni e rinnovato a ogni aggiornamento di sessione). Entrambi i \textit{token} sono archiviati all'interno di \textit{cookie} protetti dal flag \textit{HttpOnly}, risultando del tutto inaccessibili agli \textit{script} in esecuzione lato \textit{client}. Questa specifica taratura temporale è stata calcolata per bilanciare sicurezza ed esperienza utente (\textit{UX}): la finestra di 15 minuti minimizza l'esposizione del sistema in caso di furto del token (ad esempio tramite attacchi \textit{Cross-Site Scripting}), mentre la persistenza di 7 giorni del \textit{Refresh Token} evita ai corrieri la frustrazione di doversi riautenticare continuamente durante i turni lavorativi.
 
-\subsection{Progettazione architetturale e direttive di codifica}
-\label{subsec:architettura_codifica}
+\section{Progettazione architetturale e direttive di codifica}
+\label{sec:architettura_codifica}
 
-L'evoluzione dei requisiti ha progressivamente concentrato la complessità del sistema nelle regole di dominio, rendendo inefficace un approccio procedurale classico. Ho pertanto adottato il modello di sviluppo guidato dal dominio (\gls{ddd}), necessario per governare vincoli stringenti: le prenotazioni dovevano rispettare un tempo limite di registrazione; il sistema doveva condizionare dinamicamente le operazioni permesse in base allo stato dell'utente; la generazione \textit{batch} richiedeva controlli incrociati per impedire sovrapposizioni e rispettare il limite massimo di porte disponibili.
+L'evoluzione dei requisiti ha progressivamente concentrato la complessità del sistema nelle regole di dominio, rendendo inefficace un approccio procedurale classico. Ho pertanto adottato il modello di sviluppo guidato dal dominio (\gls{ddd}), necessario per governare vincoli stringenti: le prenotazioni dovevano rispettare un tempo limite di registrazione; il sistema doveva condizionare dinamicamente le operazioni permesse in base allo stato dell'utente; la generazione \textit{batch} richiedeva controlli incrociati per impedire sovrapposizioni e rispettare il limite massimo di porte disponibili. 
 
-Per proteggere questa logica di \textit{business}, ho adottato l'architettura esagonale (\textit{Ports and Adapters}): l'utilizzo di interfacce, ovvero le porte, ha delegato a specifici \textit{adapter} la responsabilità di dialogare con la base dati corretta, rendendo il sistema agnostico rispetto alle differenze strutturali tra il \textit{database} di collaudo e quello di produzione. Tramite PlantUML ho strutturato i diagrammi delle classi partendo dal \textit{Domain Layer}, fino ai \textit{Controller} (Figura~\ref{fig:diagramma_classi}).
+Per proteggere questa logica di \textit{business}, ho adottato l'architettura esagonale (\textit{Ports and Adapters}), enucleando 5 entità di dominio principali (User, Booking, Slot, Place, LoadType) rigorosamente incapsulate e protette da 14 \textit{Value Object} (quali \texttt{DoorCapacity} e \texttt{TimeWindow}) per garantire l'invarianza assoluta dei dati. L'utilizzo di interfacce, ovvero le porte, ha delegato ai specifici \textit{adapter} (\textit{repository}) la responsabilità di dialogare con la base dati corretta, rendendo il sistema agnostico rispetto alle differenze strutturali tra il \textit{database} di collaudo e quello di produzione. Tramite PlantUML ho strutturato i diagrammi delle classi partendo dal \textit{Domain Layer}, fino ai \textit{Controller} (Figura~\ref{fig:diagramma_classi}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/design1.jpeg}
+    \makebox[\textwidth][c]{\includegraphics[width=1.10\textwidth]{img/design1.jpeg}}
     \vspace{0.3cm}
-    \includegraphics[width=1.0\textwidth]{img/design2.jpeg}
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/design2.jpeg}}
     \caption{Modellazione delle classi di dominio e del livello applicativo per la creazione prenotazioni.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
@@ -136,32 +131,38 @@ Per proteggere questa logica di \textit{business}, ho adottato l'architettura es
 
 Nella stesura del codice, ho applicato i principi SOLID per la creazione di \textit{software} manutenibile e disaccoppiato:
 \begin{itemize}
-    \item \textbf{Inversione del controllo e iniezione delle dipendenze:} ho svincolato le classi dalla loro implementazione concreta mediante interfacce astratte, garantendo modularità e intercambiabilità.
-    \item \textbf{Responsabilità singola:} ogni entità assolve esclusivamente a un singolo compito logico.
-    \item \textbf{Segregazione e Sostituzione di Liskov:} il codice di dominio interagisce con interfacce minimali, delegando agli \textit{adapter} la traduzione dei contratti astratti.
+    \item \textbf{Inversione del controllo e iniezione delle dipendenze:} ho svincolato le classi dalla loro implementazione concreta mediante interfacce astratte, garantendo modularità.
+    \item \textbf{Segregazione delle Interfacce (ISP):} ho frammentato i contratti di accesso ai dati creando interfacce chirurgiche per ogni singolo caso d'uso (es. \texttt{IRegisterUserRepository}), evitando classi monolitiche.
+    \item \textbf{Responsabilità singola e Sostituzione di Liskov:} il codice di dominio interagisce con interfacce minimali, delegando agli \textit{adapter} la traduzione dei contratti astratti.
 \end{itemize}
 
-Sul livello \textit{frontend} in React e TypeScript, ho configurato un ambiente di analisi statica (\textit{linting}) tramite ESLint e Prettier. Infine, per preservare le prestazioni, ho implementato un gestore universale delle eccezioni --- evitando la duplicazione di costrutti \texttt{try-catch} in violazione del principio \gls{dry} --- e un \gls{rate-limiting} sulle API, una tecnica di controllo del traffico che limita il numero di richieste che un client può inviare a un servizio in un determinato intervallo di tempo, prevenendo così tentativi di abuso o il sovraccarico involontario dei \textit{server}.
+A supporto dei principi SOLID, ho consolidato l'architettura applicando in modo sistematico i \textit{Design Pattern} dell'ingegneria del \textit{software}. Nel \textit{backend}, il paradigma esagonale si fonda nativamente sul pattern \textbf{\textit{Adapter}}, impiegato per disaccoppiare in modo netto la logica di dominio dalle infrastrutture esterne e di persistenza. Per garantire l'invarianza dei dati fin dall'istanziazione, ho utilizzato il \textbf{\textit{Factory Method}} nella creazione delle Entità e dei \textit{Value Object}, centralizzando le logiche di validazione e impedendo la generazione di stati inconsistenti. Il flusso di esecuzione delle chiamate è stato modellato separando le operazioni di lettura da quelle di scrittura, ispirandomi al principio \textbf{\textit{Command and Query}}. In questo contesto, i singoli \textit{Use Case} agiscono come un \textbf{\textit{Facade}} architetturale: essi costituiscono l'unico punto di accesso invocato dai \textit{Controller}, nascondendo l'intera complessità dell'orchestrazione di dominio. Tale struttura è interamente governata dal pattern \textbf{\textit{Dependency Injection}}, che gestisce la risoluzione e il ciclo di vita dei servizi in base alle interfacce. Sul versante \textit{frontend}, l'applicativo è stato ingegnerizzato secondo il paradigma \textbf{\textit{Component-Based}}, frammentando le interfacce utente in elementi atomici, riutilizzabili e indipendenti, incapsulando la logica di presentazione per garantire una manutenzione modulare e scalabile.
 
-A titolo esemplificativo, la Figura~\ref{fig:create_booking_usecase} riporta l'implementazione del caso d'uso primario per la generazione delle prenotazioni. Il frammento evidenzia l'applicazione pratica dell'Iniezione delle Dipendenze --- le interfacce di accesso ai dati vengono passate al costruttore --- e l'incapsulamento delle regole di \textit{business}. Il sistema delega la persistenza agli \textit{adapter} infrastrutturali tramite il \textit{pattern Unit of Work} esclusivamente dopo aver validato rigorosamente i vincoli di dominio (quali lo stato dell'utente, la capienza dello \textit{slot} e le tempistiche di scarico).
+Sul livello \textit{frontend} in React e TypeScript, ho configurato un ambiente di analisi statica (\textit{linting}) tramite ESLint e Prettier. Per la gestione delle comunicazioni di rete, ho costruito un \textit{client} HTTP customizzato basato su Axios, dal quale derivano specifici servizi \textit{frontend} che mappano specularmente i \textit{Controller} del \textit{backend}. L'integrità dei dati in transito è garantita dalla definizione rigorosa di \textit{Data Transfer Object} (DTO) sia per le risposte che per le richieste. Per l'orchestrazione dello stato ho impiegato gli \textit{hook} nativi di React (come \texttt{useState}), affiancati dal \textit{custom hook} \texttt{useAuth} per la gestione centralizzata della sessione utente. Per l'acquisizione e la validazione dei dati utente, ho integrato la libreria \texttt{react-hook-form} supportata da Zod per la validazione schematica dei campi, garantendo robustezza direttamente lato \textit{client}. L'interfaccia utente è stata ingegnerizzata massimizzando il riuso del codice: ho isolato componenti strutturali atomici (campi \textit{input}, pulsanti e un \textit{form} universale) impiegati trasversalmente in tutte le 9 pagine dell'applicativo (dall'autenticazione alla gestione degli \textit{slot}). L'incapsulamento stilistico è stato ottenuto tramite l'adozione dei \textit{CSS Modules}, strutturati per dominio di interesse (ad esempio \texttt{auth.module.css} e \texttt{bookings.module.css}), prevenendo collisioni globali e favorendo la manutenibilità. 
+
+Infine, per preservare le prestazioni del \textit{backend}, ho centralizzato la gestione degli errori tramite un \texttt{GlobalExceptionFilterAttribute} --- evitando la duplicazione di costrutti \texttt{try-catch} in violazione del principio \gls{dry} --- e implementato un \gls{rate-limiting} custom sulle API. Tale filtro analizza l'intestazione \texttt{X-Forwarded-For} per intercettare gli IP reali dietro eventuali \textit{proxy} e ne salva lo stato nella memoria RAM. Ho parametrato le soglie in base alle metriche stimate congiuntamente al tutor: un limite restrittivo di 3 richieste ogni 60 secondi per le operazioni critiche di autenticazione, e una soglia permissiva di 5 operazioni ogni 120 secondi per la manipolazione massiva degli \textit{slot}.
+
+A titolo esemplificativo, la Figura~\ref{fig:create_booking_usecase} riporta l'implementazione del caso d'uso primario per la generazione delle prenotazioni. Il frammento evidenzia l'applicazione pratica dell'Iniezione delle Dipendenze --- le interfacce di accesso ai dati vengono passate al costruttore --- e l'incapsulamento delle regole di \textit{business}. Il sistema delega la persistenza agli \textit{adapter} infrastrutturali tramite il \textit{pattern Unit of Work} --- che raggruppa più operazioni sui dati in un'unica transazione atomica --- esclusivamente dopo aver validato i vincoli di dominio (quali lo stato dell'utente, la capienza dello \textit{slot} e le tempistiche di scarico).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{img/code.jpeg}
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/code.jpeg}}
     \caption{Implementazione del caso d'uso di creazione prenotazione.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
     \label{fig:create_booking_usecase}
 \end{figure}
 
-\subsection{Verifica e validazione delle funzionalità}
-\label{subsec:verifica_validazione}
+\section{Verifica e validazione delle funzionalità}
+\label{sec:verifica_validazione}
 
-Ho interpretato la fase di verifica come un elemento strutturale continuo del ciclo di sviluppo. Ho condotto la validazione dei requisiti in modo strettamente incrementale, sottoponendo ogni funzionalità implementata a riscontri operativi diretti per garantirne la piena conformità.
+Ho interpretato l'attività di verifica come un elemento strutturale continuo del ciclo di sviluppo. Ho condotto la validazione dei requisiti in modo strettamente incrementale, sottoponendo ogni funzionalità implementata a riscontri operativi diretti per garantirne la piena conformità.
 
-Per collaudare il \textit{backend}, mi sono avvalso principalmente di Postman per simulare i percorsi tracciati nei diagrammi dei casi d'uso e di Swagger per documentare e testare attivamente gli \textit{endpoint} esposti. Sul versante \textit{frontend}, ho validato l'applicativo tramite esecuzioni dirette nell'ambiente di sviluppo locale, focalizzandomi sull'accessibilità visiva e comportamentale con il supporto dei DevTools di Google Chrome. Ho verificato la reattività (\textit{responsiveness}) dell'applicativo su schermi \textit{desktop}, \textit{tablet} e terminali mobili. 
+Per collaudare il \textit{backend}, mi sono avvalso principalmente di Postman per simulare i percorsi tracciati nei diagrammi dei casi d'uso, costruendo progressivamente una \textit{collection} dedicata e organica che ricalca l'intero spettro operativo del sistema: dalla registrazione e gestione dell'autenticazione, fino alle elaborazioni \textit{CRUD} singole e massive per \textit{slot} e prenotazioni, includendo i test di esportazione in formato PDF e CSV. A questa validazione metodica ho affiancato Swagger per documentare e collaudare visivamente gli \textit{endpoint} esposti.
 
-Sebbene abbia strutturato l'ambiente TypeScript per supportare la scrittura di \textit{unit test} al fine di garantire una solida base per future integrazioni, la validazione del presente prototipo si è basata su un collaudo empirico iterativo, integrato dalle revisioni periodiche condivise con il tutor aziendale per stabilire l'approvazione funzionale dei moduli.
+Sul versante \textit{frontend}, ho validato l'applicativo tramite esecuzioni dirette nell'ambiente di sviluppo locale, focalizzandomi sull'accessibilità visiva e comportamentale con il supporto dei DevTools di Google Chrome. Ho verificato la reattività (\textit{responsiveness}) dell'applicativo su schermi \textit{desktop}, \textit{tablet} e terminali mobili.
+
+Sebbene abbia strutturato l'ambiente TypeScript per supportare la scrittura di \textit{unit test} al fine di garantire una solida base per future integrazioni, la validazione dell'applicativo si è basata su un collaudo empirico iterativo, integrato dalle revisioni periodiche condivise con il tutor aziendale per stabilire l'approvazione funzionale dei moduli. Questa decisione è scaturita da un preciso compromesso (\textit{trade-off}) concordato con la dirigenza: data la forte spinta verso il rapido rilascio (\textit{time-to-market}) richiesta dal committente per validare l'idea, si è preferito privilegiare la consegna funzionale del prodotto rispetto all'onere temporale richiesto dalla stesura di una \textit{suite} completa di \textit{test} automatizzati, rimandando quest'ultima alle future iterazioni di mantenimento.
 
 \section{Risultati qualitativi e quantitativi}
 \label{sec:risultati_kargo}
@@ -171,15 +172,15 @@ Al termine delle ore previste per la stesura del codice, ho sottoposto l'applica
 \subsection{Il prodotto dal lato utente}
 \label{subsec:risultati_qualitativi}
 
-Sul piano qualitativo, Kargo si presenta come un applicativo reattivo, solido e fortemente orientato all'usabilità. Sebbene abbia sviluppato l'applicativo per l'uso interno logistico --- un settore che spesso subordina l'estetica alla pura funzionalità --- ho dedicato particolare attenzione all'interfaccia utente, garantendo il rispetto degli standard di accessibilità \textit{Web Content Accessibility Guidelines} (WCAG) di livello AA e, in alcuni componenti critici, di livello AAA. Ho verificato tale conformità analizzando i rapporti di contrasto cromatico, implementando la navigazione completa tramite tastiera e utilizzando i \textit{tag} semantici HTML5 controllati mediante gli strumenti di ispezione del \textit{browser}.
+Sul piano qualitativo, Kargo si presenta come un applicativo reattivo, solido e orientato all'usabilità. Sebbene abbia sviluppato l'applicativo per l'uso interno logistico --- un settore che spesso subordina l'estetica alla pura funzionalità --- ho dedicato particolare attenzione all'interfaccia utente, garantendo il rispetto degli standard di accessibilità \gls{wcag} di livello AA e, in alcuni componenti critici, di livello AAA. Ho verificato tale conformità analizzando i rapporti di contrasto cromatico, implementando la navigazione completa tramite tastiera e utilizzando i \textit{tag} semantici HTML5 controllati mediante gli strumenti di ispezione del \textit{browser}.
 
-L'interfaccia guida gli attori del sistema attraverso flussi operativi chiari. Per gestire la notevole mole di dati derivante dall'espansione del dominio, ho progettato e implementato funzioni avanzate di ricerca e filtraggio dinamico. Sia i corrieri, nella consultazione degli \textit{slot} liberi, sia gli amministratori, nel monitoraggio globale del deposito, possono interrogare la base dati in tempo reale, isolando le prenotazioni per data, stato o tipologia di carico con risposte visive immediate. 
+L'interfaccia guida gli attori del sistema attraverso flussi operativi chiari. Per gestire la notevole mole di dati derivante dall'espansione del dominio, ho progettato e implementato funzioni avanzate di ricerca e filtraggio dinamico. Sia i corrieri, nella consultazione degli \textit{slot} liberi, sia gli amministratori, nel monitoraggio globale del deposito, possono interrogare la base dati in tempo reale, isolando le prenotazioni per data, stato o tipologia di carico con risposte visive immediate.
 
-Le Figure dalla~\ref{fig:kargo_selezione_slot} alla~\ref{fig:kargo_modifica_slot} dimostrano la resa finale dell'applicativo, evidenziando la funzionalità di creazione della prenotazione lato corriere e di gestione delle prenotazioni lato amministratore.
+La Figura~\ref{fig:kargo_selezione_slot} mostra il flusso lato corriere: la selezione di una finestra temporale libera tra quelle disponibili nel deposito, propedeutica alla creazione della prenotazione mostrata in Figura~\ref{fig:kargo_completamento_prenotazione}, dove il corriere conferma i dati del proprio mezzo e del carico trasportato. Sul lato amministrativo, la Figura~\ref{fig:kargo_gestione_slot} illustra la vista di monitoraggio complessivo degli \textit{slot} configurati per il deposito, mentre la Figura~\ref{fig:kargo_modifica_slot} mostra il pannello con cui l'amministratore modifica i vincoli di un singolo intervallo, quali tipologia di carico ammessa e capienza.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{img/viewSlotsForBookingPage2.png} 
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/viewSlotsForBookingPage2.png}}
     \caption{Interfaccia di selezione della finestra temporale di prenotazione.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
@@ -188,7 +189,7 @@ Le Figure dalla~\ref{fig:kargo_selezione_slot} alla~\ref{fig:kargo_modifica_slot
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{img/completeBooking.png} 
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/completeBooking.png}}
     \caption{Dettaglio sul completamento della prenotazione.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
@@ -197,7 +198,7 @@ Le Figure dalla~\ref{fig:kargo_selezione_slot} alla~\ref{fig:kargo_modifica_slot
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{img/viewSlotsPage2.png} 
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/viewSlotsPage2.png}}
     \caption{Visualizzazione della gestione degli slot temporali.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
@@ -206,7 +207,7 @@ Le Figure dalla~\ref{fig:kargo_selezione_slot} alla~\ref{fig:kargo_modifica_slot
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{img/modifySlot.png} 
+    \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{img/modifySlot.png}}
     \caption{Dettaglio sulla gestione degli slot temporali.}
     \vspace{0.1cm}
     {\footnotesize Elaborazione originale dell'autore\par}
@@ -216,9 +217,9 @@ Le Figure dalla~\ref{fig:kargo_selezione_slot} alla~\ref{fig:kargo_modifica_slot
 \subsection{Copertura e metriche di progetto}
 \label{subsec:risultati_quantitativi}
 
-Sotto il profilo quantitativo, i risultati testimoniano il pieno conseguimento degli obiettivi aziendali e l'efficacia strategica dello \textit{stage} delineati nel Capitolo~\ref{chap:strategia}. Nonostante il tutor abbia richiesto un massiccio ampliamento del dominio a lavori già avviati, ho consegnato la \textit{release} definitiva dell'applicativo con circa una settimana di anticipo rispetto alle scadenze originarie concordate con l'azienda.
+Sotto il profilo quantitativo, i risultati testimoniano il conseguimento degli obiettivi aziendali delineati nel Capitolo~\ref{chap:strategia}. Nonostante il tutor abbia richiesto un ampliamento del dominio a lavori già avviati, ho consegnato la \textit{release} definitiva dell'applicativo con circa una settimana di anticipo rispetto alle scadenze originarie concordate con l'azienda. Tale flessibilità operativa e rapidità di adattamento alle nuove richieste non sono state casuali, ma hanno rappresentato il beneficio diretto dell'adozione dell'architettura esagonale e dei principi SOLID (descritti nella Sezione~\ref{sec:architettura_codifica}): il forte disaccoppiamento dei componenti mi ha permesso di integrare i nuovi requisiti amministrativi senza generare regressioni nel codice già consolidato.
 
-Dal punto di vista della copertura funzionale, ho mappato e soddisfatto integralmente le richieste del committente. La Tabella~\ref{tab:riepilogo_requisiti} illustra il riepilogo quantitativo dei requisiti individuati in fase di analisi, suddivisi per tipologia e grado di adempimento.
+Dal punto di vista della copertura funzionale, ho mappato e soddisfatto le richieste del committente. La Tabella~\ref{tab:riepilogo_requisiti} illustra il riepilogo quantitativo dei requisiti individuati in analisi, suddivisi per tipologia e grado di adempimento.
 
 \begin{table}[H]
     \centering
@@ -240,6 +241,6 @@ Dal punto di vista della copertura funzionale, ho mappato e soddisfatto integral
     \label{tab:riepilogo_requisiti}
 \end{table}
 
-A livello di volumetria del prodotto, il \textit{repository} finale si compone di una ricca infrastruttura logica, quantificabile in circa 20 \textit{endpoint} API esposti lato \textit{backend}, supportati da svariate decine di classi di dominio in C\# e molteplici componenti \textit{custom} in React sviluppati \textit{ex novo}. A questa produzione informatica ho affiancato il parallelo lavoro di stesura documentale, concretizzatosi nella redazione formale del documento di analisi dei requisiti iniziale e nella produzione di due guide operative complete: il manuale utente, destinato ai corrieri, e il manuale amministratore, riservato al personale della logistica interna.
+A livello di volumetria del prodotto, il lavoro ingegneristico si è concretizzato in un artefatto \textit{software} complessivamente stimato in oltre 8.000 righe di codice (LOC), equamente distribuito tra le robuste architetture di \textit{backend} (circa 4.500 LOC) e le dinamiche interfacce \textit{frontend} (circa 3.500 LOC). Il \textit{repository} finale si compone di esattamente 28 \textit{endpoint} API esposti lato \textit{backend}, suddivisi logicamente in 6 \textit{Controller} RESTful. Questa elevata granularità è stata una scelta progettuale voluta per rispettare i vincoli del modello RESTful: anziché creare pochi \textit{endpoint} monolitici, ho preferito frammentare le risorse per ridurre il carico delle singole chiamate HTTP e favorire il riuso delle logiche da parte del \textit{frontend}. L'infrastruttura è supportata dalle 5 entità di dominio in C\# e da svariate decine di componenti \textit{custom} in React, orchestrati su 9 viste applicative sviluppate \textit{ex novo}. A questa massiccia produzione informatica ho affiancato il parallelo lavoro di stesura documentale, concretizzatosi nella redazione formale del documento di analisi dei requisiti iniziale e nella produzione di due guide operative complete: il manuale utente, destinato ai corrieri, e il manuale amministratore, riservato al personale della logistica interna.
 
-Infine, coerentemente con le direttive operative interne descritte nella Sezione~\ref{subsec:verifica_validazione}, non ho prodotto metriche automatizzate di \textit{code-coverage}. Sebbene abbia configurato l'ambiente per supportare rigide analisi statiche mediante ESLint, ho basato la validazione finale sull'esito positivo dei rigorosi collaudi empirici e visivi condotti congiuntamente al \textit{team} tecnico di Ergon Informatica, decretando il successo complessivo dello \textit{stage}.
+Infine, per quanto riguarda la copertura di testing, pur non avendo prodotto metriche automatizzate di \textit{code coverage} per via dei vincoli di \textit{time-to-market}, ho garantito una copertura funzionale del 100\% sulle API. Le chiamate implementate nella \textit{collection} Postman hanno infatti collaudato esaustivamente ciascuno dei 28 \textit{endpoint} esposti dal \textit{backend}. Su queste basi, la validazione finale si è conclusa con l'esito positivo dei collaudi empirici e visivi condotti congiuntamente al \textit{team} tecnico di Ergon Informatica, confermando il successo complessivo dello \textit{stage}.
