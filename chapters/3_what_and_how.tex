@@ -243,4 +243,73 @@ Dal punto di vista della copertura funzionale, ho mappato e soddisfatto le richi
 
 A livello di volumetria del prodotto, il lavoro ingegneristico si è concretizzato in un artefatto \textit{software} complessivamente stimato in oltre 8.000 righe di codice (LOC), equamente distribuito tra le robuste architetture di \textit{backend} (circa 4.500 LOC) e le dinamiche interfacce \textit{frontend} (circa 3.500 LOC). Il \textit{repository} finale si compone di esattamente 28 \textit{endpoint} API esposti lato \textit{backend}, suddivisi logicamente in 6 \textit{Controller} RESTful. Questa elevata granularità è stata una scelta progettuale voluta per rispettare i vincoli del modello RESTful: anziché creare pochi \textit{endpoint} monolitici, ho preferito frammentare le risorse per ridurre il carico delle singole chiamate HTTP e favorire il riuso delle logiche da parte del \textit{frontend}. L'infrastruttura è supportata dalle 5 entità di dominio in C\# e da svariate decine di componenti \textit{custom} in React, orchestrati su 9 viste applicative sviluppate \textit{ex novo}. A questa massiccia produzione informatica ho affiancato il parallelo lavoro di stesura documentale, concretizzatosi nella redazione formale del documento di analisi dei requisiti iniziale e nella produzione di due guide operative complete: il manuale utente, destinato ai corrieri, e il manuale amministratore, riservato al personale della logistica interna.
 
-Infine, per quanto riguarda la copertura di testing, pur non avendo prodotto metriche automatizzate di \textit{code coverage} per via dei vincoli di \textit{time-to-market}, ho garantito una copertura funzionale del 100\% sulle API. Le chiamate implementate nella \textit{collection} Postman hanno infatti collaudato esaustivamente ciascuno dei 28 \textit{endpoint} esposti dal \textit{backend}. Su queste basi, la validazione finale si è conclusa con l'esito positivo dei collaudi empirici e visivi condotti congiuntamente al \textit{team} tecnico di Ergon Informatica, confermando il successo complessivo dello \textit{stage}.
+Infine, per quanto riguarda la copertura di \textit{testing}, pur non avendo prodotto metriche automatizzate di \textit{code coverage} per via dei vincoli di \textit{time-to-market}, ho garantito una copertura funzionale del 100\% sulle API. Le chiamate implementate nella \textit{collection} Postman hanno infatti collaudato esaustivamente ciascuno dei 28 \textit{endpoint} esposti dal \textit{backend}. La Tabella~\ref{tab:validazione_atomica_completa} dettaglia il criterio di verifica adottato per ogni nucleo atomico del sistema, certificando l'avvenuto collaudo. Su queste basi, la validazione finale si è conclusa con l'esito positivo dei collaudi empirici e visivi condotti congiuntamente al \textit{team} tecnico di Ergon Informatica, confermando la piena aderenza del prototipo alle specifiche.
+
+\renewcommand{\arraystretch}{1.3}
+{
+\small
+\begin{longtable}{p{0.25\textwidth} p{0.45\textwidth} p{0.20\textwidth}}
+    \caption{Matrice di implementazione e collaudo atomico dei requisiti applicativi.}
+    \label{tab:validazione_atomica_completa} \\
+    \hline
+    \textbf{Requisito atomico} & \textbf{Criterio di verifica oggettivo} & \textbf{Esito del collaudo} \\
+    \hline
+    \endfirsthead
+
+    \multicolumn{3}{c}%
+    {{\bfseries \tablename\ \thetable{} -- Continua dalla pagina precedente}} \\
+    \hline
+    \textbf{Requisito atomico} & \textbf{Criterio di verifica oggettivo} & \textbf{Esito del collaudo} \\
+    \hline
+    \endhead
+
+    \hline \multicolumn{3}{r}{\textit{Continua nella pagina successiva...}} \\
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    \multicolumn{3}{l}{\textit{Dominio Utente (perimetro PoC iniziale)}} \\
+    \hline
+    Gestione Identità: Registrazione &
+    Controllo della risposta \texttt{201} su \texttt{POST /api/auth/register} e test di innesco email su 4 scenari (dati validi, email duplicata, password debole, campi mancanti). & 4/4 casi superati \\
+    \hline
+    Gestione Identità: Attivazione &
+    Verifica della validità del token con restituzione \texttt{200} (esito positivo) o \texttt{410} (link scaduto o già utilizzato). & 3/3 casi superati \\
+    \hline
+    Gestione Identità: Revoca &
+    Test di invalidazione immediata della sessione su \texttt{DELETE /api/users/\{id\}}, con restituzione \texttt{401} ai successivi tentativi di accesso. & Verificato \\
+    \hline
+    Autenticazione (Login/Logout) &
+    Validazione dell'emissione JWT (\texttt{200}) su credenziali valide e del blocco (\texttt{401}) su dati errati; controllo della cancellazione del token al logout. & 4/4 casi superati \\
+    \hline
+    Sicurezza: Recupero password &
+    Controllo del blocco di sicurezza (\texttt{403}) su password corrente errata e ispezione della validità temporale del link di recupero. & 3/3 casi superati \\
+    \hline
+    Gestione Prenotazioni (API CRUD) &
+    Ispezione dei codici di stato HTTP (\texttt{200}/\texttt{201}/\texttt{204}) su Postman e corrispondenza esatta del \textit{payload} JSON restituito rispetto al DTO. & Confermato \\
+    \hline
+    \multicolumn{3}{l}{\textit{Dominio Amministratore (espansione non preventivata)}} \\
+    \hline
+    Modellazione Slot: Creazione singola &
+    Test su \texttt{POST /api/slots} per accertare l'inserimento (\texttt{201}) e il rigetto logico di conflitti temporali a \textit{database} (\texttt{409}). & Verificato \\
+    \hline
+    Modellazione Slot: Creazione \textit{batch} &
+    Misurazione del \textit{latency time} del \textit{server}: la soglia di accettazione impone un'elaborazione inferiore ai 2 secondi per un lotto di 100 \textit{slot}. & Soglia rispettata \\
+    \hline
+    Propagazione Modifiche (Slot multipli) &
+    Analisi di coerenza a \textit{database} per accertare la corretta propagazione a cascata delle modifiche sullo stato delle prenotazioni collegate. & Verificato \\
+    \hline
+    Gestione Conflitti: Eliminazione forzata &
+    Verifica del blocco logico di conferma esplicita e dell'innesco di notifica automatica all'utente prenotato. & Verificato \\
+    \hline
+    \multicolumn{3}{l}{\textit{Documentazione}} \\
+    \hline
+    Manuale operativo Utente &
+    Revisione incrociata dei flussi utente descritti nel manuale rispetto alle reali funzionalità implementate a sistema. & Approvato \\
+    \hline
+    Manuale operativo Amministratore &
+    Revisione incrociata dei flussi amministrativi descritti rispetto alle reali interfacce gestionali. & Approvato \\
+\end{longtable}
+}
+\normalsize
