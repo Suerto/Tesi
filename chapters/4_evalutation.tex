@@ -6,24 +6,63 @@
 \section{Soddisfacimento degli obiettivi}
 \label{sec:obiettivi_raggiunti}
 
-La valutazione dell'esito dello \textit{stage} si articola su due direttrici principali: gli \textit{output} consegnati all'organizzazione ospitante e il raggiungimento degli obiettivi formativi personali delineati all'avvio del progetto. 
+Misuro il completamento degli obiettivi di progetto traducendo i requisiti aziendali in evidenze di collaudo oggettive. Ho soddisfatto il 100\% dei requisiti previsti per la piattaforma di gestione delle prenotazioni logistiche, validando ogni funzionalità attraverso test di esecuzione empirica, condotti sia in autonomia sia sotto la diretta supervisione del tutor aziendale. 
 
-Dal punto di vista aziendale, l'obiettivo concordato nel Capitolo~\ref{chap:strategia} --- la realizzazione di un prototipo per la gestione delle prenotazioni logistiche --- è stato raggiunto. Nel corso dello sviluppo, il dominio applicativo è stato significativamente ampliato rispetto alle specifiche iniziali, richiedendo l'introduzione di complesse logiche amministrative e di elaborazioni massive. Nonostante queste integrazioni non preventivate, il rispetto dei principi SOLID e l'adozione di un'architettura modulare hanno permesso di assorbire i nuovi requisiti senza alterare la pianificazione, concludendo l'attività di codifica con circa una settimana di anticipo rispetto alla stima iniziale. Il prototipo è stato sottoposto con esito positivo ai collaudi funzionali descritti nel Capitolo~\ref{chap:progettazione-codifica}. Sebbene l'applicativo non sia stato distribuito in ambiente di produzione, durante il colloquio conclusivo il tutor aziendale ha confermato l'interesse dell'azienda a utilizzare il progetto come base per successive evoluzioni del prodotto.
+Ho strutturato le consegne operative in due macro-moduli, completando l'intero ciclo di sviluppo con una settimana di anticipo rispetto alla scadenza curriculare. La Tabella~\ref{tab:validazione_obiettivi} traccia l'esatta granularità delle funzionalità implementate rispetto agli obiettivi di dominio.
 
-Dal punto di vista personale, gli obiettivi formativi definiti all'inizio dello stage risultano anch'essi raggiunti. Partendo da una conoscenza limitata dei linguaggi C\# e React, ho realizzato autonomamente l'intero applicativo, comprendente 28 \textit{endpoint} API, il relativo \textit{frontend}, i meccanismi di autenticazione e le principali funzionalità richieste dal dominio. Il completamento del progetto e il superamento dei collaudi funzionali dimostrano la capacità di sviluppare autonomamente applicazioni mediante le tecnologie adottate, acquisita attraverso lo studio della documentazione ufficiale e la loro applicazione diretta durante lo sviluppo.
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{p{0.25\textwidth} p{0.45\textwidth} p{0.2\textwidth}}
+        \hline
+        \textbf{Modulo} & \textbf{Funzionalità Atomiche Implementate} & \textbf{Stato e Validazione} \\
+        \hline
+        \textbf{Dominio Utente} \newline (Perimetro PoC iniziale) & 
+        \vspace{-0.3cm}
+        \begin{itemize}[leftmargin=*]
+            \item Registrazione, attivazione ed eliminazione account
+            \item Autenticazione (login, logout)
+            \item Modifica e recupero password
+            \item Creazione, visualizzazione, modifica ed eliminazione prenotazioni
+        \end{itemize} & Collaudo funzionale superato in autonomia e confermato dal tutor. \\
+        \hline
+        \textbf{Dominio Amministratore} \newline (Espansione non preventivata) & 
+        \vspace{-0.3cm}
+        \begin{itemize}[leftmargin=*]
+            \item Creazione \textit{slot} singoli e massivi (\textit{batch})
+            \item Modifica ed eliminazione \textit{slot} (singoli/multipli)
+            \item Eliminazione forzata delle prenotazioni associate agli \textit{slot}
+        \end{itemize} & Collaudo funzionale superato. Tempi di generazione \textit{batch} conformi. \\
+        \hline
+        \textbf{Documentazione} & 
+        \vspace{-0.3cm}
+        \begin{itemize}[leftmargin=*]
+            \item Redazione manuale operativo Utente
+            \item Redazione manuale operativo Amministratore
+        \end{itemize} & Approvata per l'uso interno. \\
+        \hline
+    \end{tabular}
+    \caption{Matrice di implementazione e validazione dei moduli applicativi.}
+    \label{tab:validazione_obiettivi}
+\end{table}
+
+Dal punto di vista della crescita personale, ho misurato il mio avanzamento verificando il superamento del divario tecnologico iniziale. Partendo da una scarsa familiarità con C\# e React, ho scritto autonomamente l'intera \textit{codebase} che supporta i moduli sopra descritti. Ho consolidato questa competenza governando l'intero stack: dalla progettazione delle entità nel \textit{database} fino al collegamento delle interfacce \textit{frontend} per l'utente finale.
 
 \section{Maturazione professionale}
 \label{sec:maturazione_professionale}
 
-L'esperienza di stage ha contribuito alla mia maturazione professionale sia sul piano delle conoscenze tecniche sia su quello delle abilità metodologiche e organizzative. Operando come unica risorsa dedicata allo sviluppo del progetto ho avuto l'opportunità di seguire direttamente tutte le principali attività del ciclo di vita del \textit{software}, dall'analisi dei requisiti fino alla verifica finale, consolidando competenze che difficilmente avrei potuto acquisire esclusivamente attraverso le attività accademiche.
+L'esecuzione quotidiana del progetto mi ha imposto di abbandonare l'approccio accademico astratto in favore di un rigore ingegneristico operativo. Ho registrato il miglioramento metodologico più evidente nell'evoluzione del mio approccio analitico e nella scomposizione del lavoro.
 
-Sul piano tecnico, la necessità di tradurre regole di dominio complesse in componenti \textit{software} funzionanti mi ha permesso di consolidare competenze di progettazione orientata agli oggetti, modellazione del dominio e sviluppo di architetture multilivello. L'evoluzione progressiva del progetto ha inoltre evidenziato l'importanza di mantenere il codice modulare e facilmente manutenibile: le attività di \textit{refactoring} svolte nelle prime settimane hanno semplificato l'introduzione delle funzionalità richieste successivamente, riducendo la necessità di modificare componenti già consolidati.
+Nelle prime settimane di tirocinio definivo obiettivi giornalieri di grossa taglia, difficilmente misurabili e collaudabili. Ad esempio, assegnare a me stesso un \textit{task} generico come \textit{"Completare l'endpoint POST /api/slots/batch per la creazione massiva"} non mi forniva parametri oggettivi per stabilirne l'effettivo completamento.
 
-Il miglioramento più significativo si è registrato sul piano del \textit{self-management} e della scomposizione analitica del lavoro. Nelle primissime giornate tendevo a formulare obiettivi macroscopici e difficilmente misurabili (ad esempio, "Revisionare il modulo utente"). L'adozione del sistema C-V-R (Completato, Verificato, Revisionato) ha favorito l'evoluzione verso una granularità maggiore dei \textit{task}. Questa modalità di pianificazione ha innescato una crescente autonomia decisionale, insegnandomi a valutare preventivamente l'impatto delle scelte progettuali e a motivarle tecnicamente prima di sottoporle al tutor aziendale.
+Per ovviare a questa criticità, ho affinato la mia adozione del sistema C-V-R (Completato, Verificato, Revisionato), abbassando drasticamente la granularità dei \textit{task}. Ho convertito il macro-obiettivo precedente in una \textit{checklist} di micro-verifiche atomiche, imponendomi di validare fisicamente il componente su Postman prima di dichiararlo concluso:
+\begin{itemize}
+    \item \textbf{Misurazione delle prestazioni:} Ho verificato che il tempo di risposta del \textit{server} per l'esecuzione del \textit{batch} restasse rigorosamente inferiore alla soglia dei 2 secondi.
+    \item \textbf{Conformità del contratto DTO:} Ho assicurato che la risposta JSON restituita dal \textit{server} combaciasse esattamente con il modello gerarchico atteso dal \textit{client}.
+    \item \textbf{Resilienza agli errori:} Ho iniettato dati malformati per verificare che qualunque eccezione lanciata all'interno dell'endpoint attivasse correttamente l'intercettatore globale (Global Exception Handler) dell'applicativo.
+\end{itemize}
 
-Riguardo alle conoscenze puramente tecniche, lo \textit{stage} mi ha consentito di esplorare ambiti mai affrontati direttamente durante il percorso universitario, quali lo sviluppo di API REST mediante .NET, la realizzazione di interfacce \textit{web} a componenti, la gestione dell'autenticazione tramite JWT, l'impiego dell'ORM Entity Framework e l'utilizzo di strumenti professionali per il collaudo di rete quali Postman e Swagger.
-
-Infine, la rendicontazione continua al tutor ha sviluppato la mia capacità di astrazione e comunicazione. Ho imparato ad abbandonare l'approccio orientato alla mera segnalazione dell'errore, adottando una forma mentis ingegneristica: per ogni ostacolo riscontrato, mi sono abituato a presentare al responsabile il contesto del problema, una o più ipotesi di soluzione basate su fonti documentali attendibili e una prova concettuale già implementata.
+Questa scomposizione ingegneristica ha incrementato verticalmente la mia velocità di sviluppo, azzerando le incomprensioni sui requisiti e garantendomi un'autonomia decisionale totale. Ogni ostacolo tecnico ha smesso di essere un blocco per trasformarsi in un problema decidibile: per ogni anomalia riscontrata, ho imparato a presentare al responsabile non più una generica richiesta d'aiuto, ma il tracciato esatto del problema e la relativa soluzione implementativa già collaudata in locale.
 
 \section{L'Ingegneria del \textit{Software}}
 \label{sec:gap_universitario}
@@ -34,8 +73,8 @@ La transizione dall'ambiente accademico a quello produttivo mi ha permesso di os
 Le attività svolte durante lo stage hanno richiesto l'applicazione concreta di numerose competenze acquisite nel corso di studi. In particolare, alcuni insegnamenti hanno trovato un riscontro diretto durante lo sviluppo del progetto, contribuendo a ridurre il tempo necessario per affrontare problemi progettuali e implementativi.
 \begin{itemize}
     \item \textbf{Tecnologie Web e Programmazione ad Oggetti:} Le nozioni assimilate nel corso di Tecnologie Web (fondamenti di HTML, CSS, JavaScript, accessibilità e SEO) mi hanno garantito un'ottima padronanza dell'ecosistema di base, riducendo significativamente la curva di apprendimento della libreria React. In modo speculare, le solide basi fornite dal corso di Programmazione ad Oggetti (Prof. Ranzato) hanno spianato la strada all'adozione e alla comprensione del linguaggio C\#.
-    \item \textbf{Ingegneria del Software:} I concetti di \textit{Software Engineering} e \textit{System Design} trasmessi dal Prof. Vardanega e dal Prof. Cardin sono stati il baricentro del mio lavoro. La comprensione del ciclo di vita del prodotto, i principi SOLID e i \textit{Design Pattern} hanno guidato ogni mia singola scelta architetturale. Il progetto pratico affrontato in tale corso si è rivelato un'ottima simulazione propedeutica al lavoro sul campo.
-    \item \textbf{Basi di Dati:} L'insegnamento del Prof. De Leoni mi ha fornito le nozioni fondamentali sui sistemi di persistenza relazionali. La comprensione teorica delle proprietà ACID (\textit{Atomicity, Consistency, Isolation, Durability}) è stata vitale per governare le logiche di Entity Framework e applicare il pattern \textit{Unit of Work} nel \textit{backend}.
+    \item \textbf{Ingegneria del Software:} I concetti di \textit{Software Engineering} e \textit{System Design} trasmessi sono stati il baricentro del mio lavoro. La comprensione del ciclo di vita del prodotto, i principi SOLID e i \textit{Design Pattern} hanno guidato ogni mia singola scelta architetturale. Il progetto pratico affrontato in tale corso si è rivelato un'ottima simulazione propedeutica al lavoro sul campo.
+    \item \textbf{Basi di Dati:} L'insegnamento mi ha fornito le nozioni fondamentali sui sistemi di persistenza relazionali. La comprensione teorica delle proprietà ACID (\textit{Atomicity, Consistency, Isolation, Durability}) è stata vitale per governare le logiche di Entity Framework e applicare il pattern \textit{Unit of Work} nel \textit{backend}.
     \item \textbf{Metodi e Tecnologie per lo sviluppo Software:} Sebbene l'infrastruttura aziendale non abbia richiesto l'applicazione estensiva di strumenti di automazione e \textit{testing}, questo corso mi ha trasmesso la forma mentis del moderno professionista IT, stimolando in me la volontà di approfondire pratiche come la \textit{Continuous Integration} (CI/CD) e l'impiego avanzato di Git.
 \end{itemize}
 
@@ -50,4 +89,5 @@ Sono pienamente consapevole della difficoltà di far coesistere l'intera comples
 Il tirocinio presso Ergon Informatica Srl ha rappresentato un'importante occasione di applicazione pratica delle competenze acquisite durante il percorso universitario. Lo sviluppo dell'applicativo Kargo mi ha consentito di seguire direttamente tutte le principali attività del ciclo di vita del software, confrontandomi con problemi progettuali, implementativi e organizzativi tipici di un contesto aziendale reale.
 L'esperienza ha confermato l'importanza delle basi teoriche fornite dal corso di laurea, evidenziando al tempo stesso la necessità di sviluppare ulteriori competenze tecnologiche e metodologiche attraverso l'attività pratica. Gli obiettivi definiti all'inizio dello stage risultano raggiunti sia dal punto di vista aziendale, attraverso la realizzazione del prototipo richiesto, sia dal punto di vista formativo, grazie all'acquisizione di nuove conoscenze tecniche e di una maggiore autonomia nello sviluppo di applicazioni \textit{software}.
 Nel complesso, il tirocinio ha costituito un passaggio significativo nel mio percorso di formazione, permettendomi di affrontare con maggiore consapevolezza e preparazione il futuro ingresso nel mondo del lavoro.
+\newpage
 \newpage
