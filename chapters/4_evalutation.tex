@@ -8,12 +8,12 @@
 
 La valutazione del tirocinio si fonda sul grado di completamento degli scopi formativi e operativi stabiliti nel progetto di stage. Avendo già analizzato i requisiti funzionali e il loro collaudo nel capitolo precedente, in questa sede misuro oggettivamente le competenze tecniche acquisite e i traguardi architetturali raggiunti.
 
-Ho organizzato lo sviluppo in modo da coprire tutte le richieste aziendali, chiudendo l'intero ciclo di prototipazione con una settimana di anticipo rispetto alla scadenza curriculare. La Tabella~\ref{tab:validazione_obiettivi} sintetizza questo bilancio, affiancando a ciascun macro-obiettivo l'evidenza oggettiva che ne certifica il raggiungimento, validata in sede di revisione dal tutor aziendale.
+Ho organizzato lo sviluppo in modo da coprire tutte le richieste aziendali, chiudendo l'intero ciclo di prototipazione con una settimana di anticipo rispetto alla scadenza curriculare. La Tabella~\ref{tab:validazione_obiettivi} sintetizza questo bilancio, affiancando a ciascun macro-obiettivo l'evidenza oggettiva che ne certifica il raggiungimento, che il tutor aziendale ha validato in sede di revisione.
 
 \renewcommand{\arraystretch}{1.3}
 {
 \small
-\begin{longtable}{p{0.30\textwidth} p{0.45\textwidth} p{0.15\textwidth}}
+\begin{longtable}{p{0.30\textwidth} p{0.55\textwidth} p{0.15\textwidth}}
     \caption{Matrice di valutazione degli obiettivi di stage aziendali e formativi.}
     \label{tab:validazione_obiettivi} \\
     \hline
@@ -46,7 +46,7 @@ Ho organizzato lo sviluppo in modo da coprire tutte le richieste aziendali, chiu
     \textbf{Ottimizzazione delle tempistiche} \newline \textit{(Aziendale)} & 
     Consegna del prototipo completata integralmente con una settimana di anticipo rispetto alla data di fine tirocinio. & Raggiunto \\
     \hline
-    \textbf{Gestione del ciclo di vita del software} \newline \textit{(Formativo / Aziendale)} & 
+    \textbf{Gestione del ciclo di vita del \textit{software}} \newline \textit{(Formativo / Aziendale)} & 
     Redazione autonoma dei manuali operativi, approvati dalla dirigenza per l'uso interno, e applicazione di un ciclo strutturato di validazione del codice. & Raggiunto \\
 \end{longtable}
 }
@@ -63,7 +63,7 @@ Sotto il profilo architetturale, ho superato il modello a classi anemiche --- fr
 
 Parallelamente, nella stesura del codice ho abbandonato la ricerca dell'esecuzione del solo caso d'uso ideale (\textit{happy path}) per adottare i costrutti della programmazione difensiva. Ho tradotto l'anticipazione delle anomalie in un duplice livello di protezione: ho imposto una validazione rigorosa dei DTO in ingresso, isolando al contempo il \textit{database} --- trattato sistematicamente come un servizio esterno potenzialmente instabile --- per intercettare in sicurezza ogni eccezione di persistenza.
 
-Ho acquisito una solida autonomia decisionale, che si è tradotta nella capacità di individuare vulnerabilità architetturali e proporre soluzioni ingegneristiche proattive. L'implementazione di un'autenticazione \textit{stateless} tramite token JWT, la configurazione di un \textit{Rate Limiter}, la protezione degli \textit{endpoint} basata sui ruoli e l'introduzione di un \textit{Global Exception Handler} sono nate da una mia analisi autonoma del sistema, argomentate come \textit{proof of concept} e poi approvate dalla dirigenza.
+Ho acquisito una solida autonomia decisionale, che si è tradotta nella capacità di individuare vulnerabilità architetturali e proporre soluzioni ingegneristiche proattive. L'implementazione di un'autenticazione \textit{stateless} tramite token JWT, la configurazione di un \textit{Rate Limiter}, la protezione degli \textit{endpoint} basata sui ruoli e l'introduzione di un \textit{Global Exception Handler} sono nate da una mia analisi autonoma del sistema, che ho argomentato come \textit{proof of concept} e che la dirigenza ha poi approvato.
 
 Infine, sul piano metodologico, ho corretto la mia tendenza iniziale a formulare obiettivi giornalieri eccessivamente ampi, adottando la logica del metodo C-V-R (Completato, Verificato, Revisionato). Invece di limitarmi a valutare il generico funzionamento di un componente, ho integrato verifiche oggettive sulle metriche prestazionali, sulla conformità strutturale dei contratti JSON scambiati in rete e sulla resilienza del sistema tramite l'iniezione intenzionale di dati malformati. Questo cambio di paradigma mi ha permesso di trasformare gli ostacoli tecnici in problemi isolabili, aumentando la mia velocità di sviluppo e l'affidabilità del prodotto finale.
 
@@ -82,9 +82,9 @@ Nell'esecuzione del progetto ho applicato direttamente diverse competenze teoric
 \end{itemize}
 
 \subsection{Lacune riscontrate e prospettive future}
-Ho riscontrato che la criticità maggiore all'avvio dello \textit{stage} non riguardava l'apprendimento di nuovi linguaggi --- dinamica fisiologica nella nostra professione --- bensì l'integrazione di ecosistemi tecnologici disaccoppiati in un'unica architettura. Ho dovuto acquisire una spiccata trasversalità che, nel percorso universitario, viene spesso affrontata in forma isolata o parziale.
+Ho riscontrato che la criticità maggiore all'avvio dello \textit{stage} non riguardava l'apprendimento di nuovi linguaggi --- dinamica fisiologica nella nostra professione --- bensì l'integrazione di ecosistemi tecnologici disaccoppiati in un'unica architettura. Ho dovuto acquisire una spiccata trasversalità che i programmi universitari affrontano spesso in forma isolata o parziale.
 
-Nel dettaglio, mi sono formato in autonomia su ambiti nevralgici: la costruzione di API REST, l'autenticazione tramite token JWT, il governo delle policy CORS, l'allineamento dei contratti DTO tra \textit{client} e \textit{server}, e l'impiego di strumenti professionali come Postman e Swagger. Queste specifiche aree di integrazione, seppur fondamentali, trovano uno spazio applicativo ancora limitato nel piano didattico.
+Nel dettaglio, mi sono formato in autonomia su ambiti nevralgici: la costruzione di API REST, l'autenticazione tramite token JWT, il governo delle \textit{policy} CORS, l'allineamento dei contratti DTO tra \textit{client} e \textit{server}, e l'impiego di strumenti professionali come Postman e Swagger. Queste specifiche aree di integrazione, seppur fondamentali, trovano uno spazio applicativo ancora limitato nel piano didattico.
 
 Sono consapevole della difficoltà di condensare la vasta panoramica dell'ecosistema IT nei limiti temporali di una laurea triennale. Ritengo tuttavia che l'introduzione di laboratori focalizzati sulla costruzione di architetture \textit{web full-stack} fornirebbe agli studenti in Informatica le chiavi operative per decodificare più rapidamente le interazioni di rete tipiche dei sistemi aziendali.
 
