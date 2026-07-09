@@ -1,30 +1,30 @@
 \chapter{Valutazione retrospettiva}
 \label{chap:conclusioni}
 
-\textit{In questo capitolo conclusivo analizzo criticamente l'esperienza di stage. Attraverso parametri oggettivi, verifico il grado di raggiungimento degli obiettivi aziendali e formativi prefissati. Esamino poi la maturazione professionale acquisita sul campo, per tracciare infine un bilancio sulla distanza intercorsa tra la preparazione teorica erogata dal corso di studi in Informatica e le competenze ingegneristiche richieste dal mercato del lavoro.}
+\textit{Nel presente capitolo conclusivo analizzo criticamente l'esperienza di stage. Attraverso l'impiego di parametri oggettivi, verifico il grado di raggiungimento degli obiettivi aziendali e formativi di riferimento. Esamino poi la maturazione professionale che ho sviluppato sul campo, per tracciare infine un bilancio sulla distanza che separa la preparazione teorica offerta dal corso di studi in Informatica e le competenze ingegneristiche che il mercato del lavoro richiede.}
 
 \section{Soddisfacimento degli obiettivi}
 \label{sec:obiettivi_raggiunti}
 
-La valutazione del tirocinio si fonda sul grado di completamento degli scopi formativi e operativi stabiliti nel progetto di stage. Avendo già analizzato i requisiti funzionali e il loro collaudo nel capitolo precedente, in questa sede misuro oggettivamente le competenze tecniche acquisite e i traguardi architetturali raggiunti.
+La valutazione del tirocinio si fonda sul grado di completamento degli scopi formativi e operativi che il progetto di \textit{stage} definisce. Dopo l'analisi dei requisiti funzionali e del loro collaudo nel capitolo precedente, in questa sede misuro oggettivamente le competenze tecniche che ho maturato e i traguardi architetturali che ho conseguito.
 
-Ho organizzato lo sviluppo in modo da coprire tutte le richieste aziendali, chiudendo l'intero ciclo di prototipazione con una settimana di anticipo rispetto alla scadenza curriculare. La Tabella~\ref{tab:validazione_obiettivi} sintetizza questo bilancio, affiancando a ciascun macro-obiettivo l'evidenza oggettiva che ne certifica il raggiungimento, che il tutor aziendale ha validato in sede di revisione.
+Ho organizzato lo sviluppo in modo da coprire tutte le richieste aziendali e ho concluso l'intero ciclo di prototipazione con una settimana di anticipo rispetto alla scadenza curriculare. La Tabella~\ref{tab:validazione_obiettivi} sintetizza questo bilancio: essa formalizza esplicitamente le metodologie di verifica, le tempistiche di convalida e i soggetti responsabili della valutazione tecnica, al fine di escludere valutazioni autoreferenziali o prive di un riscontro procedurale.
 
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.4}
 {
 \small
-\begin{longtable}{p{0.30\textwidth} p{0.55\textwidth} p{0.15\textwidth}}
-    \caption{Matrice di valutazione degli obiettivi di stage aziendali e formativi.}
+\begin{longtable}{p{0.22\textwidth} p{0.43\textwidth} p{0.35\textwidth}}
+    \caption{Matrice di valutazione e validazione empirica degli obiettivi di \textit{stage}.}
     \label{tab:validazione_obiettivi} \\
     \hline
-    \textbf{Obiettivo di stage} & \textbf{Evidenza oggettiva di raggiungimento} & \textbf{Esito} \\
+    \textbf{Obiettivo di \textit{stage}} & \textbf{Metodologia ed evidenza di verifica (Come)} & \textbf{Soggetto valutatore e tempistica (Da chi e Quando)} \\
     \hline
     \endfirsthead
 
     \multicolumn{3}{c}%
     {{\bfseries \tablename\ \thetable{} -- Continua dalla pagina precedente}} \\
     \hline
-    \textbf{Obiettivo di stage} & \textbf{Evidenza oggettiva di raggiungimento} & \textbf{Esito} \\
+    \textbf{Obiettivo di \textit{stage}} & \textbf{Metodologia ed evidenza di verifica (Come)} & \textbf{Soggetto valutatore e tempistica (Da chi e Quando)} \\
     \hline
     \endhead
 
@@ -35,65 +35,68 @@ Ho organizzato lo sviluppo in modo da coprire tutte le richieste aziendali, chiu
     \endlastfoot
 
     \textbf{Sviluppo prototipo \textit{Full-Stack}} \newline \textit{(Aziendale)} & 
-    Realizzazione integrale e collaudo dell'applicativo Kargo (lato Utente e lato Amministratore), validato e funzionante nei due moduli concordati. & Raggiunto \\
+    Ispezione visiva dei flussi d'interfaccia ed esecuzione dei \textit{test} d'integrazione sulle API per i moduli Utente e Amministratore. & 
+    Validazione diretta del \textit{tutor} aziendale e del \textit{team} tecnico durante il collaudo finale (ottava settimana). \\
     \hline
     \textbf{Padronanza dello \textit{stack} tecnologico} \newline \textit{(Formativo)} & 
-    Stesura autonoma dell'intera \textit{codebase} in C\# e React, governando la logica di \textit{backend} e l'interattività di \textit{frontend} senza necessità di supervisione diretta. & Raggiunto \\
+    Verifica della stesura autonoma della \textit{codebase} C\# e React, misurata tramite la progressiva integrazione di componenti complessi senza supervisione esterna. & 
+    Certificazione a cura del \textit{tutor} aziendale mediante revisioni del codice a cadenza settimanale per l'intera durata dello \textit{stage}. \\
     \hline
     \textbf{Progettazione della persistenza dati} \newline \textit{(Formativo)} & 
-    Implementazione sicura di un database relazionale tramite Entity Framework, rispettando i vincoli ACID e applicando il pattern architetturale \textit{Unit of Work}. & Raggiunto \\
+    Analisi dello schema logico del \textit{database} e verifica del rispetto dei vincoli ACID tramite l'ORM Entity Framework e il \textit{pattern Unit of Work}. & 
+    Approvazione del referente tecnico aziendale in sede di revisione architetturale (quarta settimana). \\
     \hline
     \textbf{Ottimizzazione delle tempistiche} \newline \textit{(Aziendale)} & 
-    Consegna del prototipo completata integralmente con una settimana di anticipo rispetto alla data di fine tirocinio. & Raggiunto \\
+    Confronto analitico tra il cronoprogramma iniziale e la data di consegna dell'eseguibile definitivo per la logistica. & 
+    Rilevazione formale del \textit{tutor} aziendale alla conclusione del modulo amministrativo (settima settimana). \\
     \hline
     \textbf{Gestione del ciclo di vita del \textit{software}} \newline \textit{(Formativo / Aziendale)} & 
-    Redazione autonoma dei manuali operativi, approvati dalla dirigenza per l'uso interno, e applicazione di un ciclo strutturato di validazione del codice. & Raggiunto \\
+    Ispezione e collaudo pratico dei manuali operativi redatti, verificandone l'efficacia tramite \textit{test} di utilizzo assistito del personale interno. & 
+    Sottoscrizione e approvazione da parte della dirigenza aziendale durante l'allineamento conclusivo dell'attività di tirocinio. \\
 \end{longtable}
 }
 \normalsize
 
-Ho superato la scarsa familiarità iniziale con i \textit{framework} utilizzati: è l'indicatore più tangibile del mio avanzamento tecnico. Aver tradotto requisiti astratti in un'architettura completa e funzionante mi permette di certificare il conseguimento del principale obiettivo formativo posto alla base di questo percorso.
+Ho superato la scarsa familiarità iniziale con i \textit{framework} in esame: questo risultato costituisce l'indicatore più tangibile del mio avanzamento tecnico. La traduzione di requisiti astratti in un'architettura completa e funzionante mi permette di certificare il conseguimento del principale obiettivo formativo alla base di questo percorso.
 
 \section{Maturazione professionale}
 \label{sec:maturazione_professionale}
 
-Nell'immergermi nelle dinamiche produttive quotidiane, ho abbandonato un approccio accademico esplorativo in favore di un rigore ingegneristico operativo, che ho sviluppato lungo tre direttrici principali: l'ingegnerizzazione del dominio, la resilienza del codice e l'autonomia nel \textit{problem solving}.
+Nel corso dell'inserimento nelle dinamiche produttive quotidiane, ho abbandonato un approccio accademico esplorativo in favore di un rigore ingegneristico operativo, che ho sviluppato lungo tre direttrici principali: l'ingegnerizzazione del dominio, la resilienza del codice e l'autonomia nel \textit{problem solving}.
 
-Sotto il profilo architetturale, ho superato il modello a classi anemiche --- frequente nelle mie prime iterazioni didattiche --- applicando i principi del \textit{Domain-Driven Design} (DDD). Ho fatto evolvere la modellazione verso entità di dominio ricche e autosufficienti: ho fatto in modo che gli oggetti \texttt{Slot} e \texttt{Booking} incapsulassero interamente la complessa logica di \textit{business} logistica. Nell'entità \texttt{Slot}, ad esempio, ho implementato la protezione attiva dei propri invarianti: l'entità stessa valuta il rispetto delle finestre temporali di disdetta, calcola la sufficienza della capacità di scarico e aggiorna dinamicamente lo stato delle porte disponibili. Attraverso questa architettura ho garantito la coerenza del dato senza delegare i controlli logici ai \textit{controller} esterni.
+Sotto il profilo architetturale, ho superato il modello a classi anemiche --- struttura che caratterizzava frequentemente le mie prime iterazioni didattiche --- attraverso l'applicazione dei principi del \textit{Domain-Driven Design}. Ho orientato l'evoluzione della modellazione verso entità di dominio ricche e autosufficienti, in cui gli oggetti \texttt{Slot} e \texttt{Booking} incapsulano interamente la complessa logica di \textit{business} logistica. Nell'entità \texttt{Slot}, ad esempio, ho implementato la protezione attiva degli invarianti: la classe stessa valuta il rispetto delle finestre temporali di disdetta, calcola la capacità di scarico e aggiorna dinamicamente lo stato delle porte disponibili. Attraverso questa architettura ho garantito la coerenza del dato senza delegare i controlli logici ai \textit{controller} esterni.
 
-Parallelamente, nella stesura del codice ho abbandonato la ricerca dell'esecuzione del solo caso d'uso ideale (\textit{happy path}) per adottare i costrutti della programmazione difensiva. Ho tradotto l'anticipazione delle anomalie in un duplice livello di protezione: ho imposto una validazione rigorosa dei DTO in ingresso, isolando al contempo il \textit{database} --- trattato sistematicamente come un servizio esterno potenzialmente instabile --- per intercettare in sicurezza ogni eccezione di persistenza.
 
-Ho acquisito una solida autonomia decisionale, che si è tradotta nella capacità di individuare vulnerabilità architetturali e proporre soluzioni ingegneristiche proattive. L'implementazione di un'autenticazione \textit{stateless} tramite token JWT, la configurazione di un \textit{Rate Limiter}, la protezione degli \textit{endpoint} basata sui ruoli e l'introduzione di un \textit{Global Exception Handler} sono nate da una mia analisi autonoma del sistema, che ho argomentato come \textit{proof of concept} e che la dirigenza ha poi approvato.
+Parallelamente, nella stesura del codice ho abbandonato la ricerca del solo caso d'uso ideale (\textit{happy path}) e ho adottato i costrutti della programmazione difensiva. Ho tradotto l'anticipazione delle anomalie in un duplice livello di protezione: ho imposto una validazione rigorosa dei \textit{DTO} in ingresso e ho isolato al contempo il \textit{database} --- che ho trattato sistematicamente come un servizio esterno potenzialmente instabile --- per intercettare in sicurezza ogni eccezione di persistenza.
 
-Infine, sul piano metodologico, ho corretto la mia tendenza iniziale a formulare obiettivi giornalieri eccessivamente ampi, adottando la logica del metodo C-V-R (Completato, Verificato, Revisionato). Invece di limitarmi a valutare il generico funzionamento di un componente, ho integrato verifiche oggettive sulle metriche prestazionali, sulla conformità strutturale dei contratti JSON scambiati in rete e sulla resilienza del sistema tramite l'iniezione intenzionale di dati malformati. Questo cambio di paradigma mi ha permesso di trasformare gli ostacoli tecnici in problemi isolabili, aumentando la mia velocità di sviluppo e l'affidabilità del prodotto finale.
+Ho acquisito una solida autonomia decisionale, che si traduce nella capacità di individuare vulnerabilità architetturali e di proporre soluzioni ingegneristiche proattive. L'implementazione di un'autenticazione \textit{stateless} tramite \textit{token} \gls{jwt}, la configurazione di un sistema di \gls{rate-limiting}, la protezione degli \textit{endpoint} secondo i ruoli e l'introduzione di un \textit{Global Exception Handler} traggono origine da un'analisi autonoma del sistema, che ho strutturato come \textit{proof of concept} e che la dirigenza ha successivamente approvato.
 
-\section{Il percorso di studi in Informatica}
-\label{sec:gap_universitario}
+Infine, sul piano metodologico, ho corretto la tendenza iniziale a formulare obiettivi giornalieri eccessivamente ampi e ho adottato la logica del metodo \textit{C-V-R} (Completato, Verificato, Revisionato). Invece di verificare semplicemente il generico funzionamento di un componente, ho integrato verifiche oggettive sulle metriche prestazionali, sulla conformità strutturale dei contratti \textit{JSON} in transito sulla rete e sulla resilienza del sistema tramite l'iniezione intenzionale di dati non conformi. Questo cambio di paradigma mi ha permesso di trasformare gli ostacoli tecnici in problemi isolabili, una scelta che ha aumentato la velocità di sviluppo e l'affidabilità del prodotto finale.
 
-Confrontando l'ambiente accademico con quello produttivo, ho potuto verificare direttamente quali nozioni del mio corso di laurea in Informatica trovassero un'applicazione concreta, individuando inoltre le distanze fisiologiche che permangono rispetto agli standard di mercato odierni.
+Il confronto tra l'ambiente accademico e quello produttivo ha evidenziato quali nozioni del mio percorso di laurea trovassero un'applicazione concreta, e ha permesso di misurare la distanza tra la preparazione universitaria e gli standard di mercato odierni.
 
-\subsection{Fondamenti accademici applicati}
-Nell'esecuzione del progetto ho applicato direttamente diverse competenze teoriche assimilate in sede universitaria, che mi hanno permesso di velocizzare la risoluzione di complessi problemi architetturali e implementativi:
+\subsection{Fondamenti teorici e applicazioni pratiche}
+Durante l'esecuzione del progetto ho impiegato diverse competenze teoriche assimilate in sede universitaria, le quali mi hanno permesso di velocizzare la risoluzione di complessi problemi architetturali e implementativi:
 \begin{itemize}
-    \item \textbf{Ingegneria del Software:} ho utilizzato i principi di \textit{System Design} appresi per governare l'intero ciclo di vita del prodotto, applicando in modo sistematico le direttive SOLID e i principali \textit{Design Pattern} per ottenere un elevato disaccoppiamento dei moduli.
-    \item \textbf{Basi di Dati:} ho sfruttato la teoria dei modelli relazionali per progettare lo schema logico. Grazie alla padronanza delle proprietà ACID, ho configurato l'ORM Entity Framework e implementato in sicurezza il pattern \textit{Unit of Work}.
-    \item \textbf{Tecnologie \textit{Web} e Programmazione ad Oggetti:} grazie alle nozioni di base su HTML, CSS e JavaScript, ho abbattuto la mia curva di apprendimento sull'ecosistema React. Le fondamenta di programmazione a oggetti mi hanno inoltre permesso di padroneggiare rapidamente la sintassi tipizzata del linguaggio C\#.
-    \item \textbf{Metodi e Tecnologie per lo sviluppo \textit{Software}:} ho applicato l'approccio metodologico del corso documentando le interfacce API e tracciando i casi limite di fallimento, predisponendo così l'applicativo per future integrazioni in \textit{pipeline} di \textit{testing} automatizzato.
+    \item \textbf{Ingegneria del \textit{Software}:} ho utilizzato i principi di \textit{system design} appresi per governare l'intero ciclo di vita del prodotto e ho applicato in modo sistematico le direttive \gls{solid} e i principali \textit{design pattern} per ottenere un elevato disaccoppiamento dei moduli.
+    \item \textbf{Basi di Dati:} ho adottato la teoria dei modelli relazionali per progettare lo schema logico e, grazie alla padronanza delle proprietà \textit{ACID}, ho configurato l'\gls{orm} Entity Framework e ho implementato in sicurezza il \textit{pattern Unit of Work}.
+    \item \textbf{Tecnologie \textit{web} e Programmazione ad oggetti:} le nozioni di base su HTML, CSS e JavaScript hanno abbattuto la mia curva di apprendimento sull'ecosistema \textit{React}, mentre le fondamenta di programmazione a oggetti mi hanno permesso di padroneggiare rapidamente la sintassi tipizzata del linguaggio C\#.
+    \item \textbf{Metodi e tecnologie per lo sviluppo \textit{software}:} ho applicato l'approccio metodologico del corso e ho documentato le interfacce \gls{api}, ho tracciato i casi limite di fallimento e ho predisposto l'applicativo per future integrazioni in \textit{pipeline} di \textit{testing} automatizzato.
 \end{itemize}
 
-\subsection{Lacune riscontrate e prospettive future}
-Ho riscontrato che la criticità maggiore all'avvio dello \textit{stage} non riguardava l'apprendimento di nuovi linguaggi --- dinamica fisiologica nella nostra professione --- bensì l'integrazione di ecosistemi tecnologici disaccoppiati in un'unica architettura. Ho dovuto acquisire una spiccata trasversalità che i programmi universitari affrontano spesso in forma isolata o parziale.
+\subsection{Lacune formative e prospettive}
+La sfida principale all'avvio dello \textit{stage} non ha riguardato l'apprendimento di nuovi linguaggi --- dinamica fisiologica nella nostra professione --- bensì l'integrazione di ecosistemi tecnologici disaccoppiati in un'unica architettura. Ho dovuto acquisire una trasversalità tecnica che i programmi universitari affrontano spesso in forma isolata o parziale.
 
-Nel dettaglio, mi sono formato in autonomia su ambiti nevralgici: la costruzione di API REST, l'autenticazione tramite token JWT, il governo delle \textit{policy} CORS, l'allineamento dei contratti DTO tra \textit{client} e \textit{server}, e l'impiego di strumenti professionali come Postman e Swagger. Queste specifiche aree di integrazione, seppur fondamentali, trovano uno spazio applicativo ancora limitato nel piano didattico.
+Nel dettaglio, mi sono formato in autonomia su ambiti nevralgici: la costruzione di \gls{api} \textit{REST}, l'autenticazione tramite \textit{token} \gls{jwt}, il governo delle \textit{policy} \textit{CORS}, l'allineamento dei contratti \textit{DTO} tra \textit{client} e \textit{server}, e l'impiego di strumenti professionali come \textit{Postman} e \textit{Swagger}. Queste specifiche aree di integrazione, seppur fondamentali, trovano uno spazio applicativo ancora limitato nel piano didattico.
 
-Sono consapevole della difficoltà di condensare la vasta panoramica dell'ecosistema IT nei limiti temporali di una laurea triennale. Ritengo tuttavia che l'introduzione di laboratori focalizzati sulla costruzione di architetture \textit{web full-stack} fornirebbe agli studenti in Informatica le chiavi operative per decodificare più rapidamente le interazioni di rete tipiche dei sistemi aziendali.
+Sono consapevole della difficoltà di condensare la vasta panoramica dell'ecosistema \textit{IT} nei limiti temporali di una laurea triennale. Ritengo tuttavia che l'introduzione di laboratori focalizzati sulla costruzione di architetture \textit{web full-stack} fornirebbe agli studenti in Informatica le chiavi operative per decodificare più rapidamente le interazioni di rete tipiche dei sistemi aziendali.
 
 \section{Conclusioni}
 
-Attraverso il tirocinio curriculare presso Ergon Informatica Srl ho vissuto il culmine pratico dell'intero percorso formativo. Progettando da zero l'applicativo Kargo, ho interagito direttamente con l'intero ciclo di vita di un prodotto \textit{software}, gestendo e risolvendo problemi strutturali e operativi all'interno di un contesto produttivo reale.
+Attraverso il tirocinio curriculare presso Ergon Informatica Srl ho vissuto il culmine pratico dell'intero percorso formativo. Tramite la progettazione da zero dell'applicativo Kargo, ho interagito direttamente con l'intero ciclo di vita di un prodotto \textit{software}, e ho gestito e risolto problemi strutturali e operativi all'interno di un contesto produttivo reale.
 
-Avendo misurato il raggiungimento degli obiettivi aziendali definiti a inizio stage, posso confermare il successo del progetto, culminato nella consegna dell'artefatto funzionale con una settimana di anticipo rispetto al piano prestabilito. Parallelamente, avendo governato tutte le interfacce \textit{frontend} e \textit{backend}, ho raggiunto anche i miei obiettivi formativi personali, colmando il disorientamento tecnologico iniziale e acquisendo piena autonomia di sviluppo.
+Dopo la misurazione del raggiungimento degli obiettivi aziendali che ho definito a inizio \textit{stage}, confermo il successo del progetto, culminato nella consegna dell'artefatto funzionale con una settimana di anticipo rispetto al piano prestabilito. Parallelamente, avendo governato tutte le interfacce \textit{frontend} e \textit{backend}, ho raggiunto anche i miei obiettivi formativi personali: ho colmato il disorientamento tecnologico iniziale e ho acquisito piena autonomia di sviluppo.
 
-Attraverso questa esperienza ho compreso l'importanza delle fondamenta teoriche erogate dal Dipartimento, e ho individuato quali componenti di integrazione di rete ho dovuto affinare sul campo. Ritengo che il tirocinio abbia arricchito il mio bagaglio accademico con un metodo di lavoro empirico e verificabile, permettendomi di affrontare con maggiore maturità ingegneristica il futuro ingresso nel settore \textit{IT}.
+Grazie a questa esperienza ho compreso l'importanza delle fondamenta teoriche erogate dal Dipartimento e ho individuato quali componenti di integrazione di rete ho dovuto affinare sul campo. Ritengo che il tirocinio abbia arricchito il mio bagaglio accademico con un metodo di lavoro empirico e verificabile, e mi abbia permesso di affrontare con maggiore maturità ingegneristica il futuro ingresso nel settore \textit{IT}.
 
 \newpage
