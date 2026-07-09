@@ -3,43 +3,73 @@
 % ==========================================
 \newglossaryentry{crud_ext}{
     name={CRUD},
-    description={Acronimo di \textit{Create}, \textit{Read}, \textit{Update} e \textit{Delete}, che identifica le quattro operazioni fondamentali per gestire la persistenza delle informazioni all'interno di un applicativo o di una base dati.}
+    description={Acronimo di \textit{Create, Read, Update, Delete}. Costituisce il paradigma fondazionale per la gestione della persistenza dei dati. Nelle architetture \textit{RESTful}, gli sviluppatori mappano tipicamente queste quattro operazioni sui verbi semantici del protocollo HTTP (POST, GET, PUT/PATCH, DELETE) per garantire interfacce uniformi e prevedibili.}
+}
+
+\newglossaryentry{cors_ext}{
+    name={Cross-Origin Resource Sharing (CORS)},
+    description={Protocollo di sicurezza basato su intestazioni HTTP che delega al \textit{server} il controllo degli accessi trans-origine. I \textit{browser} lo impiegano per mitigare gli attacchi di tipo \textit{Cross-Site Request Forgery} (CSRF) e bloccano le chiamate non autorizzate prima che il \textit{client} possa processare la risposta.}
+}
+
+\newglossaryentry{dto_ext}{
+    name={Data Transfer Object (DTO)},
+    description={Modello architetturale (\textit{design pattern}) che ottimizza le comunicazioni di rete. Un DTO funge da contenitore serializzabile, del tutto privo di logica di \textit{business}, che aggrega dati provenienti da entità molteplici. Il suo impiego riduce il numero di chiamate remote e nasconde la struttura interna del \textit{database} ai \textit{client} esterni.}
+}
+
+\newglossaryentry{captcha_ext}{
+    name={CAPTCHA},
+    description={Acronimo di \textit{Completely Automated Public Turing test to tell Computers and Humans Apart}. Misura di sicurezza crittografica e comportamentale che i portali \textit{web} impiegano per discriminare le interazioni umane dal traffico generato da \textit{bot}. I modelli più recenti analizzano schemi di navigazione invisibili per ridurre l'attrito durante l'autenticazione.}
+}
+
+\newglossaryentry{ux_ext}{
+    name={User Experience (UX)},
+    description={Disciplina ingegneristica e psicologica che modella l'interazione tra l'utente e il prodotto digitale. Supera la pura progettazione visiva (\textit{User Interface}) per abbracciare l'accessibilità, l'architettura dell'informazione e la fluidità dei percorsi cognitivi, con l'obiettivo di minimizzare la frustrazione operativa.}
+}
+
+\newglossaryentry{xss_ext}{
+    name={Cross-Site Scripting (XSS)},
+    description={Vulnerabilità di sicurezza tipica delle applicazioni \textit{web} che affligge il livello di presentazione. I malintenzionati sfruttano la mancata sanificazione degli \textit{input} per iniettare \textit{script} esecutivi nel \textit{browser} delle vittime, un'azione che compromette le sessioni attive e facilita l'esfiltrazione di \textit{token} di accesso.}
+}
+
+\newglossaryentry{http_ext}{
+    name={HTTP},
+    description={Acronimo di \textit{Hypertext Transfer Protocol}. Protocollo applicativo \textit{stateless} che regola la trasmissione dei documenti ipertestuali sulla rete Internet. L'evoluzione verso gli standard HTTP/2 e HTTP/3 ha introdotto il parallelismo delle richieste e la compressione delle intestazioni per abbattere la latenza nelle architetture moderne.}
 }
 
 \newglossaryentry{wcag_ext}{
     name={Web Content Accessibility Guidelines (WCAG)},
-    description={Oltre a definire standard etici e normativi, l'adozione delle WCAG impatta profondamente l'architettura \textit{frontend}. Impone l'uso di una semantica HTML rigorosa, la gestione avanzata del \textit{focus} via tastiera e l'integrazione di attributi ARIA, elementi che influenzano positivamente anche le prestazioni SEO degli applicativi.}
+    description={Linee guida internazionali pubblicate dal W3C per l'accessibilità dei contenuti \textit{web}. La loro adozione impone l'impiego di HTML semantico, un contrasto cromatico elevato e il supporto alla sintesi vocale. Il rispetto di questi standard estende la fruibilità degli applicativi alle persone con disabilità visive, uditive o motorie.}
 }
 
 \newglossaryentry{uml_ext}{
     name={Unified Modeling Language (UML)},
-    description={Nel contesto della moderna ingegneria del \textit{software} Agile, l'UML ha perso la connotazione di progetto rigido preliminare. Oggi viene impiegato prevalentemente secondo il paradigma dell'"\textit{UML as sketch}", fungendo da strumento di comunicazione rapida per illustrare \textit{pattern} architetturali e relazioni tra componenti critici.}
+    description={Linguaggio di modellazione visiva standardizzato per l'ingegneria del \textit{software}. Le metodologie \textit{Agile} contemporanee lo hanno spogliato della sua rigidità documentale per promuovere il paradigma dell'\textit{UML as sketch}: i \textit{team} lo impiegano oggi per tracciare diagrammi rapidi, utili a comunicare \textit{pattern} strutturali senza l'onere di un mantenimento formale continuo.}
 }
  
 \newglossaryentry{ddd_ext}{
     name={Domain-Driven Design},
     text={DDD},
-    description={Paradigma architetturale che affronta la complessità del \textit{software} introducendo il concetto di "Linguaggio Ubiquo" condiviso tra sviluppatori ed esperti di dominio. Isola i modelli all'interno di confini logici precisi (\textit{Bounded Contexts}), prevenendo la corruzione delle regole di \textit{business} in sistemi su larga scala.}
+    description={Paradigma ingegneristico che affronta la complessità del \textit{software} ancorando il codice al dominio applicativo. Introdotto da Eric Evans, impone un Linguaggio Ubiquo condiviso tra sviluppatori ed esperti di settore. La separazione in \textit{Bounded Contexts} isola le logiche di \textit{business} e previene l'entropia architetturale nei sistemi \textit{enterprise} distribuiti.}
 }
  
 \newglossaryentry{project-management}{
     name={Project Management},
-    description={Nelle moderne realtà IT, questa disciplina si discosta dai modelli predittivi tradizionali (come il \textit{Waterfall}) per abbracciare \textit{framework} adattivi. Il \textit{focus} gestionale si sposta dalla rigida aderenza al piano preventivo alla massimizzazione del valore continuo consegnato allo \textit{stakeholder}.}
+    description={Disciplina organizzativa che orchestra risorse, tempi e costi per completare un progetto IT. I \textit{framework} moderni abbandonano il rigore predittivo dei modelli a cascata in favore di approcci empirici e adattivi, che massimizzano la consegna continua di valore e accorciano i cicli di \textit{feedback} con gli \textit{stakeholder}.}
 }
 
 \newglossaryentry{otp_ext}{
     name={One Time Password (OTP)},
-    description={A livello crittografico e architetturale, l'implementazione si basa tipicamente su algoritmi standardizzati basati sul tempo (TOTP) o su eventi (HOTP). Rappresenta il pilastro dei moderni sistemi di autenticazione a più fattori per la mitigazione radicale del furto di identità e degli attacchi di tipo \textit{replay}.}
+    description={Acronimo di \textit{One Time Password}. Meccanismo crittografico per la generazione di credenziali monouso, spesso derivate tramite algoritmi basati sul tempo (TOTP) o su contatori sequenziali (HOTP). Rappresenta il cardine dell'autenticazione a più fattori, essenziale per neutralizzare le vulnerabilità delle \textit{password} statiche e gli attacchi di intercettazione.}
 }
 
 \newglossaryentry{jwt_ext}{
     name={JSON Web Token (JWT)},
-    description={Composto da tre sezioni codificate in Base64, delega la verifica dell'autenticità alla crittografia anziché alla memoria del \textit{server}. Essendo \textit{stateless}, scala orizzontalmente in modo eccellente, ma introduce sfide architetturali complesse per l'invalidazione anticipata (\textit{revocation}) prima della naturale scadenza.}
+    description={Standard aperto per la creazione di \textit{token} di accesso che asseriscono dichiarazioni in formato JSON. La firma crittografica garantisce l'integrità del carico utile, mentre l'assenza di stato (\textit{statelessness}) solleva il \textit{server} dal mantenimento delle sessioni in memoria. Tale architettura favorisce una scalabilità orizzontale estrema.}
 }
 
 \newglossaryentry{dry_ext}{
     name={Don't Repeat Yourself (DRY)},
-    description={L'applicazione rigorosa del DRY non si limita al mero riuso del codice, ma si estende all'architettura dei dati. L'obiettivo è stabilire una singola fonte di verità (\textit{Single Source of Truth}), evitando che la logica di \textit{business} venga duplicata tra \textit{database}, \textit{backend} e \textit{client}.}
+    description={Acronimo di \textit{Don't Repeat Yourself}. Principio di progettazione che vieta la duplicazione delle logiche di \textit{business} e dei dati. L'architettura deve prevedere una singola fonte di verità (\textit{Single Source of Truth}) per ogni conoscenza di sistema, una pratica che abbatte i costi di manutenzione e previene le incongruenze durante gli aggiornamenti.}
 }
 
 \newglossaryentry{project-management_ext}{
@@ -49,67 +79,67 @@
 
 \newglossaryentry{ci-cd_ext}{
     name={Continuous Integration / Continuous Delivery (CI/CD)},
-    description={Pratica fondamentale dell'approccio DevOps che garantisce la rilevazione precoce dei difetti tramite l'esecuzione di \textit{test} automatizzati e analisi statica del codice a ogni \textit{commit}, riducendo drasticamente i cicli di \textit{feedback} tra lo sviluppo e la messa in produzione.}
+    description={Acronimo di \textit{Continuous Integration / Continuous Delivery}. Dorsale automatizzata della cultura DevOps che orchestra l'integrazione del codice. L'esecuzione sistematica di analisi statiche, \textit{test} unitari e procedure di rilascio a ogni \textit{commit} abbatte il rischio di regressioni e garantisce un codice costantemente pronto per la produzione.}
 }
 
 \newglossaryentry{mvp_ext}{
     name={Minimum Viable Product (MVP)},
-    description={Concetto cardine della metodologia \textit{Lean Startup}. Più che un prodotto incompleto, rappresenta un processo iterativo volto a massimizzare l'apprendimento validato sui bisogni reali degli utenti, minimizzando lo sforzo ingegneristico iniziale e il rischio di fallimento sul mercato.}
+    description={Acronimo di \textit{Minimum Viable Product}. Prototipo funzionale concepito per validare un'ipotesi di mercato con il minimo sforzo ingegneristico. A differenza di una dimostrazione puramente tecnica, l'MVP affronta un ciclo reale di utilizzo per raccogliere metriche empiriche e orientare gli sviluppi successivi verso i bisogni effettivi degli utenti.}
 }
 
 \newglossaryentry{restful_ext}{
     name={RESTful},
-    description={Modello architetturale che sfrutta appieno i metodi semantici del protocollo HTTP. Si fonda su vincoli rigidi quali l'assenza di stato (\textit{statelessness}), la cacheabilità delle risposte e l'interfaccia uniforme, disaccoppiando radicalmente l'evoluzione del \textit{client} da quella del \textit{server}.}
+    description={Stile architetturale per i sistemi distribuiti che sfrutta pienamente i verbi e i codici di stato del protocollo HTTP. Impone vincoli strutturali netti, tra cui l'assenza di stato della sessione e l'interfaccia uniforme, per garantire il disaccoppiamento totale tra l'evoluzione del \textit{client} e i meccanismi di persistenza del \textit{server}.}
 }
 
 \newglossaryentry{api_ext}{
     name={API},
-    description={Oltre a fungere da ponte tecnico tra applicazioni, le API moderne rappresentano veri e propri contratti \textit{software}. L'esposizione di interfacce ben progettate permette alle aziende di strutturare architetture a microservizi e di monetizzare i propri \textit{asset} digitali (\textit{API Economy}).}
+    description={Acronimo di \textit{Application Programming Interface}. Contratto formale che definisce le modalità di comunicazione tra componenti \textit{software} distinti. Le API moderne superano la pura funzione tecnica: costituiscono prodotti a sé stanti che espongono i servizi aziendali, favoriscono l'integrazione con sistemi di terze parti e alimentano l'economia dei microservizi.}
 }
 
 \newglossaryentry{b2b_ext}{
     name={Business-to-Business (B2B)},
-    description={Le architetture progettate per scenari B2B differiscono profondamente da quelle B2C. Richiedono tipicamente protocolli di autenticazione federata, la gestione di moli di dati transazionali massicce e integrazioni su misura con i sistemi ERP preesistenti dei \textit{partner} commerciali.}
+    description={Acronimo di \textit{Business-to-Business}. Modello di transazione digitale tra imprese, caratterizzato da logiche di scambio diametralmente opposte a quelle per il consumatore finale. Tali architetture richiedono un'elevata automazione procedurale, l'esposizione di API di integrazione e l'adesione a severi standard di autenticazione federata.}
 }
 
 \newglossaryentry{it_ext}{
     name={Information Technology (IT)},
-    description={Settore industriale che oggi rappresenta la leva strategica principale per la trasformazione digitale delle imprese, inglobando domini ingegneristici avanzati quali la \textit{cybersecurity} proattiva, l'analisi dei \textit{Big Data} e l'architettura del \textit{Cloud Computing}.}
+    description={Acronimo di \textit{Information Technology}. Macro-settore ingegneristico che progetta e gestisce l'infrastruttura tecnologica globale. Oltre al tradizionale supporto operativo, oggi l'IT ingloba la modernizzazione dei processi aziendali, l'ingegneria del \textit{software} distribuito e la protezione degli \textit{asset} informatici attraverso pratiche di \textit{cybersecurity}.}
 }
 
 \newglossaryentry{erp_ext}{
     name={Enterprise Resource Planning (ERP)},
-    description={I sistemi ERP contemporanei superano la semplice contabilità, integrando moduli di analisi predittiva e appoggiandosi ad architetture \textit{cloud-native} a microservizi per garantire resilienza, isolamento dei processi e scalabilità dinamica su scala globale.}
+    description={Acronimo di \textit{Enterprise Resource Planning}. Piattaforma centralizzata che governa i flussi logistici, finanziari e produttivi di un'azienda. Gli ERP contemporanei superano la pura archiviazione contabile: si affidano ad architetture \textit{cloud} per offrire moduli analitici intelligenti, interoperabilità avanzata e visibilità in tempo reale sui processi industriali.}
 }
 
 \newglossaryentry{ocx_ext}{
     name={OLE Control Extension (OCX)},
-    description={Tecnologia legata all'ecosistema COM di Microsoft. Sebbene oggi siano considerati \textit{legacy} e superati da \textit{framework} gestiti (come .NET), questi controlli restano una presenza radicata e architetturalmente complessa da manutenere in molti applicativi industriali storici.}
+    description={Acronimo di \textit{OLE Control Extension}. Moduli \textit{software} precompilati basati sulla tecnologia Component Object Model (COM) di Microsoft. Benché l'industria odierna li classifichi come \textit{legacy}, numerosi ecosistemi gestionali storici vi fanno ancora affidamento per estendere le capacità delle interfacce grafiche in ambiente Windows.}
 }
 
 \newglossaryentry{orm_ext}{
     name={Object-Relational Mapping (ORM)},
-    description={Strumento architetturale che risolve il disallineamento di paradigmi (\textit{impedance mismatch}) tra oggetti e \textit{database} relazionali. Tecniche avanzate includono il \textit{lazy loading}, il tracciamento delle mutazioni e la gestione della concorrenza ottimistica tramite \textit{token} di riga.}
+    description={Acronimo di \textit{Object-Relational Mapping}. Livello di astrazione che risolve il disallineamento strutturale tra il paradigma orientato agli oggetti e le tabelle relazionali. Un ORM traduce fluidamente le istanze in \textit{query} SQL ottimizzate, e offre strumenti nativi per la gestione delle transazioni, la concorrenza ottimistica e il caricamento differito (\textit{lazy loading}) dei dati.}
 }
 
 \newglossaryentry{poc_ext}{
     name={Proof of Concept (PoC)},
-    description={Si distingue da un prototipo poiché il suo ciclo di vita è effimero: una volta validata o invalidata la fattibilità tecnica di una soluzione, il codice del PoC viene tipicamente scartato, evitando che \textit{script} sperimentali diventino debito tecnico in produzione.}
+    description={Acronimo di \textit{Proof of Concept}. Artefatto ingegneristico effimero che i \textit{team} realizzano per validare la fattibilità tecnica di una specifica tecnologia. A differenza del Minimum Viable Product, il PoC non raggiunge l'utente finale: l'azienda scarta il suo codice sperimentale una volta estratte le metriche necessarie, per evitare l'accumulo di debito tecnico.}
 }
 
 \newglossaryentry{vcs_ext}{
     name={Version Control System (VCS)},
-    description={Sistemi moderni come Git utilizzano grafi aciclici diretti e algoritmi di crittografia per garantire l'integrità del codice, permettendo ramificazioni rapide (\textit{branching}) e flussi di lavoro asincroni altamente parallelizzati tra i membri del \textit{team} di sviluppo.}
+    description={Acronimo di \textit{Version Control System}. Infrastruttura crittografica e relazionale che traccia l'evoluzione di una \textit{codebase}. I sistemi distribuiti contemporanei, come Git, memorizzano la cronologia in grafi aciclici diretti; tale struttura abilita la clonazione locale dei \textit{repository}, la ramificazione indipendente del lavoro e la risoluzione sicura dei conflitti.}
 }
 
 \newglossaryentry{llm_ext}{
     name={Large Language Model (LLM)},
-    description={Modelli fondazionali basati su reti neurali \textit{Transformer} che stanno rivoluzionando i paradigmi di sviluppo \textit{software}, fornendo capacità avanzate di auto-completamento semantico del codice, \textit{refactoring} assistito e identificazione precoce di vulnerabilità logiche.}
+    description={Acronimo di \textit{Large Language Model}. Rete neurale profonda addestrata su immensi \textit{corpus} testuali mediante l'architettura \textit{Transformer}. Nell'ingegneria del \textit{software}, gli LLM agiscono da assistenti cognitivi che deducono il contesto del progetto per generare frammenti di codice, automatizzare la documentazione e individuare vulnerabilità logiche.}
 }
 
 \newglossaryentry{rnd_ext}{
     name={Research and Development (R\&D)},
-    description={Nelle aziende IT rappresenta un motore per la sopravvivenza tecnologica. Include lo \textit{scouting} di nuovi \textit{framework}, l'analisi dei \textit{trend} architetturali e la sperimentazione per prevenire l'obsolescenza dei prodotti proprietari in un mercato altamente volatile.}
+    description={Acronimo di \textit{Research and Development}. Dipartimento nevralgico che le aziende tecnologiche impiegano per scongiurare l'obsolescenza dei propri prodotti. Le sue attività includono l'esplorazione dei \textit{trend} architetturali emergenti e la prototipazione rapida di nuovi \textit{framework}, per garantire la competitività dell'impresa in un mercato ad alta volatilità.}
 }
 
 % ==========================================
@@ -137,6 +167,12 @@
 \newacronym{ddd}{DDD}{Domain-Driven Design\glsadd{ddd_ext}}
 \newacronym{wcag}{WCAG}{Web Content Accessibility Guidelines\glsadd{wcag_ext}}
 \newacronym{crud}{CRUD}{Create, Read, Update, Delete\glsadd{crud_ext}}
+\newacronym{http}{HTTP}{Hypertext Transfer Protocol\glsadd{http_ext}}
+\newacronym{captcha}{CAPTCHA}{Completely Automated Public Turing test to tell Computers and Humans Apart\glsadd{captcha_ext}}
+\newacronym{ux}{UX}{User Experience\glsadd{ux_ext}}
+\newacronym{xss}{XSS}{Cross-Site Scripting\glsadd{xss_ext}}
+\newacronym{dto}{DTO}{Data Transfer Object\glsadd{dto_ext}}
+\newacronym{cors}{CORS}{Cross-Origin Resource Sharing\glsadd{cors_ext}}
 
 % ==========================================
 % 3. ACRONIMI SEMPLICI (Vanno solo nella lista acronimi)
@@ -152,91 +188,96 @@
 
 \newglossaryentry{system_design}{
     name={System Design},
-    description={Processo olistico che richiede la continua valutazione di compromessi architetturali. I progettisti devono bilanciare i parametri del teorema CAP (Coerenza, Disponibilità, Tolleranza alle partizioni), scegliere strategie di scalabilità e delineare i criteri di partizionamento dei dati.}
+    description={Disciplina ingegneristica che orchestra architetture su larga scala. I progettisti valutano continuamente i compromessi tra affidabilità, latenza e complessità, e prendono decisioni cruciali sul partizionamento dei \textit{database}, sui protocolli di comunicazione e sulle strategie di replica, per soddisfare i vincoli del teorema CAP.}
 }
 
 \newglossaryentry{client-server}{
     name={Client-server},
-    description={Paradigma evolutosi in architetture distribuite multilivello (\textit{n-tier}), all'interno delle quali le logiche di \textit{business}, la presentazione e la persistenza vengono allocate su \textit{cluster} indipendenti per garantire scalabilità orizzontale e alta affidabilità.}
+    description={Paradigma informatico che divide i carichi di elaborazione. Il \textit{server} centralizza la logica di \textit{business} e la protezione dei dati, mentre i \textit{client} periferici gestiscono la presentazione visiva e l'interazione con l'utente. Questa separazione strutturale facilita la manutenzione e la scalabilità orizzontale dei servizi.}
 }
 
 \newglossaryentry{firewall}{
     name={Firewall},
-    description={Nel contesto della sicurezza informatica moderna, l'isolamento perimetrale classico fornito dai \textit{firewall} sta cedendo il passo a modelli architetturali di tipo \textit{Zero Trust}, che richiedono un'autenticazione continua e crittografata indipendentemente dalla topologia di rete.}
+    description={Sistema di sicurezza perimetrale che ispeziona il traffico di rete in transito. Le implementazioni moderne di \textit{Next-Generation Firewall} (NGFW) superano il semplice filtro di porte e protocolli: analizzano profondamente il carico utile delle applicazioni e integrano meccanismi di prevenzione delle intrusioni per neutralizzare le minacce avanzate.}
 }
 
 \newglossaryentry{batch}{
     name={Batch},
-    description={Nonostante l'affermazione delle architetture guidate dagli eventi (\textit{Event-Driven}), i processi \textit{batch} asincroni mantengono un ruolo cruciale, rimanendo lo standard per elaborazioni massive di \textit{machine learning} e reportistica ad altissima intensità di operazioni I/O.}
+    description={Paradigma di elaborazione asincrona in cui il sistema esegue blocchi sequenziali di operazioni senza richiedere l'interazione umana. Risulta imprescindibile per le elaborazioni ad alta intensità computazionale, come l'addestramento di modelli di \textit{machine learning}, le riconciliazioni bancarie notturne e la migrazione massiva di dati.}
 }
 
 \newglossaryentry{machine-learning}{
     name={Machine Learning},
-    description={Disciplina che ribalta l'approccio ingegneristico classico: anziché codificare algoritmi deterministici per ottenere risposte, si forniscono al calcolatore grandi \textit{dataset} affinché il modello inferisca autonomamente i pesi matematici e le regole latenti.}
+    description={Sottocampo dell'intelligenza artificiale che sostituisce la programmazione esplicita con l'inferenza statistica. Gli algoritmi di apprendimento automatico assimilano schemi latenti a partire da vasti \textit{dataset}, e ottimizzano progressivamente i propri parametri matematici per formulare previsioni accurate su dati inediti.}
 }
 
 \newglossaryentry{vmware}{
     name={VMware},
-    description={Pioniere della virtualizzazione x86, le cui tecnologie basate su \textit{hypervisor bare-metal} hanno consentito il consolidamento dei \textit{datacenter}, gettando le basi concettuali per l'infrastruttura \textit{cloud} e i successivi sistemi di orchestrazione a \textit{container}.}
+    description={Società pionieristica che ha democratizzato la virtualizzazione delle architetture x86. Gli \textit{hypervisor bare-metal} dell'azienda consentono l'esecuzione simultanea di molteplici macchine virtuali isolate sul medesimo \textit{hardware}, una tecnologia che ha gettato le basi operative per il consolidamento dei \textit{datacenter} e il \textit{cloud computing} moderno.}
 }
 
 \newglossaryentry{rate-limiting}
 {
   name={Rate Limiting},
-  description={Algoritmo di protezione dell'infrastruttura di rete (implementato tramite \textit{pattern} come \textit{Token Bucket}). Nelle architetture distribuite richiede l'uso di \textit{cache} in memoria ultra-veloci (come Redis) per sincronizzare i contatori tra le istanze e mitigare gli attacchi DoS.}
+  description={Meccanismo di difesa infrastrutturale che disciplina il volume di traffico indirizzato a una risorsa di rete. L'implementazione di algoritmi quali il \textit{Token Bucket} limita il tasso di richieste per singolo indirizzo IP o \textit{token} utente, un approccio vitale per prevenire gli attacchi di negazione del servizio (DoS) e garantire la stabilità del sistema.}
 }
 
 \newglossaryentry{geomarketing}{
     name={Geomarketing},
-    description={L'efficacia di questa branca analitica è stata amplificata dall'adozione massiva dei Sistemi Informativi Territoriali (GIS) e dall'analisi in tempo reale dei dati geospaziali provenienti dai dispositivi \textit{mobile}, consentendo strategie di \textit{micro-targeting} spaziale.}
+    description={Disciplina analitica che fonde le scienze commerciali con l'intelligenza spaziale. L'elaborazione in tempo reale di flussi geospaziali permette alle aziende di mappare i bacini di utenza, ottimizzare la logistica delle consegne e indirizzare campagne di acquisizione con estrema precisione territoriale.}
 }
  
 \newglossaryentry{scrum}{
     name={Scrum},
-    description={\textit{Framework} metodologico fondato sull'adattamento empirico dei processi. Il pilastro è la decentralizzazione del potere decisionale: attribuisce autonomia esecutiva al \textit{team} di sviluppo e responsabilizza il \textit{Product Owner} nella prioritizzazione del valore di \textit{business}.}
+    description={\textit{Framework} metodologico per lo sviluppo \textit{Agile} dei prodotti. Organizza il lavoro in iterazioni brevi (\textit{Sprint}) e assegna responsabilità trasparenti a figure cardine: lo \textit{Scrum Master} rimuove gli impedimenti procedurali, mentre il \textit{Product Owner} massimizza il valore del prodotto e governa dinamicamente la lista delle priorità.}
 }
 
 \newglossaryentry{code-coverage}{
     name={Code coverage},
-    description={Sebbene sia un indicatore fondamentale della salute di una \textit{codebase}, un'elevata copertura non garantisce matematicamente l'assenza di \textit{bug} logici. L'ingegneria moderna suggerisce di affiancare tale metrica a tecniche di \textit{test} di mutazione e collaudi \textit{end-to-end}.}
+    description={Metrica quantitativa che esprime la percentuale di codice sorgente effettivamente attraversata dagli \textit{unit test} automatizzati. Benché l'industria la consideri uno standard di qualità, una copertura del cento per cento non rileva difetti logici o di progettazione, motivo per cui i \textit{team} esperti vi affiancano verifiche architetturali e collaudi di integrazione.}
 }
 
 \newglossaryentry{solid}{
     name={SOLID},
-    description={Acronimo di cinque direttive di progettazione \textit{Object-Oriented} formalizzate da Robert C. Martin. Costituiscono la linea guida universale per ottenere architetture ad alta coesione e basso accoppiamento, prevenendo la fragilità strutturale del \textit{software}.}
+    description={Insieme di cinque postulati cardine (\textit{Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion}) ideati per la programmazione orientata agli oggetti. La loro rigorosa applicazione contrasta la rigidità del \textit{software} e favorisce la creazione di architetture altamente modulari, estensibili e facili da sottoporre a \textit{test}.}
 }
 
 \newglossaryentry{git}{
     name={Git},
-    description={A differenza dei sistemi centralizzati del passato, memorizza la storia del codice sotto forma di istantanee compresse del \textit{filesystem}. L'uso di alberi di Merkle garantisce integrità crittografica, permettendo \textit{branching} rapido e risoluzioni asincrone dei conflitti di fusione.}
+    description={Motore di controllo di versione distribuito che ha ridefinito la collaborazione nello sviluppo \textit{software}. Le sue fondamenta basate su istantanee crittografate garantiscono un tracciamento inalterabile della \textit{codebase}, mentre la gestione fluida dei \textit{branch} locali abilita flussi di lavoro asincroni per \textit{team} di dimensioni globali.}
 }
 
 \newglossaryentry{refactoring}{
     name={Refactoring},
-    description={Pratica ingegneristica che consiste nell'alterare la struttura interna di un componente senza modificarne il comportamento osservabile. È lo strumento principale per abbattere il debito tecnico accumulato e mantenere il codice estensibile nel lungo periodo.}
+    description={Intervento ingegneristico sistematico che purifica e ottimizza la struttura interna di un programma senza alterarne il comportamento esterno. Questa pratica disinnesca il progressivo deterioramento del codice (\textit{software rot}) e facilita l'inclusione di nuove funzionalità in sistemi altrimenti difficili da manutenere.}
 }
 
 \newglossaryentry{azure}{
     name={Microsoft Azure},
-    description={Piattaforma di \textit{cloud computing} la cui profonda integrazione nativa con il \textit{framework} .NET, con l'IDE Visual Studio e con i sistemi di \textit{Identity Management} (Active Directory) la posiziona come scelta architetturale predominante per i processi di modernizzazione \textit{enterprise}.}
+    description={Ecosistema di \textit{cloud computing} pubblico amministrato da Microsoft. Fornisce una vasta gamma di servizi distribuiti, dall'infrastruttura come servizio (IaaS) a modelli di calcolo \textit{serverless}. La sua eccellente integrazione nativa con l'infrastruttura di identità aziendale lo rende il fornitore privilegiato per le reti \textit{enterprise}.}
 }
 
 \newglossaryentry{cloud}{
     name={Cloud Computing},
-    description={Modello operativo basato sul concetto di \textit{utility computing}, all'interno del quale potenza di calcolo e archiviazione vengono allocati elasticamente e fatturati a consumo, eliminando la necessità di stime di dimensionamento (\textit{capacity planning}) \textit{hardware} massive.}
+    description={Paradigma informatico che distribuisce risorse computazionali (\textit{server}, \textit{database}, reti) su richiesta attraverso Internet. Solleva le imprese dall'onere di mantenere costosi centri dati proprietari, e offre un'elasticità illimitata abbinata a un modello economico puramente basato sull'effettivo consumo operativo.}
 }
 
 \newglossaryentry{dotnet}{
     name={.NET},
-    description={Nato come \textit{framework} chiuso per l'ecosistema Windows, ha subito una radicale riscrittura strutturale, trasformandosi in un ambiente di esecuzione \textit{open source}, altamente performante e multipiattaforma, unificando lo sviluppo \textit{backend}, \textit{frontend} e \textit{mobile}.}
+    description={Piattaforma di sviluppo unificata prodotta da Microsoft. Dopo l'abbandono dell'architettura proprietaria originaria, .NET si è affermato come un ecosistema \textit{open source} multipiattaforma ad alte prestazioni, che consente ai programmatori di impiegare la medesima infrastruttura per creare librerie \textit{web}, applicativi \textit{desktop} e servizi per il \textit{cloud}.}
 }
 
 \newglossaryentry{entity-framework}{
     name={Entity Framework},
-    description={ORM di riferimento nell'ecosistema .NET. Supporta architetturalmente l'approccio \textit{Code First}, in cui il \textit{database} viene modellato dalle classi di dominio in C\#, e l'approccio \textit{Database First}, in cui il codice sorgente viene ingegnerizzato inversamente da uno schema SQL.}
+    description={\textit{Framework} Object-Relational Mapper ufficiale per il linguaggio C\#. Elimina la necessità di stendere \textit{query} SQL dirette e fornisce un \textit{set} di strumenti per interagire con i dati tramite la forte tipizzazione del codice. I suoi meccanismi di migrazione del \textit{database} allineano automaticamente lo schema relazionale ai cambiamenti della logica di dominio.}
 }
 
 \newglossaryentry{embedded}{
     name={Embedded},
-    description={L'iniezione di istruzioni SQL a basso livello direttamente nei linguaggi \textit{host} garantiva prestazioni massime nei sistemi \textit{legacy}. Oggi, tale accoppiamento rigido viene evitato a favore degli ORM per ragioni di sicurezza, modularità architetturale e facilità di \textit{testing} isolato.}
+    description={Informatica integrata che vincola l'elaborazione a uno specifico contesto \textit{hardware} o \textit{software}. Nell'ambito dei \textit{database} storici, le istruzioni SQL integrate indicano l'inclusione di costrutti di interrogazione direttamente all'interno dei linguaggi imperativi nativi, un retaggio che l'ingegneria moderna sconsiglia per via della sua scarsa modularità.}
+}
+
+\newglossaryentry{bcrypt}{
+    name={BCrypt},
+    description={Algoritmo crittografico asimmetrico specializzato nell'archiviazione sicura delle \textit{password}. Deriva dal cifrario Blowfish e implementa un rimescolamento dinamico (\textit{salt}) unito a un fattore di costo (\textit{work factor}) adattivo. Tale configurazione contrasta le capacità di calcolo crescente delle moderne schede grafiche e frustra gli attacchi di tipo \textit{rainbow table}.}
 }
