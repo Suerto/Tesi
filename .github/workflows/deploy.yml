@@ -1,4 +1,4 @@
-name: Compile and Publish
+name: Deploy Thesis and Presentation
 
 on:
   push:
@@ -11,36 +11,48 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout del repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Compila il PDF (LaTeX)
+      # 1. Compila la Tesi (LaTeX)
+      - name: Compile LaTeX Thesis
         uses: xu-cheng/latex-action@v3
         with:
           root_file: thesis.tex
           args: -pdf -shell-escape -file-line-error -interaction=nonstopmode
           extra_system_packages: "py3-pygments"
 
-      - name: Prepara i file per le GitHub Pages
+      # 2. Compila la Presentazione (Typst)
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: 'latest'
+      - name: Compile Presentation
+        run: typst compile presentazione.typ presentazione.pdf
+
+      # 3. Prepara cartella pubblica unica
+      - name: Prepare Public Directory
         run: |
           mkdir public
           cp thesis.pdf public/SuarAlberto.pdf
+          cp presentazione.pdf public/presentazione.pdf
 
-      - name: Pubblica l'artefatto
+      # 4. Pubblica l'artefatto unico
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'public'
 
   deploy:
-    needs: build-and-deploy
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy su GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
