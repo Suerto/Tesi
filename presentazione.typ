@@ -439,7 +439,7 @@
     ],
 
     block[
-      #text(weight: "bold", size: 16pt, fill: accent)[Righe di Codice (~8.000)]
+      #text(weight: "bold", size: 16pt, fill: accent)[Righe di Codice (> 8.000)]
       #v(1em)
       #grid(
         columns: (auto, 1fr),
@@ -458,8 +458,8 @@
           columns: (auto, 1fr, auto),
           row-gutter: 0.8em,
           column-gutter: 0.5em,
-          rect(width: 1em, height: 1em, fill: rgb("003049"), radius: 0.2em), text(size: 11pt)[Backend (C\#)], text(size: 11pt, weight: "bold")[4.500],
-          rect(width: 1em, height: 1em, fill: rgb("d62828"), radius: 0.2em), text(size: 11pt)[Frontend (TS)], text(size: 11pt, weight: "bold")[3.500]
+          rect(width: 1em, height: 1em, fill: rgb("003049"), radius: 0.2em), text(size: 11pt)[Backend (C\#)], text(size: 11pt, weight: "bold")[ > 4.500],
+          rect(width: 1em, height: 1em, fill: rgb("d62828"), radius: 0.2em), text(size: 11pt)[Frontend (TS)], text(size: 11pt, weight: "bold")[> 3.500]
         )
       )
     ]
