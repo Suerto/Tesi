@@ -538,16 +538,7 @@
         gutter: 1.5em,
         align: horizon,
         
-        circle(
-          radius: 4.5em,
-          fill: gradient.conic(
-            (rgb("005f73"), 0%), (rgb("005f73"), 13.3%),
-            (rgb("0a9396"), 13.3%), (rgb("0a9396"), 26.7%),
-            (rgb("94d2bd"), 26.7%), (rgb("94d2bd"), 53.3%),
-            (rgb("e9d8a6"), 53.3%), (rgb("e9d8a6"), 86.7%),
-            (rgb("ee9b00"), 86.7%), (rgb("ee9b00"), 100%)
-          )
-        ),
+        image("img/ore.png", width: 9em),
         
         grid(
           columns: (auto, 1fr, auto),
@@ -570,13 +561,7 @@
         gutter: 1.5em,
         align: horizon,
         
-        circle(
-          radius: 4.5em,
-          fill: gradient.conic(
-            (rgb("003049"), 0%), (rgb("003049"), 56.25%),
-            (rgb("d62828"), 56.25%), (rgb("d62828"), 100%)
-          )
-        ),
+        image("img/codice.png", width: 9em),
         
         grid(
           columns: (auto, 1fr, auto),
@@ -588,7 +573,6 @@
       )
     ]
   )
-
   #align(center)[
     #block(fill: luma(248), stroke: 1pt + luma(200), radius: 0.5em, inset: 1.0em, width: 90%)[
       #text(weight: "bold")[3 Documenti redatti] \
