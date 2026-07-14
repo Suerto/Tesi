@@ -553,7 +553,7 @@
           columns: (auto, 1fr, auto),
           row-gutter: 0.8em,
           column-gutter: 0.5em,
-          rect(width: 1em, height: 1em, fill: rgb("005f73"), radius: 0.2em), text(size: 11pt)[Studio tecn], text(size: 11pt, weight: "bold")[40],
+          rect(width: 1em, height: 1em, fill: rgb("005f73"), radius: 0.2em), text(size: 11pt)[Studio Tecnologie], text(size: 11pt, weight: "bold")[40],
           rect(width: 1em, height: 1em, fill: rgb("0a9396"), radius: 0.2em), text(size: 11pt)[Analisi / Progettazione], text(size: 11pt, weight: "bold")[40],
           rect(width: 1em, height: 1em, fill: rgb("94d2bd"), radius: 0.2em), text(size: 11pt)[Backend], text(size: 11pt, weight: "bold")[80],
           rect(width: 1em, height: 1em, fill: rgb("e9d8a6"), radius: 0.2em), text(size: 11pt)[Frontend], text(size: 11pt, weight: "bold")[100],
