@@ -31,7 +31,7 @@
         set text(size: 12pt, fill: primary)
         grid(
           columns: (1fr, 1fr, 1fr),
-          align(left + horizon)[Suar Alberto - 15 luglio 2026],
+          align(left + horizon)[Suar Alberto - 16 luglio 2026],
           align(center + horizon)[Kargo: Logistica Scarico Merci],
           align(right + horizon)[#current di #total]
         )
@@ -39,7 +39,7 @@
           set text(size: 12pt, fill: primary)
           grid(
             columns: (1fr, 1fr, 1fr),
-            align(left + horizon)[Suar Alberto - 15 luglio 2026],
+            align(left + horizon)[Suar Alberto - 16 luglio 2026],
             align(center + horizon)[Kargo: Logistica Scarico Merci]
           )
       }
@@ -85,7 +85,7 @@
 #title-slide(
   title: "Kargo: Applicazione Web per la Logistica dello Scarico Merci",
   author: "Suar Alberto",
-  date: "15 luglio 2026"
+  date: "16 luglio 2026"
 )
 
 #centered-slide(title: "Indice dei Contenuti", section: "")[  
